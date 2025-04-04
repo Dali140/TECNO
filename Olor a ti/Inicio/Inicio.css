@@ -1,0 +1,216 @@
+.antic-didone-regular {
+    font-family: "Antic Didone", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    background-color: #3C0000;
+    font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
+    margin: auto;
+    padding: auto;
+            
+    /*background-image: linear-gradient(to bottom, #3C0000, #feb47b);*/
+    background-color: #3C0000;
+    background-repeat: no-repeat;
+    height: 100vh;/*vh: view port height*/
+    box-sizing: border-box;
+    margin: auto;
+    padding: auto;
+}
+       
+header{
+
+    list-style: none;
+    display: flex;
+    justify-content: space-between;  /* Centra y distribuye los iconos */
+    align-items: center;
+    padding: 0 20px;  /* Aumentamos la altura de la barra */
+    gap: 40px; /* Espaciado uniforme entre elementos */
+        
+    }
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #C9846A;
+    font-size: 18px; /* Texto más grande */
+    position: relative;
+}
+li a {
+    
+    color: #C9846A; /* Cambia al color que prefieras */
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block; /* Opcional: para que los elementos se alineen horizontalmente */
+    margin-right: 15px; /* Opcional: espacio entre los elementos */
+    
+}
+.Tu-esencia-tu-historia{
+    
+    position: relative; /* Contenedor relativo para posicionar elementos hijos /
+    text-align: center; / Centra el texto horizontalmente */
+    width: 90%;
+    margin:  auto;
+    margin-bottom: 100px;
+
+}
+h1{
+    color: #000000;
+    font-size: 3.5rem;
+    font-weight: 400; /* Peso de la fuente */
+    line-height: 1.2; /* Espaciado entre líneas */
+    text-align: left;
+    margin: 0;
+    top: 38%; /*Centra verticalmente el encabezado */
+    left: 5%; /*Centra horizontalmente el encabezado */
+    transform: translate(0, -50%); /*Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    z-index: 2; /* Asegura que el texto es*/
+    max-width: 300px;
+}
+.btn {
+    background-color: #3C0000; /* Color de fondo */
+    font-family: "Antic Didone", serif;
+    color: #C9846A; /* Color del texto */
+    font-size: 1.2rem; /* Tamaño del texto */
+    font-weight: 400; /* Peso de la fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    position: absolute;
+    text-align: center; /* Centra el texto */
+    width: 230px; /* Ancho del botón */
+    height: 90px; /* Altura del botón */
+    top: 50%; 
+    left: 6%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    transition: all 0.3s ease; /* Transición para efectos */
+}
+
+/* Efecto hover */
+.Tu-esencia-tu-historia.btn:hover {
+    background-color: #5A0000; /* Color más claro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+.btn_conoce_mas {
+    background-color: transparent; /* Sin fondo */
+    color: #3C0000; /* Color del texto */
+    border: 2px solid #3C0000; /* Borde del botón */
+    font-family: "Antic Didone", serif;
+    font-size: 1rem; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición para efectos */
+    top: 60%; 
+    left: 9%;
+    position: absolute;
+}
+
+/* Efecto hover para el botón "Conoce Más" */
+.btn_conoce_mas:hover {
+    background-color: #3C0000; /* Fondo al pasar el mouse */
+    color: #FFFFFF; /* Cambia el color del texto */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Botón "¿Cómo Funciona?" sin fondo */
+.btn_como_funciona {
+    background-color: transparent; /* Sin fondo */
+    color: #3C0000; /* Color del texto */
+    border: 2px solid #3C0000; /* Borde del botón */
+    font-family: "Antic Didone", serif;
+    font-size: 1rem; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: all 0.3s ease; /* Transición para efectos */
+    top: 65%; 
+    left: 8%;
+    position: absolute;
+}
+
+/* Efecto hover para el botón "¿Cómo Funciona?" */
+.btn-como-funciona:hover {
+    background-color: #3C0000; /* Fondo al pasar el mouse */
+    color: #FFFFFF; /* Cambia el color del texto */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Contenedor principal del div "Conoce Más" */
+.ConoceMas {
+    position: relative; /* Contenedor relativo para posicionar elementos hijos /
+    text-align: center; / Centra el texto horizontalmente */
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+
+/* Contenido superpuesto */
+.ConoceMas .contenido {
+    position: absolute; /* Posiciona el contenido sobre la imagen */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el contenido para que quede perfectamente centrado */
+    z-index: 2; /* Coloca el contenido sobre la imagen */
+    text-align: center; /* Centra el texto */
+    color: #000000; /* Color del texto */
+    width: 80%; /* Ajusta el ancho del contenido */
+}
+
+/* Estilo para el título */
+.ConoceMas h2 {
+    color: #000000;
+    font-size: 3.5rem;
+    font-weight: 400; /* Peso de la fuente */
+    line-height: 1.2; /* Espaciado entre líneas */
+    text-align: left;
+    margin: 0;
+    top: 15%; /*Centra verticalmente el encabezado */
+    left: 5%; /*Centra horizontalmente el encabezado */
+    transform: translate(0, -50%); /*Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    z-index: 2; /* Asegura que el texto es*/
+    max-width: 300px;
+    
+}
+
+/* Estilo para el párrafo */
+.ConoceMas p {
+    font-size: 1.2rem; /* Tamaño del texto */
+    line-height: 1.8; /* Espaciado entre líneas */
+    text-align: justify; /* Justifica el texto */
+    margin: 0 auto; /* Centra el párrafo dentro del contenedor */
+    color: #000000; /* Color del texto */
+    top: 20%; /*Centra verticalmente el encabezado */
+    left: 3%;
+    max-width: 400px; /* Limita el ancho del texto */
+    position: absolute;
+}
+
+/* Botón personalizado */
+.btn-conoce-mas {
+    background-color: #3C0000; /* Color de fondo */
+    font-family: "Antic Didone", serif;
+    color: #C9846A; /* Color del texto */
+    font-size: 1rem; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    transition: all 0.3s ease; /* Transición para efectos */
+    top: 69%; 
+    left: 3%;
+}
+
+/* Efecto hover para el botón */
+.btn-conoce-mas:hover {
+    background-color: #5A0000; /* Color más claro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+   
