@@ -19,7 +19,7 @@ img {
 .container {
     position: relative; /* Contenedor relativo para posicionar elementos hijos */
     text-align: center; /* Centra el texto horizontalmente */
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     
 }
