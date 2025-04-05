@@ -24,37 +24,7 @@ body{
     margin: auto;
     padding: auto;
 } 
-header{
 
-    list-style: none;
-    background-color: #F5E6E0;
-    display: flex;
-    justify-content: space-between;  /* Centra y distribuye los iconos */
-    align-items: center;
-    padding: 0 20px;  /* Aumentamos la altura de la barra */
-    gap: 40px; /* Espaciado uniforme entre elementos */
-    
-}
-
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 18px; /* Texto más grande */
-    position: relative;
-}
-li a {
-    
-    color: #3C0000; /* Cambia al color que prefieras */
-    text-decoration: none; /* Elimina el subrayado */
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block; /* Opcional: para que los elementos se alineen horizontalmente */
-    margin-right: 15px; /* Opcional: espacio entre los elementos */
-    
-}
 @media (max-width: 768px) {
     .Tu-esencia-tu-historia, .ConoceMas {
         flex-direction: column;
