@@ -17,17 +17,6 @@ body{
     margin: auto;
     padding: auto;
 }
-       
-header{
-
-    list-style: none;
-    display: flex;
-    justify-content: space-between;  /* Centra y distribuye los iconos */
-    align-items: center;
-    padding: 0 20px;  /* Aumentamos la altura de la barra */
-    gap: 40px; /* Espaciado uniforme entre elementos */
-        
-    }
 .nav-item {
     display: flex;
     flex-direction: column;
