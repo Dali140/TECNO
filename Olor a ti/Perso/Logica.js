@@ -49,6 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
             // Oculta el tooltip
             tooltip.style.display = "none";
         });
+
+        // Agrega un evento que se dispara cuando la imagen es clicada
+        img.addEventListener("click", () => {
+            // Redirige a la URL especificada en el atributo data-url de la imagen
+            
+        });
     });
 });
 

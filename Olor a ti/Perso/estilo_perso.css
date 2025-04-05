@@ -34,16 +34,12 @@ img {
 
 
 }
-
 .notas-salida img {
     border-radius: 15px; /* Ajusta el valor para redondear las esquinas */
     overflow: hidden; /* Asegura que el contenido no se desborde */
     cursor: pointer; /* Cambia el cursor a una mano interactuable */
 
 }
-
-
-/* Ejemplo de estilo para encabezados */
 h1 {
     
     color: #171620;
@@ -62,7 +58,6 @@ h2{
     text-align: center; /* Centra el texto horizontalmente */
 
 }
-
 .delgado{
     font-weight: 100;/* Aplica fuente delgado */
 }
