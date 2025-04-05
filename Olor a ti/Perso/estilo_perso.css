@@ -24,13 +24,12 @@ img {
     
 }
 .notas-salida{
-    margin-top: 500px;
+    
     display: grid; /* Activa CSS Grid */
     grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
     gap: 10px; /* Espaciado entre las imágenes */
     width: 90%; /* Ancho del contenedor */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    
+    margin: 500px auto 0 auto; /* Centra el contenedor y lo aleja del borde superior */    
 
 
 }
@@ -77,4 +76,66 @@ p {
     font-size: 20px;
     display: none; /* Oculto por defecto */
     z-index: 10;
+}
+.main-footer {
+    background-color: #F5E6E0;
+    padding: 2rem;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.number-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.facebook-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.instagram-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.number-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.face-icon {
+    width: 32px;
+    height: 32px;
+}
+.insta-icon {
+    width: 32px;
+    height: 32px;
+}
+.number{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+.facebook{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+.instagram{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
 }
