@@ -3,6 +3,13 @@
     font-weight: 400;
     font-style: normal;
 }
+:root {
+    --color-primario: #3C0000;    /* Rojo vino */
+    --color-secundario: #C9846A;  /* Coral suave */
+    --color-fondo1: #F5E6E0;      /* Beige claro */
+    --color-fondo2: #FFFFFF; 
+    --color-fondo3: #FFEDD9;     /* Blanco puro */
+}
 body{
     background-color: #3C0000;
     font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
@@ -26,20 +33,20 @@ header{
     align-items: center;
     padding: 0 20px;  /* Aumentamos la altura de la barra */
     gap: 40px; /* Espaciado uniforme entre elementos */
-        
-    }
+    background-color: #F5E6E0;
+}
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: #C9846A;
+    color: #ffffff;
     font-size: 18px; /* Texto más grande */
     position: relative;
 }
 li a {
     
-    color: #C9846A; /* Cambia al color que prefieras */
+    color: #3C0000; /* Cambia al color que prefieras */
     text-decoration: none; /* Elimina el subrayado */
     padding: 5px 10px;
     border-radius: 5px;
@@ -47,56 +54,118 @@ li a {
     margin-right: 15px; /* Opcional: espacio entre los elementos */
     
 }
-.Tu-esencia-tu-historia{
+@media (max-width: 768px) {
+    .Tu-esencia-tu-historia, .ConoceMas {
+        flex-direction: column;
+    }
     
-    position: relative; /* Contenedor relativo para posicionar elementos hijos /
-    text-align: center; / Centra el texto horizontalmente */
-    width: 90%;
-    margin:  auto;
-    margin-bottom: 100px;
+    .texto-botones, .ConoceMas .contenido {
+        max-width: 100%;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    .texto-botones {
+        padding: 25px 15px;
+        width: 95%;
+    }
+    
+    .ConoceMas .contenido {
+        padding: 30px 20px;
+    }
+    .ConoceMas p {
+        font-size: 1rem;
+        padding: 0 15px;
+        text-align: left; /* Opcional: alinear a izquierda en móviles */
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .cta-section {
+        position: static;
+        transform: none;
+        order: -1;
+    }
+    
+    .counter {
+        order: 1;
+    }
 
+}
+.Tu-esencia-tu-historia {
+    position: relative;
+    width: 90%;
+    margin: 100px auto;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+.contenido-principal {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 40px;
+    background: url('https://i.imgur.com/xXA9wRg.png') no-repeat center right/cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    height: 80vh;
+}
+
+
+.texto-botones {
+    order: 1;
+    max-width: 40%;
+    position: relative;
+    padding: 20px;
 }
 h1{
     color: #000000;
     font-size: 3.5rem;
-    font-weight: 400; /* Peso de la fuente */
-    line-height: 1.2; /* Espaciado entre líneas */
-    text-align: left;
-    margin: 0;
-    top: 38%; /*Centra verticalmente el encabezado */
-    left: 5%; /*Centra horizontalmente el encabezado */
-    transform: translate(0, -50%); /*Ajusta el texto para centrarlo */
-    position: absolute; /* Superpone el encabezado sobre la imagen */
-    z-index: 2; /* Asegura que el texto es*/
-    max-width: 300px;
+    padding-top: 180px;
+    margin-bottom: 30px;
+    position: static;
+    transform: none;
+    max-width: none;
+}
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    margin-left: 170px;
 }
 .btn {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+    
     background-color: #3C0000; /* Color de fondo */
     font-family: "Antic Didone", serif;
     color: #C9846A; /* Color del texto */
-    font-size: 1.2rem; /* Tamaño del texto */
-    font-weight: 400; /* Peso de la fuente */
+    font-size: 1rem; /* Tamaño del texto */
     padding: 10px 20px; /* Espaciado interno */
     border: none; /* Sin bordes */
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    position: absolute;
-    text-align: center; /* Centra el texto */
-    width: 230px; /* Ancho del botón */
-    height: 90px; /* Altura del botón */
-    top: 50%; 
-    left: 6%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
     transition: all 0.3s ease; /* Transición para efectos */
+    
 }
 
 /* Efecto hover */
-.Tu-esencia-tu-historia.btn:hover {
+.btn:hover {
     background-color: #5A0000; /* Color más claro al pasar el mouse */
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
+
 .btn_conoce_mas {
     background-color: transparent; /* Sin fondo */
+    margin-left: 25px;
     color: #3C0000; /* Color del texto */
     border: 2px solid #3C0000; /* Borde del botón */
     font-family: "Antic Didone", serif;
@@ -107,7 +176,7 @@ h1{
     transition: all 0.3s ease; /* Transición para efectos */
     top: 60%; 
     left: 9%;
-    position: absolute;
+    position: static;
 }
 
 /* Efecto hover para el botón "Conoce Más" */
@@ -120,6 +189,7 @@ h1{
 /* Botón "¿Cómo Funciona?" sin fondo */
 .btn_como_funciona {
     background-color: transparent; /* Sin fondo */
+    margin-left: 5px;
     color: #3C0000; /* Color del texto */
     border: 2px solid #3C0000; /* Borde del botón */
     font-family: "Antic Didone", serif;
@@ -130,66 +200,122 @@ h1{
     transition: all 0.3s ease; /* Transición para efectos */
     top: 65%; 
     left: 8%;
-    position: absolute;
+    position: static;
 }
 
 /* Efecto hover para el botón "¿Cómo Funciona?" */
-.btn-como-funciona:hover {
+.btn_como_funciona:hover {
     background-color: #3C0000; /* Fondo al pasar el mouse */
     color: #FFFFFF; /* Cambia el color del texto */
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
 
-/* Contenedor principal del div "Conoce Más" */
+/* CONOCE MAS */
 .ConoceMas {
-    position: relative; /* Contenedor relativo para posicionar elementos hijos /
-    text-align: center; / Centra el texto horizontalmente */
     width: 90%;
-    margin: 0 auto;
-    margin-bottom: 100px;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
-
-
-/* Contenido superpuesto */
 .ConoceMas .contenido {
-    position: absolute; /* Posiciona el contenido sobre la imagen */
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta el contenido para que quede perfectamente centrado */
-    z-index: 2; /* Coloca el contenido sobre la imagen */
-    text-align: center; /* Centra el texto */
-    color: #000000; /* Color del texto */
-    width: 80%; /* Ajusta el ancho del contenido */
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 40px;
+    background: url('https://i.imgur.com/iZo3KdF.png') no-repeat center right/cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    height: 80vh;
 }
+
+.ConoceMas h2 {
+    position: static;
+    transform: none;
+    max-width: none;
+    margin-bottom: 5px;
+    padding-top: 120px;
+    
+}
+
+.ConoceMas p {
+    position: static; /* (opcional, es el valor por defecto) */
+    max-width: 600px;
+    width: 400px; /* Ancho máximo del párrafo */
+    margin-bottom: 30px; /* Centrado horizontal con margen inferior */
+    text-align: justify; /* Justificación del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    font-size: 1.1rem;
+    padding-right: 20px; /* Espacio derecho si usas max-width */
+    
+    hyphens: auto;
+    
+}
+
+.btn-conoce-mas {
+    background-color: #3C0000; /* Color de fondo */
+    font-family: "Antic Didone", serif;
+    color: #C9846A; /* Color del texto */
+    font-size: 1rem; /* Tamaño del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    transition: all 0.3s ease; /* Transición para efectos */
+    top: 69%; 
+    left: 3%;
+}
+
+.btn-conoce-mas:hover {
+    background-color: #5A0000; /* Color más claro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+/*COMO FUNCIONA*/
+.Comofunciona {
+    width: 90%;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.contenido {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 40px;
+    background: url('https://i.imgur.com/YFGI7qS.png') no-repeat center right/cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    height: 80vh;
+}
+
 
 /* Estilo para el título */
-.ConoceMas h2 {
-    color: #000000;
-    font-size: 3.5rem;
-    font-weight: 400; /* Peso de la fuente */
-    line-height: 1.2; /* Espaciado entre líneas */
-    text-align: left;
-    margin: 0;
-    top: 15%; /*Centra verticalmente el encabezado */
-    left: 5%; /*Centra horizontalmente el encabezado */
-    transform: translate(0, -50%); /*Ajusta el texto para centrarlo */
-    position: absolute; /* Superpone el encabezado sobre la imagen */
-    z-index: 2; /* Asegura que el texto es*/
-    max-width: 300px;
+.Comofunciona h3 {
+    position: static;
+    transform: none;
+    max-width: none;
+    margin-bottom: 5px;
+    padding-top: 120px;
     
 }
 
 /* Estilo para el párrafo */
-.ConoceMas p {
-    font-size: 1.2rem; /* Tamaño del texto */
-    line-height: 1.8; /* Espaciado entre líneas */
-    text-align: justify; /* Justifica el texto */
-    margin: 0 auto; /* Centra el párrafo dentro del contenedor */
-    color: #000000; /* Color del texto */
-    top: 20%; /*Centra verticalmente el encabezado */
-    left: 3%;
-    max-width: 400px; /* Limita el ancho del texto */
-    position: absolute;
+.Comofunciona p {
+    position: static; /* (opcional, es el valor por defecto) */
+    max-width: 600px;
+    width: 400px; /* Ancho máximo del párrafo */
+    margin-bottom: 30px; /* Centrado horizontal con margen inferior */
+    text-align: justify; /* Justificación del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    font-size: 1.1rem;
+    padding-right: 20px; /* Espacio derecho si usas max-width */
+    
+    hyphens: auto;
+    
 }
 
 /* Botón personalizado */
@@ -213,4 +339,81 @@ h1{
     background-color: #5A0000; /* Color más claro al pasar el mouse */
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
+.main-footer {
+    background-color: #F5E6E0;
+    padding: 2rem;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.number-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.facebook-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.instagram-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.number-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.face-icon {
+    width: 32px;
+    height: 32px;
+}
+.insta-icon {
+    width: 32px;
+    height: 32px;
+}
+
+
+.number{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+.facebook{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+.instagram{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+
+.join-button {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+
+
    
