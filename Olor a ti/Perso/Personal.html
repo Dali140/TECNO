@@ -16,6 +16,18 @@
      <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header de la página -->
+    <div id="header-placeholder"></div>
+        <script>
+            fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error al cargar el header:', error));
+        </script>
+
+        
     <div class="container">
         <h1 class="delgado">Fragancias</h1>
         <img src="https://i.imgur.com/fno1HML.jpeg" alt="Fragancias_1" />
