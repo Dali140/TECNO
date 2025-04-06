@@ -1,60 +1,71 @@
 // Archivo: Logica.js
 
-
 // Espera a que el contenido HTML del documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // Selecciona todas las imágenes que estén dentro de elementos con clase "notas-salida"
-    const images = document.querySelectorAll(".notas-salida img");
-    
+    // Selecciona todas las imágenes de las secciones
+    const salidaImages = document.querySelectorAll(".notas-salida img");
+    const corazonImages = document.querySelectorAll(".notas-corazon img");
+    const fondoImages = document.querySelectorAll(".notas-fondo img");
+
+    // Selecciona las celdas de la tabla
+    const salidaCell = document.getElementById("salida");
+    const corazonCell = document.getElementById("corazon");
+    const fondoCell = document.getElementById("fondo");
+
     // Crea un nuevo elemento div que funcionará como tooltip
     const tooltip = document.createElement("div");
-    
+
     // Asigna la clase "tooltip" al div creado (para estilizarlo con CSS)
     tooltip.className = "tooltip";
-    
+
     // Agrega el tooltip al final del body del documento
     document.body.appendChild(tooltip);
 
-    // Para cada imagen encontrada...
-    images.forEach((img) => {
-        
-        // Agrega un evento que se dispara cuando el mouse pasa sobre la imagen
-        img.addEventListener("mouseover", (e) => {
-            // Obtiene el mensaje del tooltip del atributo data-tooltip de la imagen
-            const message = img.getAttribute("data-tooltip");
-            
-            // Establece el texto del tooltip
+    // Función para manejar el clic en las imágenes
+    const handleImageClick = (img, cell) => {
+        const value = img.getAttribute("data-value");
+        if (value) {
+            cell.textContent = value; // Actualiza la celda con el valor
+        }
+    };
+
+    // Función para manejar el tooltip
+    const handleTooltip = (img, e) => {
+        const message = img.getAttribute("data-tooltip");
+        if (message) {
             tooltip.textContent = message;
-            
-            // Hace visible el tooltip
             tooltip.style.display = "block";
-            
-            // Posiciona el tooltip 10px a la derecha del cursor
-            tooltip.style.left = `${e.pageX + 10}px`;
-            
-            // Posiciona el tooltip 10px debajo del cursor
-            tooltip.style.top = `${e.pageY + 10}px`;
-        });
+            tooltip.style.left = `${e.pageX + 10}px`;// Desplaza el tooltip 10px a la derecha del cursor
+            tooltip.style.top = `${e.pageY + 10}px`;// Desplaza el tooltip 10px hacia abajo del cursor
+        }
+    };
 
-        // Agrega un evento que se dispara cuando el mouse se mueve sobre la imagen
-        img.addEventListener("mousemove", (e) => {
-            // Actualiza la posición del tooltip mientras el mouse se mueve
-            tooltip.style.left = `${e.pageX + 10}px`;
-            tooltip.style.top = `${e.pageY + 10}px`;
-        });
+    // Función para ocultar el tooltip
+    const hideTooltip = () => {
+        tooltip.style.display = "none";
+    };
 
-        // Agrega un evento que se dispara cuando el mouse sale de la imagen
-        img.addEventListener("mouseout", () => {
-            // Oculta el tooltip
-            tooltip.style.display = "none";
-        });
+    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Salida"
+    salidaImages.forEach((img) => {
+        img.addEventListener("click", () => handleImageClick(img, salidaCell));
+        img.addEventListener("mouseover", (e) => handleTooltip(img, e));
+        img.addEventListener("mousemove", (e) => handleTooltip(img, e));
+        img.addEventListener("mouseout", hideTooltip);
+    });
 
-        // Agrega un evento que se dispara cuando la imagen es clicada
-        img.addEventListener("click", () => {
-            // Redirige a la URL especificada en el atributo data-url de la imagen
-            
-        });
+    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Corazón"
+    corazonImages.forEach((img) => {
+        img.addEventListener("click", () => handleImageClick(img, corazonCell));
+        img.addEventListener("mouseover", (e) => handleTooltip(img, e));
+        img.addEventListener("mousemove", (e) => handleTooltip(img, e));
+        img.addEventListener("mouseout", hideTooltip);
+    });
+
+    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Fondo"
+    fondoImages.forEach((img) => {
+        img.addEventListener("click", () => handleImageClick(img, fondoCell));
+        img.addEventListener("mouseover", (e) => handleTooltip(img, e));
+        img.addEventListener("mousemove", (e) => handleTooltip(img, e));
+        img.addEventListener("mouseout", hideTooltip);
     });
 });
-

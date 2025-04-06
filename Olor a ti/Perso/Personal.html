@@ -34,15 +34,18 @@
     </li> 
 
     <style>
-        header{
+        header {
             list-style: none;
             background-color: #3C0000;
             display: flex;
-            justify-content: space-between;  /* Centra y distribuye los iconos */
+            justify-content: space-between; /* Centra y distribuye los iconos */
             align-items: center;
-            padding: 0 20px;  /* Aumentamos la altura de la barra */
+            padding: 0 20px; /* Aumentamos la altura de la barra */
             gap: 40px; /* Espaciado uniforme entre elementos */
-    
+            position: sticky; /* Hace que el header sea sticky */
+            top: 0; /* Fija el header en la parte superior */
+            z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+            border-bottom: 1px solid #1a0000;
         }
         .nav-item {
              display: flex;
@@ -78,15 +81,15 @@
     <h2 class="delgado">Notas De Salida</h2>
     <p class="delgado">Frescas y vibrantes, las primeras notas que se perciben,<br>ligeras y energizantes.</p>
     <div class="notas-salida">
-        <img src="https://i.imgur.com/vvA7YIm.png" alt="1 Bergamota" data-tooltip="Cítrica, chispeante y sofisticada.">
-        <img src="https://i.imgur.com/kYlsbcM.png" alt="2 Mandarina" data-tooltip="Dulce, jugosa y llena de energía.">
-        <img src="https://i.imgur.com/AKGTcM5.png" alt="3 Menta" data-tooltip="Fresca y herbal, con un toque revitalizante.">
-        <img src="https://i.imgur.com/LueY6WJ.png" alt="4 Brisa Marina" data-tooltip="Ligera y refrescante como el océano.">
-        <img src="https://i.imgur.com/VgLIyAG.png" alt="5 Manzana Verde" data-tooltip="Dulce con un toque ácido y juvenil.">
-        <img src="https://i.imgur.com/kHTSM7s.png" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa.">
-        <img src="https://i.imgur.com/ZsApLBl.png" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante.">
-        <img src="https://i.imgur.com/47ni7Nw.png" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural.">
-        <img src="https://i.imgur.com/rTkOlPb.png" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal.">
+        <img src="https://i.imgur.com/vvA7YIm.png" alt="1 Bergamota" data-tooltip="Cítrica, chispeante y sofisticada."data-value="Bergamota">
+        <img src="https://i.imgur.com/kYlsbcM.png" alt="2 Mandarina" data-tooltip="Dulce, jugosa y llena de energía."data-value="Mandarina">
+        <img src="https://i.imgur.com/AKGTcM5.png" alt="3 Menta" data-tooltip="Fresca y herbal, con un toque revitalizante."data-value="Menta">
+        <img src="https://i.imgur.com/LueY6WJ.png" alt="4 Brisa Marina" data-tooltip="Ligera y refrescante como el océano."data-value="Brisa Marina">
+        <img src="https://i.imgur.com/VgLIyAG.png" alt="5 Manzana Verde" data-tooltip="Dulce con un toque ácido y juvenil."data-value="Manzana Verde">
+        <img src="https://i.imgur.com/kHTSM7s.png" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa."data-value="Piña Tropical">
+        <img src="https://i.imgur.com/ZsApLBl.png" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante."data-value="Eucalipto">
+        <img src="https://i.imgur.com/47ni7Nw.png" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural."data-value="Te Verde">
+        <img src="https://i.imgur.com/rTkOlPb.png" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal."data-value="Albahaca">
     </div>
 
 
@@ -94,16 +97,16 @@
 
     <h2 class="delgado">Notas De Corazón</h2>
     <p class="delgado">Florales y Dulces, el alma del perfume, dura más tiempo<br>y define su esencia.</p>
-    <div class="notas-salida">
-    <img src="https://i.imgur.com/5HnxHYa.png" alt="1 Rosa de Damasco" data-tooltip="Floral clásico, romántico y sofisticado.">
-    <img src="https://i.imgur.com/yxeH0gu.png" alt="2 Jazmín" data-tooltip="Exótico y embriagador, con un aroma envolvente.">
-    <img src="https://i.imgur.com/X6Q5wC2.png" alt="3 Ylang Ylang" data-tooltip="Floral dulce con toques frutales.">
-    <img src="https://i.imgur.com/ErSJcXN.png" alt="4 Miel Dorada" data-tooltip="Dulzura cálida y envolvente.">
-    <img src="https://i.imgur.com/GrQngZb.png" alt="5 Coco Cremoso" data-tooltip="Tropical, cremoso y exótico.">
-    <img src="https://i.imgur.com/8z4npVy.png" alt="6 Durazno Suave" data-tooltip="Dulce, jugoso y aterciopelado.">
-    <img src="https://i.imgur.com/hZYhtBo.png" alt="7 Flor de Azahar" data-tooltip="Delicada, floral y luminosa.">
-    <img src="https://i.imgur.com/v8AswbI.png" alt="8 Frutos Rojos" data-tooltip="Dulce y jugoso, con toques vibrantes.">
-    <img src="https://i.imgur.com/LwEEEUW.png" alt="9 Vainilla Floral" data-tooltip="Dulce, cremosa y especiada con toques florales.">
+    <div class="notas-corazon">
+    <img src="https://i.imgur.com/5HnxHYa.png" alt="1 Rosa de Damasco" data-tooltip="Floral clásico, romántico y sofisticado." data-value="Rosa de Damasco">
+    <img src="https://i.imgur.com/yxeH0gu.png" alt="2 Jazmín" data-tooltip="Exótico y embriagador, con un aroma envolvente." data-value="Jazmín">
+    <img src="https://i.imgur.com/X6Q5wC2.png" alt="3 Ylang Ylang" data-tooltip="Floral dulce con toques frutales." data-value="Ylang Ylang">
+    <img src="https://i.imgur.com/ErSJcXN.png" alt="4 Miel Dorada" data-tooltip="Dulzura cálida y envolvente." data-value="Miel Dorada">
+    <img src="https://i.imgur.com/GrQngZb.png" alt="5 Coco Cremoso" data-tooltip="Tropical, cremoso y exótico." data-value="Coco Cremoso">
+    <img src="https://i.imgur.com/8z4npVy.png" alt="6 Durazno Suave" data-tooltip="Dulce, jugoso y aterciopelado." data-value="Durazno Suave">
+    <img src="https://i.imgur.com/hZYhtBo.png" alt="7 Flor de Azahar" data-tooltip="Delicada, floral y luminosa." data-value="Flor de Azahar">
+    <img src="https://i.imgur.com/v8AswbI.png" alt="8 Frutos Rojos" data-tooltip="Dulce y jugoso, con toques vibrantes." data-value="Frutos Rojos">
+    <img src="https://i.imgur.com/LwEEEUW.png" alt="9 Vainilla Floral" data-tooltip="Dulce, cremosa y especiada con toques florales." data-value="Vainilla Floral">
     </div>
 
 
@@ -111,21 +114,47 @@
 
     <h2 class="delgado">Notas De Fondo</h2>
     <p class="delgado">La base de la fragancia, profundas y duraderas, <br>se perciben al final.</p>
-    <div class="notas-salida">
-    <img src="https://i.imgur.com/Ox42NuY.png" alt="1 Sándalo" data-tooltip="Amaderado, cálido y envolvente.">
-    <img src="https://i.imgur.com/MnN7c4f.png" alt="2 Vainilla Bourbon" data-tooltip="Dulce y cremosa, con un toque especiado.">
-    <img src="https://i.imgur.com/mSwMigL.png" alt="3 Almizcle Blanco" data-tooltip="Suave, limpio y adictivo.">
-    <img src="https://i.imgur.com/lbH1NNV.png" alt="4 Cuero Elegante" data-tooltip="Sofisticado y con un carácter intenso.">
-    <img src="https://i.imgur.com/ZPEuAxQ.png" alt="5 Ámbar Dorado" data-tooltip="Cálido, resinoso y sensual.">
-    <img src="https://i.imgur.com/7LwaNth.png" alt="6 Incienso Místico" data-tooltip="Ahumado y misterioso.">
-    <img src="https://i.imgur.com/tm0YYLq.png" alt="7 Haba Tonka" data-tooltip="Dulce y especiada con un toque avainillado.">
-    <img src="https://i.imgur.com/dAdt03W.png" alt="8 Café Intenso" data-tooltip="Profundo y adictivo, con toques tostados.">
-    <img src="https://i.imgur.com/AXDO7YI.png" alt="9 Cedro del Atlas" data-tooltip="Amaderado y seco, con un carácter elegante.">
+    <div class="notas-fondo">
+    <img src="https://i.imgur.com/Ox42NuY.png" alt="1 Sándalo" data-tooltip="Amaderado, cálido y envolvente."data-value="Sándalo">
+    <img src="https://i.imgur.com/MnN7c4f.png" alt="2 Vainilla Bourbon" data-tooltip="Dulce y cremosa, con un toque especiado."data-value="Vainilla Bourbon">
+    <img src="https://i.imgur.com/mSwMigL.png" alt="3 Almizcle Blanco" data-tooltip="Suave, limpio y adictivo."data-value="Almizcle Blanco">
+    <img src="https://i.imgur.com/lbH1NNV.png" alt="4 Cuero Elegante" data-tooltip="Sofisticado y con un carácter intenso."data-value="Cuero Elegante">
+    <img src="https://i.imgur.com/ZPEuAxQ.png" alt="5 Ámbar Dorado" data-tooltip="Cálido, resinoso y sensual."data-value="Ámbar Dorado">
+    <img src="https://i.imgur.com/7LwaNth.png" alt="6 Incienso Místico" data-tooltip="Ahumado y misterioso."data-value="Incienso Místico">
+    <img src="https://i.imgur.com/tm0YYLq.png" alt="7 Haba Tonka" data-tooltip="Dulce y especiada con un toque avainillado."data-value="Haba Tonka">
+    <img src="https://i.imgur.com/dAdt03W.png" alt="8 Café Intenso" data-tooltip="Profundo y adictivo, con toques tostados."data-value="Café Intenso">
+    <img src="https://i.imgur.com/AXDO7YI.png" alt="9 Cedro del Atlas" data-tooltip="Amaderado y seco, con un carácter elegante."data-value="Cedro del Atlas">
     </div>
     <div style="height: 150px;"></div> <!-- Espacio adicional -->
 
 
-      <!-- footer -->
+    <!-- FRAGANCIAS ELEJIDAS -->
+    <h6 class="delgado">Notas Seleccionadas</h6>
+    <div class="excel-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Notas De Salida</th>
+                    <th>Notas De Corazón</th>
+                    <th>Notas De Fondo</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="salida"></td>
+                    <td id="corazon"></td>
+                    <td id="fondo"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- FRAGANCIAS ELEJIDAS -->
+    <button id="miBoton" class="perso-boton"><b>Termina tu Personalización</b></button>
+
+    <!-- footer -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="number-section">
