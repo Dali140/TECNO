@@ -1,0 +1,226 @@
+/* Estilo general del body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #3d0d0d;
+    color: white;
+}
+
+/* Título principal */
+h1 {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto 10px auto;
+    color: #C9846A;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Contenedor principal con imagen */
+.carrito-con-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin: 30px auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+/* Imagen lateral */
+.imagen-lateral {
+    width: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    background-color: #4f2c1d;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Formulario */
+.producto {
+    background-color: #794e33;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Agrupar campos de texto principales */
+.campos-centrados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.campos-centrados label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+    align-self: flex-start;
+    margin-left: 10%; /* Alinea las etiquetas con los inputs */
+}
+
+.campos-centrados input[type="text"] {
+    width: 80%; /* Ajusta el ancho del campo de texto */
+    max-width: 400px;
+    padding: 10px;
+    margin: 5px auto 15px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Inputs generales */
+input[type="text"],
+input[type="number"],
+input[type="file"],
+input[type="month"] {
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="text"]:invalid,
+input[type="number"]:invalid {
+    border: 2px solid red;
+}
+
+input[type="text"]:valid,
+input[type="number"]:valid {
+    border: 2px solid green;
+}
+
+/* Cantidad */
+.cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.cantidad button {
+    background-color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    color: #4f2c1d;
+}
+
+/* Resumen */
+.resumen {
+    margin-top: 15px;
+}
+
+/* Botón finalizar */
+.btn-finalizar {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    background-color: #9b3d3d;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-finalizar:hover {
+    background-color: #c44949;
+}
+
+/* Forma de pago */
+.forma-pago {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #794e33;
+    border-radius: 10px;
+    color: white;
+}
+
+.forma-pago h3 {
+    margin-bottom: 10px;
+}
+
+.forma-pago label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+/* Info de pago */
+.info-pago {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    color: #333;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.info-pago p {
+    margin-bottom: 10px;
+}
+
+.info-pago label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.info-pago input[type="file"] {
+    margin: 10px auto;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.info-pago input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .carrito-con-imagen {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imagen-lateral,
+    .container {
+        width: 100%;
+    }
+
+    .btn-finalizar {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
