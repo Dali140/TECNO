@@ -11,53 +11,26 @@
 
   <!-- Header de la página -->
   <header>
-    <li>
-      <a href="Icono">
-        <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
-      </a>
-    </li>
-    <li><a href="como-funciona">¿Cómo funciona?</a></li>
-    <li><a href="personalizar">Personalizar</a></li>
-    <li><a href="fragancias">Fragancias</a></li>
-    <li><a href="contactanos">Contáctanos</a></li>
-    <li><a href="carrito"> 
-      <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
-    </a></li> 
-    <style>
-      header {
-        list-style: none;
-        background-color: #3C0000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-        gap: 40px;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #1a0000;
-      }
-      .nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: #ffffff;
-        font-size: 18px;
-        position: relative;
-      }
-      li a {
-        color: #C9846A;
-        text-decoration: none;
-        padding: 5px 10px;
-        border-radius: 5px;
-        display: inline-block;
-        margin-right: 15px;
-      }
-    </style>
+    <div class="menu-toggle" id="menuToggle">
+      ☰
+    </div>
+    <ul class="menu" id="navMenu">
+      <li>
+        <a href="Icono">
+          <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
+        </a>
+      </li>
+      <li><a href="como-funciona">¿Cómo funciona?</a></li>
+      <li><a href="personalizar">Personalizar</a></li>
+      <li><a href="fragancias">Fragancias</a></li>
+      <li><a href="contactanos">Contáctanos</a></li>
+      <li><a href="carrito"> 
+        <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
+      </a></li> 
+    </ul>
   </header>
 
-  <h1>Tú carrito</h1>
+  <h1>Tu carrito</h1>
 
   <div class="carrito-con-imagen">
     <img src="https://i.imgur.com/QlBAe8M.jpeg" alt="Perfume" class="imagen-lateral" />
@@ -65,7 +38,6 @@
     <div class="container">
       <div class="producto">
         <form id="formularioCompra">
-          
           <div class="inputs-grupo">
             <label>Nombre del perfume</label>
             <input type="text" id="nombrePerfume" placeholder="Ej. Vainilla Mística" required />
@@ -89,11 +61,10 @@
             <p>Total a pagar: $<span id="totalPrecio">50000</span></p>
           </div>
 
-          <!-- Forma de Pago -->
           <div class="forma-pago">
             <h3>Forma de Pago</h3>
             <label><input type="radio" name="pago" value="tarjeta" checked /> Tarjeta de Crédito/Débito</label><br />
-            <label><input type="radio" name="pago" value="efectivo" /> Pago en Efectivo</label><br />
+            <label><input type="radio" name="pago" value="efectivo(contraentrega)" /> Pago en Efectivo</label><br />
             <label><input type="radio" name="pago" value="transferencia" /> Transferencia Bancaria</label>
           </div>
 
@@ -119,40 +90,53 @@
       document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
     }
 
-    const radiosPago = document.querySelectorAll('input[name="pago"]');
-    const infoPago = document.getElementById("infoPago");
+    // Escuchar cambios en forma de pago
+    window.addEventListener('DOMContentLoaded', () => {
+      const radiosPago = document.querySelectorAll('input[name="pago"]');
+      const infoPago = document.getElementById("infoPago");
 
-    radiosPago.forEach(radio => {
-      radio.addEventListener("change", () => {
-        switch (radio.value) {
-          case "tarjeta":
-            infoPago.innerHTML = `
-              <p>Por favor, ingresa los datos de tu tarjeta:</p>
-              <label>Número de tarjeta:</label>
-              <input type="text" placeholder="1234 5678 9012 3456" required />
-              <label>Fecha de vencimiento:</label>
-              <input type="month" required />
-              <label>Código CVV:</label>
-              <input type="text" placeholder="123" required />
-            `;
-            break;
-          case "efectivo":
-            infoPago.innerHTML = `<p>Seleccionaste pago en efectivo. Por favor, realiza el pago al momento de la entrega.</p>`;
-            break;
-          case "transferencia":
-            infoPago.innerHTML = `
-              <p>Seleccionaste transferencia bancaria. Por favor, realiza la transferencia a la siguiente cuenta:</p>
-              <p><strong>Banco:</strong> Banco Ejemplo</p>
-              <p><strong>Número de cuenta:</strong> 123456789</p>
-              <p><strong>Titular:</strong> Nombre del Titular</p>
-              <label>Sube tu comprobante de pago:</label>
-              <input type="file" id="comprobante" accept="image/*,application/pdf" required />
-              <p>Ingresa el código de confirmación enviado a tu correo:</p>
-              <input type="number" id="codigoConfirmacion" placeholder="Código de confirmación" required />
-            `;
-            break;
-        }
+      radiosPago.forEach(radio => {
+        radio.addEventListener("change", () => {
+          switch (radio.value) {
+            case "tarjeta":
+              infoPago.innerHTML = `
+                <p>Por favor, ingresa los datos de tu tarjeta:</p>
+                <label>Número de tarjeta:</label>
+                <input type="text" placeholder="1234 5678 9012 3456" required />
+                <label>Fecha de vencimiento:</label>
+                <input type="month" required />
+                <label>Código CVV:</label>
+                <input type="text" placeholder="123" required />
+              `;
+              break;
+            case "efectivo":
+              infoPago.innerHTML = `<p>Seleccionaste pago en efectivo. Realiza el pago al momento de la entrega.</p>`;
+              break;
+            case "transferencia":
+              infoPago.innerHTML = `
+                <p>Seleccionaste transferencia bancaria. Realiza la transferencia a esta cuenta:</p>
+                <p><strong>Banco:</strong> Banco Ejemplo</p>
+                <p><strong>Número de cuenta:</strong> 123456789</p>
+                <p><strong>Titular:</strong> Nombre del Titular</p>
+                <label>Sube tu comprobante de pago:</label>
+                <input type="file" id="comprobante" accept="image/*,application/pdf" required />
+                <p>Ingresa el código de confirmación enviado a tu correo:</p>
+                <input type="number" id="codigoConfirmacion" placeholder="Código de confirmación" required />
+              `;
+              break;
+          }
+        });
       });
+
+      // Menú hamburguesa
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+          navMenu.classList.toggle("activo");
+        });
+      }
     });
 
     document.getElementById("formularioCompra").addEventListener("submit", function (event) {

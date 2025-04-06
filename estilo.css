@@ -1,14 +1,12 @@
-/* Estilo general del body */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Playfair Display', serif;
     background-color: #3d0d0d;
     color: white;
-}
-
-/* Título principal */
-h1 {
+  }
+  
+  h1 {
     width: 95%;
     max-width: 1200px;
     margin: 30px auto 10px auto;
@@ -16,10 +14,49 @@ h1 {
     font-size: 2.5rem;
     font-weight: bold;
     text-align: left;
-}
-
-/* Contenedor principal con imagen */
-.carrito-con-imagen {
+  }
+  
+  /* HEADER */
+  header {
+    list-style: none;
+    background-color: #3C0000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #1a0000;
+  }
+  
+  header ul.menu {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  header ul.menu li a {
+    color: #C9846A;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #C9846A;
+  }
+  
+  /* IMAGEN Y CONTENEDOR */
+  .carrito-con-imagen {
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -27,18 +64,16 @@ h1 {
     margin: 30px auto;
     width: 95%;
     max-width: 1200px;
-}
-
-/* Imagen lateral */
-.imagen-lateral {
+  }
+  
+  .imagen-lateral {
     width: 300px;
     object-fit: cover;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Contenedor principal */
-.container {
+  }
+  
+  .container {
     display: flex;
     background-color: #4f2c1d;
     border-radius: 20px;
@@ -48,10 +83,9 @@ h1 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     justify-content: center;
     align-items: center;
-}
-
-/* Formulario */
-.producto {
+  }
+  
+  .producto {
     background-color: #794e33;
     padding: 20px;
     border-radius: 15px;
@@ -59,41 +93,13 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/* Agrupar campos de texto principales */
-.campos-centrados {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.campos-centrados label {
-    font-weight: bold;
-    margin-top: 10px;
-    color: white;
-    align-self: flex-start;
-    margin-left: 10%; /* Alinea las etiquetas con los inputs */
-}
-
-.campos-centrados input[type="text"] {
-    width: 80%; /* Ajusta el ancho del campo de texto */
-    max-width: 400px;
-    padding: 10px;
-    margin: 5px auto 15px auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    box-sizing: border-box;
-    display: block;
-}
-
-/* Inputs generales */
-input[type="text"],
-input[type="number"],
-input[type="file"],
-input[type="month"] {
+  }
+  
+  /* FORMULARIO Y CAMPOS */
+  input[type="text"],
+  input[type="number"],
+  input[type="file"],
+  input[type="month"] {
     width: 90%;
     max-width: 400px;
     padding: 10px;
@@ -103,27 +109,24 @@ input[type="month"] {
     display: block;
     font-size: 1rem;
     box-sizing: border-box;
-}
-
-input[type="text"]:invalid,
-input[type="number"]:invalid {
+  }
+  
+  input:invalid {
     border: 2px solid red;
-}
-
-input[type="text"]:valid,
-input[type="number"]:valid {
+  }
+  
+  input:valid {
     border: 2px solid green;
-}
-
-/* Cantidad */
-.cantidad {
+  }
+  
+  .cantidad {
     display: flex;
     align-items: center;
     gap: 10px;
     margin: 10px 0;
-}
-
-.cantidad button {
+  }
+  
+  .cantidad button {
     background-color: white;
     border: none;
     padding: 5px 12px;
@@ -131,15 +134,13 @@ input[type="number"]:valid {
     font-weight: bold;
     cursor: pointer;
     color: #4f2c1d;
-}
-
-/* Resumen */
-.resumen {
+  }
+  
+  .resumen {
     margin-top: 15px;
-}
-
-/* Botón finalizar */
-.btn-finalizar {
+  }
+  
+  .btn-finalizar {
     margin-top: 20px;
     width: 100%;
     padding: 15px;
@@ -150,33 +151,21 @@ input[type="number"]:valid {
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.btn-finalizar:hover {
+  }
+  
+  .btn-finalizar:hover {
     background-color: #c44949;
-}
-
-/* Forma de pago */
-.forma-pago {
+  }
+  
+  .forma-pago {
     margin-top: 20px;
     padding: 15px;
     background-color: #794e33;
     border-radius: 10px;
     color: white;
-}
-
-.forma-pago h3 {
-    margin-bottom: 10px;
-}
-
-.forma-pago label {
-    display: block;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-/* Info de pago */
-.info-pago {
+  }
+  
+  .info-pago {
     margin-top: 20px;
     padding: 15px;
     background-color: #f4f4f4;
@@ -184,43 +173,43 @@ input[type="number"]:valid {
     color: #333;
     font-size: 0.9rem;
     text-align: center;
-}
-
-.info-pago p {
-    margin-bottom: 10px;
-}
-
-.info-pago label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    text-align: left;
-}
-
-.info-pago input[type="file"] {
-    margin: 10px auto;
-    display: block;
-    font-size: 0.9rem;
-}
-
-.info-pago input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 500px) {
     .carrito-con-imagen {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
-
+  
     .imagen-lateral,
     .container {
-        width: 100%;
+      width: 100%;
     }
-
+  
     .btn-finalizar {
-        font-size: 1rem;
-        padding: 10px;
+      font-size: 1rem;
+      padding: 10px;
     }
-}
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    header ul.menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #3C0000;
+    }
+  
+    header ul.menu.activo {
+      display: flex;
+    }
+  
+    header ul.menu li {
+      margin: 10px 0;
+      text-align: center;
+    }
+  }
+  
