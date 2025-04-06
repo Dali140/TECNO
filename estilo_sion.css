@@ -1,0 +1,107 @@
+.main-footer {
+    background-color: #3C0000;
+    padding: 2rem;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.number-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.facebook-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #C9846A; /* Cambia el color al que prefieras */
+    white-space: nowrap;
+    text-decoration: none; /* Elimina el subrayado */
+}
+.instagram-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.number-icon {
+    width: 32px;
+    height: 32px;
+}
+.face-icon {
+    width: 32px;
+    height: 32px;
+}
+.insta-icon {
+    width: 32px;
+    height: 32px;
+}
+.number{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #C9846A;
+    white-space: nowrap;
+}
+.facebook {
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #C9846A; /* Cambia el color al que prefieras */
+    white-space: nowrap;
+    text-decoration: none; /* Elimina el subrayado */
+}
+.instagram{
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #3C0000;
+    white-space: nowrap;
+}
+h1 {
+    
+    color: #171620;
+    font-size: 400%;
+    top: 10%; /* Centra verticalmente el encabezado */
+    left: 26%; /* Centra horizontalmente el encabezado */
+    transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    z-index: 1; /* Asegura que el texto es*/
+
+}
+.container {
+    position: relative; /* Contenedor relativo para posicionar elementos hijos */
+    text-align: center; /* Centra el texto horizontalmente */
+    width:100%;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    display: block; /* Elimina el espacio en la parte inferior de las imágenes */
+    margin: auto; /* Centra las imágenes horizontalmente */
+}
+.delgado{
+    font-weight: 100;/* Aplica fuente delgado */
+}
+body {
+    color: #ffffff;
+    background-color: #3C0000;
+    font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
+    margin: 0;
+    padding: 0;
+}
+h2{
+    color: #171620;
+    font-size: 150%;
+    top: 35%; /* Centra verticalmente el encabezado */
+    left: 26%; /* Centra horizontalmente el encabezado */
+    transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    z-index: 1; /* Asegura que el texto es Centra el texto horizontalmente */
+
+}
