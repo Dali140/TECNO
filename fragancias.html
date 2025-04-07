@@ -17,284 +17,58 @@
 </head>
 <body>
           <!-- Header de la página -->
+    <header>
         
-          <style>
-            /* HEADER FLEXBOX MEJORADO */
-            header {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 1000;
-                background-color: #3C0000;
-                padding: 0 50px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 100px;
-                gap: 20px;
-            }
-        
-            .header-container {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-            }
-        
-            /* LOGO */
-            .nav-logo img {
-                width: 55px;
-                transition: transform 0.3s ease;
-            }
-        
-            /* NAVEGACIÓN DESKTOP */
-            .nav-list {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                gap: 35px;
-            }
-        
-            .nav-link {
-                position: relative;
-                font-size: 1.2rem;
-                text-decoration: none !important;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                padding: 5px 0;
-                transition: color 0.3s ease;
-                color: #F5E6E0;
-            }
-        
-            .nav-link:hover {
-                background: rgba(201, 132, 106, 0.2);
-            }
-        
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: #C9846A;
-                transition: width 0.3s ease, left 0.3s ease;
-            }
-        
-            .nav-link:hover::after {
-                width: 100%;
-                left: 0;
-            }
-        
-            /* CARRITO */
-            .nav-cart {
-                position: relative;
-                display: flex;
-                align-items: center;
-            }
-        
-            .nav-cart img {
-                width: 30px;
-            }
-        
-            .cart-counter {
-                position: absolute;
-                top: -5px;
-                right: -8px;
-                background: #C9846A;
-                color: #3C0000;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                font-size: 0.75rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        
-            /* MENÚ HAMBURGUESA */
-            .hamburger {
-                display: none;
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 10px;
-                z-index: 1001;
-                margin-left: 20px;
-            }
-        
-            .hamburger span {
-                display: block;
-                width: 25px;
-                height: 2px;
-                background: #F5E6E0;
-                margin: 5px 0;
-                transition: all 0.3s ease;
-            }
-        
-            /* MENÚ MÓVIL */
-            .mobile-menu {
-                position: fixed;
-                top: 100px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 100px);
-                background: #3C0000;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                transition: all 0.3s ease;
-                z-index: 999;
-            }
-        
-            .mobile-menu.active {
-                left: 0;
-            }
-        
-            .mobile-menu .nav-link {
-                font-size: 1.4rem;
-                padding: 15px 0;
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-        
-            /* RESPONSIVE */
-            @media (max-width: 992px) {
-                .nav-list {
-                    gap: 25px;
-                }
-            }
-        
-            @media (max-width: 768px) {
-                header {
-                    height: 80px;
-                    padding: 0 20px;
-                }
-                
-                .header-center {
-                    display: none;
-                }
-                
-                .hamburger {
-                    display: block;
-                    order: 2;
-                }
-                
-                .nav-logo {
-                    order: 1;
-                }
-                
-                .nav-cart {
-                    order: 3;
-                }
-                
-                .mobile-menu {
-                    top: 80px;
-                    height: calc(100vh - 80px);
-                }
-                
-                .nav-logo img {
-                    width: 45px;
-                }
-                
-                .nav-cart img {
-                    width: 25px;
-                }
-            }
-        </style>
-        
-        <header>
-            <div class="header-container">
-                <!-- Logo -->
-                <div class="header-left">
-                    <a href="#inicio" class="nav-logo">
-                        <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo">
-                    </a>
-                </div>
-                
-                <!-- Navegación Desktop -->
-                <div class="header-center">
-                    <ul class="nav-list">
-                        <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
-                        <li><a href="#personalizar" class="nav-link">Personalizar</a></li>
-                        <li><a href="#fragancias" class="nav-link">Fragancias</a></li>
-                        <li><a href="#contactanos" class="nav-link">Contáctanos</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Grupo derecho -->
-                <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
-                    <a href="#carrito" class="nav-cart">
-                        <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito">
-                        <span class="cart-counter">0</span>
-                    </a>
-                    <button class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-                
-                <!-- Menú Móvil -->
-                <div class="mobile-menu">
-                    <a href="#como-funciona" class="nav-link">¿Cómo funciona?</a>
-                    <a href="#personalizar" class="nav-link">Personalizar</a>
-                    <a href="#fragancias" class="nav-link">Fragancias</a>
-                    <a href="#contactanos" class="nav-link">Contáctanos</a>
-                </div>
-            </div>
-        </header>
-        
-        <script>
-            // Menú Hamburguesa
-            const hamburger = document.querySelector('.hamburger');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelectorAll('.mobile-menu .nav-link');
-        
-            // Función para alternar menú
-            function toggleMenu() {
-                hamburger.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                
-                // Animación a X
-                hamburger.children[0].style.transform = hamburger.classList.contains('active') 
-                    ? 'rotate(45deg) translate(5px, 5px)' 
-                    : 'none';
-                    
-                hamburger.children[1].style.opacity = hamburger.classList.contains('active') 
-                    ? '0' 
-                    : '1';
-                    
-                hamburger.children[2].style.transform = hamburger.classList.contains('active') 
-                    ? 'rotate(-45deg) translate(7px, -6px)' 
-                    : 'none';
-            }
-        
-            // Event listeners
-            hamburger.addEventListener('click', toggleMenu);
-        
-            // Cerrar menú al hacer click en enlace (pero mantener la X)
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    // No removemos la clase 'active' del hamburger para mantener la X
-                });
-            });
-        
-            // Ajustar padding del body
-            function updateBodyPadding() {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                document.body.style.paddingTop = `${headerHeight}px`;
-            }
-        
-            window.addEventListener('load', updateBodyPadding);
-            window.addEventListener('resize', updateBodyPadding);
-        </script>
+        <li>
+            <a href="Icono">
+            <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
+            </a>
+        </li>
+        <li><a href="como-funciona">¿Cómo funciona?</a></li>
+        <li><a href="personalizar">Personalizar</a></li>
+        <li><a href="fragancias">Fragancias</a></li>
+        <li><a href="contactanos">Contáctanos</a></li>
+        <li><a href="carrito"> 
+            <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
+        </a>
+    </li> 
+
+    <style>
+        header {
+            list-style: none;
+            background-color: #3C0000;
+            display: flex;
+            justify-content: space-between; /* Centra y distribuye los iconos */
+            align-items: center;
+            padding: 0 20px; /* Aumentamos la altura de la barra */
+            gap: 40px; /* Espaciado uniforme entre elementos */
+            position: sticky; /* Hace que el header sea sticky */
+            top: 0; /* Fija el header en la parte superior */
+            z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+            border-bottom: 1px solid #1a0000;
+        }
+        .nav-item {
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px; /* Texto más grande */
+            position: relative;
+        }
+        li a {
+    
+            color: #C9846A; /* Cambia al color que prefieras */
+            text-decoration: none; /* Elimina el subrayado */
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block; /* Opcional: para que los elementos se alineen horizontalmente */
+            margin-right: 15px; /* Opcional: espacio entre los elementos */
+    
+        }
+     </style>
+
+    </header>
 
          <!-- PRIMER CONTAINER -->
     <div class="container">
