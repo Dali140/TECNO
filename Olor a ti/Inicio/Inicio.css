@@ -1,91 +1,123 @@
-.antic-didone-regular {
-    font-family: "Antic Didone", serif;
-    font-weight: 400;
-    font-style: normal;
-}
 :root {
-    --color-primario: #3C0000;    /* Rojo vino */
-    --color-secundario: #C9846A;  /* Coral suave */
-    --color-fondo1: #F5E6E0;      /* Beige claro */
-    --color-fondo2: #FFFFFF; 
-    --color-fondo3: #FFEDD9;     /* Blanco puro */
+    --color-primario: #3C0000;
+    --color-secundario: #C9846A;
+    --color-fondo1: #F5E6E0;
+    --color-fondo2: #FFFFFF;
+    --color-fondo3: #FFEDD9;
 }
-body{
-    background-color: #3C0000;
-    font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
-    margin: auto;
-    padding: auto;
-            
-    /*background-image: linear-gradient(to bottom, #3C0000, #feb47b);*/
-    background-color: #3C0000;
-    background-repeat: no-repeat;
-    height: 100vh;/*vh: view port height*/
-    box-sizing: border-box;
-    margin: auto;
-    padding: auto;
-} 
 
-@media (max-width: 768px) {
-    .Tu-esencia-tu-historia, .ConoceMas {
-        flex-direction: column;
-    }
-    
-    .texto-botones, .ConoceMas .contenido {
-        max-width: 100%;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    .texto-botones {
-        padding: 25px 15px;
-        width: 95%;
-    }
-    
-    .ConoceMas .contenido {
-        padding: 30px 20px;
-    }
-    .ConoceMas p {
-        font-size: 1rem;
-        padding: 0 15px;
-        text-align: left; /* Opcional: alinear a izquierda en móviles */
-    }
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-    
-    .cta-section {
-        position: static;
-        transform: none;
-        order: -1;
-    }
-    
-    .counter {
-        order: 1;
-    }
-
+html {
+    scroll-behavior: smooth;
 }
-.Tu-esencia-tu-historia {
-    position: relative;
-    width: 90%;
-    margin: 100px auto;
-    min-height: 300px;
+
+body {
+    font-family: "Antic Didone", serif;
+    background-color: #3C0000;
+    margin: 0;
+    padding-top: 70px;
+    color: #000000;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #3C0000;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    height: 70px;
 }
-.contenido-principal {
+
+header li {
+    list-style: none;
+}
+
+header a {
+    color: #C9846A;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+header a:hover {
+    background: rgba(201, 132, 106, 0.2);
+}
+
+/* CONTENEDORES CON IMÁGENES DE FONDO RESPONSIVE */
+.contenido-principal,
+.ConoceMas .contenido,
+.Comofunciona .contenido {
     position: relative;
     z-index: 2;
     width: 100%;
     padding: 40px;
-    background: url('https://i.imgur.com/xXA9wRg.png') no-repeat center right/cover;
     border-radius: 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    height: 80vh;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
 }
 
+/* Técnica moderna para imágenes de fondo */
+.contenido-principal::before,
+.ConoceMas .contenido::before,
+.Comofunciona .contenido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center right;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.contenido-principal::before {
+    background-image: url('https://i.imgur.com/xXA9wRg.png');
+}
+
+.ConoceMas .contenido::before {
+    background-image: url('https://i.imgur.com/iZo3KdF.png');
+}
+
+.Comofunciona .contenido::before {
+    background-image: url('https://i.imgur.com/YFGI7qS.png');
+}
+
+/* Superposición para legibilidad */
+.contenido-principal::after,
+.ConoceMas .contenido::after,
+.Comofunciona .contenido::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(245,230,224,0.9) 0%, rgba(245,230,224,0.7) 50%, transparent 100%);
+    z-index: -1;
+}
+
+/* CONTENIDO PRINCIPAL */
+.Tu-esencia-tu-historia {
+    position: relative;
+    width: 90%;
+    margin: 30px auto 100px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
 
 .texto-botones {
     order: 1;
@@ -93,225 +125,125 @@ body{
     position: relative;
     padding: 20px;
 }
-h1{
+
+h1 {
     color: #000000;
     font-size: 3.5rem;
-    padding-top: 180px;
     margin-bottom: 30px;
-    position: static;
-    transform: none;
-    max-width: none;
 }
+
 .botones-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
-    margin-left: 170px;
-}
-.btn {
-    position: static;
-    transform: none;
-    width: auto;
-    height: auto;
-    
-    background-color: #3C0000; /* Color de fondo */
-    font-family: "Antic Didone", serif;
-    color: #C9846A; /* Color del texto */
-    font-size: 1rem; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
-    transition: all 0.3s ease; /* Transición para efectos */
-    
+    align-items: flex-start; /* Alinea los botones a la izquierda */
+    width: auto; /* Ancho según contenido */
+    margin-left: 170px; /* Mantén tu margen */
 }
 
-/* Efecto hover */
+.btn {
+    background-color: #3C0000;
+    color: #C9846A;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
 .btn:hover {
-    background-color: #5A0000; /* Color más claro al pasar el mouse */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background-color: #5A0000;
+    transform: scale(1.05);
 }
 
 .btn_conoce_mas {
-    background-color: transparent; /* Sin fondo */
+    font-family: "Antic Didone", serif;
+    background-color: transparent;
     margin-left: 25px;
-    color: #3C0000; /* Color del texto */
-    border: 2px solid #3C0000; /* Borde del botón */
-    font-family: "Antic Didone", serif;
-    font-size: 1rem; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: all 0.3s ease; /* Transición para efectos */
-    top: 60%; 
-    left: 9%;
-    position: static;
+    color: #3C0000;
+    border: 2px solid #3C0000;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Efecto hover para el botón "Conoce Más" */
 .btn_conoce_mas:hover {
-    background-color: #3C0000; /* Fondo al pasar el mouse */
-    color: #FFFFFF; /* Cambia el color del texto */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background-color: #3C0000;
+    color: #FFFFFF;
+    transform: scale(1.05);
 }
 
-/* Botón "¿Cómo Funciona?" sin fondo */
 .btn_como_funciona {
-    background-color: transparent; /* Sin fondo */
+    font-family: "Antic Didone", serif;
+    background-color: transparent;
     margin-left: 5px;
-    color: #3C0000; /* Color del texto */
-    border: 2px solid #3C0000; /* Borde del botón */
-    font-family: "Antic Didone", serif;
-    font-size: 1rem; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: all 0.3s ease; /* Transición para efectos */
-    top: 65%; 
-    left: 8%;
-    position: static;
+    color: #3C0000;
+    border: 2px solid #3C0000;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Efecto hover para el botón "¿Cómo Funciona?" */
 .btn_como_funciona:hover {
-    background-color: #3C0000; /* Fondo al pasar el mouse */
-    color: #FFFFFF; /* Cambia el color del texto */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background-color: #3C0000;
+    color: #FFFFFF;
+    transform: scale(1.05);
 }
 
-/* CONOCE MAS */
-.ConoceMas {
+/* SECCIONES */
+.ConoceMas, .Comofunciona {
     width: 90%;
     margin: 100px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-}
-.ConoceMas .contenido {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 40px;
-    background: url('https://i.imgur.com/iZo3KdF.png') no-repeat center right/cover;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    height: 80vh;
+    scroll-margin-top: 70px;
 }
 
-.ConoceMas h2 {
-    position: static;
-    transform: none;
-    max-width: none;
+.ConoceMas h2, .Comofunciona h3 {
     margin-bottom: 5px;
-    padding-top: 120px;
-    
 }
 
-.ConoceMas p {
-    position: static; /* (opcional, es el valor por defecto) */
+.ConoceMas p, .Comofunciona p {
     max-width: 600px;
-    width: 400px; /* Ancho máximo del párrafo */
-    margin-bottom: 30px; /* Centrado horizontal con margen inferior */
-    text-align: justify; /* Justificación del texto */
-    line-height: 1.6; /* Espaciado entre líneas */
+    width: 400px;
+    margin-bottom: 30px;
+    text-align: justify;
+    line-height: 1.6;
     font-size: 1.1rem;
-    padding-right: 20px; /* Espacio derecho si usas max-width */
-    
+    padding-right: 20px;
     hyphens: auto;
-    
 }
 
 .btn-conoce-mas {
-    background-color: #3C0000; /* Color de fondo */
     font-family: "Antic Didone", serif;
-    color: #C9846A; /* Color del texto */
-    font-size: 1rem; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
-    transition: all 0.3s ease; /* Transición para efectos */
-    top: 69%; 
-    left: 3%;
+    background-color: #3C0000;
+    color: #C9846A;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none; 
+    width: 20%;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-conoce-mas:hover {
-    background-color: #5A0000; /* Color más claro al pasar el mouse */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-}
-/*COMO FUNCIONA*/
-.Comofunciona {
-    width: 90%;
-    margin: 100px auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-.contenido {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 40px;
-    background: url('https://i.imgur.com/YFGI7qS.png') no-repeat center right/cover;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    height: 80vh;
+    background-color: #5A0000;
+    transform: scale(1.05);
 }
 
-
-/* Estilo para el título */
-.Comofunciona h3 {
-    position: static;
-    transform: none;
-    max-width: none;
-    margin-bottom: 5px;
-    padding-top: 120px;
-    
-}
-
-/* Estilo para el párrafo */
-.Comofunciona p {
-    position: static; /* (opcional, es el valor por defecto) */
-    max-width: 600px;
-    width: 400px; /* Ancho máximo del párrafo */
-    margin-bottom: 30px; /* Centrado horizontal con margen inferior */
-    text-align: justify; /* Justificación del texto */
-    line-height: 1.6; /* Espaciado entre líneas */
-    font-size: 1.1rem;
-    padding-right: 20px; /* Espacio derecho si usas max-width */
-    
-    hyphens: auto;
-    
-}
-
-/* Botón personalizado */
-.btn-conoce-mas {
-    background-color: #3C0000; /* Color de fondo */
-    font-family: "Antic Didone", serif;
-    color: #C9846A; /* Color del texto */
-    font-size: 1rem; /* Tamaño del texto */
-    padding: 10px 20px; /* Espaciado interno */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
-    transition: all 0.3s ease; /* Transición para efectos */
-    top: 69%; 
-    left: 3%;
-}
-
-/* Efecto hover para el botón */
-.btn-conoce-mas:hover {
-    background-color: #5A0000; /* Color más claro al pasar el mouse */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-}
+/* FOOTER */
 .main-footer {
-    background-color: #F5E6E0;
+    background-color: #3C0000;
     padding: 2rem;
     border-top: 1px solid #333;
 }
@@ -325,66 +257,167 @@ h1{
     gap: 1rem;
 }
 
-.number-section {
+.number-section, .facebook-section, .instagram-section {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-}
-.facebook-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-.instagram-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    text-decoration: none !important;
 }
 
-.number-icon {
+.number-icon, .face-icon, .insta-icon {
     width: 32px;
     height: 32px;
 }
 
-.face-icon {
-    width: 32px;
-    height: 32px;
-}
-.insta-icon {
-    width: 32px;
-    height: 32px;
-}
-
-
-.number{
+.number, .facebook, .instagram {
     font-family: 'Antic Didone', serif;
     font-size: 0.9rem;
-    color: #3C0000;
+    color: #C9846A !important;
     white-space: nowrap;
-}
-.facebook{
-    font-family: 'Antic Didone', serif;
-    font-size: 0.9rem;
-    color: #3C0000;
-    white-space: nowrap;
-}
-.instagram{
-    font-family: 'Antic Didone', serif;
-    font-size: 0.9rem;
-    color: #3C0000;
-    white-space: nowrap;
+    text-decoration: none !important;
 }
 
-.join-button {
-    font-size: 1.2rem;
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 8px 20px;
-    border: 2px solid #fff;
-    transition: all 0.3s ease;
+.main-footer a {
+    text-decoration: none !important;
+    color: #C9846A !important;
+    transition: opacity 0.3s ease;
 }
 
+.main-footer a:hover {
+    opacity: 0.8;
+}
 
-   
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .texto-botones {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .ConoceMas p, .Comofunciona p {
+        width: 350px;
+    }
+    
+    .contenido-principal,
+    .ConoceMas .contenido,
+    .Comofunciona .contenido {
+        min-height: 50vh;
+    }
+    
+    .contenido-principal::after,
+    .ConoceMas .contenido::after,
+    .Comofunciona .contenido::after {
+        background: linear-gradient(90deg, rgba(245,230,224,0.95) 0%, rgba(245,230,224,0.85) 70%, transparent 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 10px;
+        height: auto;
+    }
+    
+    header li {
+        margin: 5px 0;
+    }
+    
+    .Tu-esencia-tu-historia, .ConoceMas {
+        flex-direction: column;
+    }
+    
+    .texto-botones {
+        max-width: 100%;
+        padding: 25px 15px;
+        width: 95%;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        padding-top: 0;
+    }
+    
+    .botones-container {
+        margin-left: 0;
+        align-items: center;
+    }
+    
+    .btn, .btn_conoce_mas, .btn_como_funciona {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px 0;
+    }
+    
+    .contenido-principal,
+    .ConoceMas .contenido,
+    .Comofunciona .contenido {
+        padding: 30px 20px;
+        min-height: 40vh;
+    }
+    
+    .contenido-principal::before,
+    .ConoceMas .contenido::before,
+    .Comofunciona .contenido::before {
+        background-position: 75% center;
+    }
+    
+    .contenido-principal::after,
+    .ConoceMas .contenido::after,
+    .Comofunciona .contenido::after {
+        background: rgba(245,230,224,0.85);
+    }
+    
+    .ConoceMas p, .Comofunciona p {
+        font-size: 1rem;
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .contenido-principal,
+    .ConoceMas .contenido,
+    .Comofunciona .contenido {
+        min-height: 50vh;
+        background-color: var(--color-fondo1);
+    }
+    
+    .contenido-principal::before,
+    .ConoceMas .contenido::before,
+    .Comofunciona .contenido::before {
+        opacity: 0.3;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+    
+    .footer-content {
+        padding: 10px;
+    }
+}
+
+@media (hover: none) {
+    .btn:hover, .btn_conoce_mas:hover, .btn_como_funciona:hover {
+        transform: none;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
