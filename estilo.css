@@ -257,3 +257,46 @@ input:valid {
     text-align: center;
   }
 }
+
+/* ESTILOS PARA EL FOOTER */
+.main-footer {
+  background-color: #3C0000 !important; /* Color de fondo del footer */
+  padding: 20px;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around; /* Distribuye las secciones horizontalmente */
+  align-items: center; /* Alinea verticalmente los elementos */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  gap: 20px; /* Espaciado entre las secciones */
+}
+
+.footer-content div {
+  text-align: center; /* Centra el contenido dentro de cada sección */
+}
+
+.number-icon, .face-icon, .insta-icon {
+  width: 30px; /* Ajusta el tamaño de los íconos */
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.footer-content a {
+  color: #C9846A; /* Color de los enlaces */
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-content a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el cursor */
+}
+
+/* RESPONSIVE PARA EL FOOTER */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+    align-items: center;
+  }
+}
