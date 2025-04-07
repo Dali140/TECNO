@@ -33,6 +33,7 @@ header {
     align-items: center;
     height: 70px;
 }
+<<<<<<< HEAD
 
 header li {
     list-style: none;
@@ -54,6 +55,10 @@ header a:hover {
 .contenido-principal,
 .ConoceMas .contenido,
 .Comofunciona .contenido {
+=======
+.contenido-principal {
+    margin-top: -40px;
+>>>>>>> d2fec44a3fa73a7d53e55850fe9af99a3e40cac5
     position: relative;
     z-index: 2;
     width: 100%;
