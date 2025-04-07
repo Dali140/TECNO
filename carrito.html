@@ -589,18 +589,54 @@
   </footer>
 
   <script>
-    let cantidad = 1;
-    const precioUnitario = 50000;
+    // Función para el menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        // Animación de las líneas del hamburguesa
+        const spans = this.querySelectorAll('span');
+        if (this.classList.contains('active')) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+          spans[0].style.transform = 'rotate(0) translate(0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0)';
+        }
+      });
 
-    function cambiarCantidad(valor) {
-      cantidad += valor;
-      if (cantidad < 1) cantidad = 1;
-      document.getElementById("cantidad").innerText = cantidad;
-      document.getElementById("totalProductos").innerText = cantidad;
-      document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
-    }
+      // Cerrar menú al hacer clic en un enlace
+      const navLinks = document.querySelectorAll('.mobile-menu .nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          const spans = hamburger.querySelectorAll('span');
+          spans[0].style.transform = 'rotate(0) translate(0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0)';
+        });
+      });
 
-    window.addEventListener('DOMContentLoaded', () => {
+      // Funcionalidad del carrito
+      let cantidad = 1;
+      const precioUnitario = 50000;
+
+      window.cambiarCantidad = function(valor) {
+        cantidad += valor;
+        if (cantidad < 1) cantidad = 1;
+        document.getElementById("cantidad").innerText = cantidad;
+        document.getElementById("totalProductos").innerText = cantidad;
+        document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
+      }
+
+      // Funcionalidad de métodos de pago
       const radiosPago = document.querySelectorAll('input[name="pago"]');
       const infoPago = document.getElementById("infoPago");
 
@@ -657,24 +693,25 @@
           }
         });
       });
-    });
 
-    document.getElementById("formularioCompra").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const nombrePerfume = document.getElementById("nombrePerfume").value.trim();
-      if (!nombrePerfume) {
-        alert("Por favor, ingresa el nombre del perfume.");
-        return;
-      }
-      const mensajeCompra = document.getElementById("mensajeCompra");
-      mensajeCompra.innerHTML = `
-        <h3 style="color: #3C0000;">¡Compra realizada con éxito!</h3>
-        <p>Tu perfume <strong>${nombrePerfume}</strong> será enviado a la dirección proporcionada.</p>
-        <p>Recibirás un correo de confirmación con los detalles de tu pedido.</p>
-        <p style="font-style: italic; margin-top: 15px;">¡Gracias por tu compra!</p>
-      `;
-      mensajeCompra.style.display = "block";
-      document.getElementById("formularioCompra").style.display = "none";
+      // Funcionalidad del formulario
+      document.getElementById("formularioCompra").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nombrePerfume = document.getElementById("nombrePerfume").value.trim();
+        if (!nombrePerfume) {
+          alert("Por favor, ingresa el nombre del perfume.");
+          return;
+        }
+        const mensajeCompra = document.getElementById("mensajeCompra");
+        mensajeCompra.innerHTML = `
+          <h3 style="color: #3C0000;">¡Compra realizada con éxito!</h3>
+          <p>Tu perfume <strong>${nombrePerfume}</strong> será enviado a la dirección proporcionada.</p>
+          <p>Recibirás un correo de confirmación con los detalles de tu pedido.</p>
+          <p style="font-style: italic; margin-top: 15px;">¡Gracias por tu compra!</p>
+        `;
+        mensajeCompra.style.display = "block";
+        document.getElementById("formularioCompra").style.display = "none";
+      });
     });
   </script>
 </body>
