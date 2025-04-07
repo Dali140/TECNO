@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Asigna la clase "tooltip" al div creado (para estilizarlo con CSS)
     tooltip.className = "tooltip";
-
+ 
     // Agrega el tooltip al final del body del documento
     document.body.appendChild(tooltip);
 
