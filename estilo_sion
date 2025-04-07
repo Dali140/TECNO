@@ -1,0 +1,198 @@
+header {
+    list-style: none;
+    background-color: #3C0000;
+    display: flex;
+    justify-content: space-between; /* Centra y distribuye los iconos */
+    align-items: center;
+    padding: 0 20px; /* Aumentamos la altura de la barra */
+    gap: 40px; /* Espaciado uniforme entre elementos */
+    position: sticky; /* Hace que el header sea sticky */
+    top: 0; /* Fija el header en la parte superior */
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    border-bottom: 1px solid #1a0000;
+}
+.header-nav-item {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px; /* Texto más grande */
+    position: relative;
+}
+.header-li a {
+
+    color: #C9846A; /* Cambia al color que prefieras */
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block; /* Opcional: para que los elementos se alineen horizontalmente */
+    margin-right: 15px; /* Opcional: espacio entre los elementos */
+
+}
+header a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: #C9846A; /* Cambia al color que prefieras */
+}
+header a:hover {
+    color: #aa5130; /* Cambia el color al pasar el mouse (opcional) */
+}
+body {
+    background-image: url('https://i.imgur.com/tupHhqY.png'); /* Cambia la ruta por la URL o el archivo local */
+    background-size: contain; /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center top; /* Centra la imagen en la parte superior */
+    color: #ffffff;
+    font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
+    margin: 0;
+    padding: 0;
+    padding-bottom: 100px; /* Agrega espacio entre la imagen de fondo y el footer */
+
+}
+.main-footer {
+    background-color: #3C0000;
+    padding: 1%;
+    border-top: 0.1%;
+}
+.footer-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1%;
+}
+.number-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8%;
+}
+.facebook-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8%;
+    color: #C9846A; /* Cambia el color al que prefieras */
+    white-space: nowrap;
+    text-decoration: none; /* Elimina el subrayado */
+}
+.instagram-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8%;
+}
+.number-icon, .face-icon, .insta-icon {
+    width: 25%;
+    height: 25%;
+}
+.number {
+    font-family: 'Antic Didone', serif;
+    font-size: 100%;
+    color: #C9846A;
+    white-space: nowrap;
+}
+.facebook {
+    font-family: 'Antic Didone', serif;
+    font-size: 100%;
+    color: #C9846A; /* Cambia el color al que prefieras */
+    white-space: nowrap;
+    text-decoration: none; /* Elimina el subrayado */
+}
+.instagram {
+    font-family: 'Antic Didone', serif;
+    font-size: 100%;
+    color: #3C0000;
+    white-space: nowrap;
+}
+h1 {
+    color: #171620;
+    font-size: 400%;
+    top: 10%; /* Centra verticalmente el encabezado */
+    left: 26%; /* Centra horizontalmente el encabezado */
+    transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    z-index: 1; /* Asegura que el texto es */
+    top: 20%;
+    left: 25%;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+h2 {
+    color: #171620;
+    font-size: 200%;
+    top: 20%; /* Centra verticalmente el encabezado */
+    left: 26%; /* Centra horizontalmente el encabezado */
+    transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
+    position: absolute; /* Superpone el encabezado sobre la imagen */
+    text-align: center; /* Centra el texto horizontalmente */
+    z-index: 1; /* Asegura que el texto es */
+    top: 44%;
+    left: 25%;
+}
+.delgado {
+    font-weight: 100; /* Aplica fuente delgado */
+}
+form {
+    padding: 2%;
+    border-radius: 1%;
+    display: inline-block;
+    position: absolute;
+    top: 60%; /* Ajusta la distancia desde la parte superior */
+    left: 10%; /* Ajusta la distancia desde la izquierda */
+}
+label {
+    font-family: 'Antic Didone', serif;
+    font-size: 1.4%;
+    color: #171620;
+    text-align: center; /* Centra el texto horizontalmente */
+    z-index: 1; /* Asegura que el texto es */
+    top: 60%;
+    left: 25%;
+}
+input[type=text], select {
+    width: 15%;
+    padding: 1%;
+    margin: 1% 0;
+    border: none;
+    border-radius: 0.5%;
+    background-color: #fff5f1;
+    color: #171620;
+    font-family: 'Antic Didone', serif;
+    font-size: 1%;
+    font-weight: bold;
+}
+button {
+    top: 80%;
+    padding: 3% 30%;
+    background-color: #3C0000;
+    border: none;
+    border-radius: 0.5%;
+    color: #ffffff;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #240000;
+}
+html, body {
+    height: 160%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+}
+footer {
+    background-color: #3C0000;
+    padding: 2%;
+    border-top: 0.1%;
+    text-align: center;
+    flex-shrink: 0;
+}
+/* Estilos para dispositivos móviles */
+.contenedor-principal {
+    background-image: url('https://i.imgur.com/tupHhqY.png'); /* Cambia la ruta por la URL o el archivo local */
+    background-size: contain; /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center top; /* Centra la imagen en la parte superior */
+    padding: 20px; /* Opcional: Espaciado interno */
+    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+}

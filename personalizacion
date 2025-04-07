@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar</title>
+    
+    
+    <!-- Importar fuente Antic Didone -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+    
+     
+     <!-- Ruta relativa al archivo CSS -->
+    <link rel="stylesheet" href="estilo_sion.css">
+    
+</head>
+<body>
+      <!-- Header de la página -->
+      <header>
+        
+        <li>
+            <a href="Icono">
+            <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
+            </a>
+        </li>
+        <li><a href="como-funciona">¿Cómo funciona?</a></li>
+        <li><a href="personalizar">Personalizar</a></li>
+        <li><a href="fragancias">Fragancias</a></li>
+        <li><a href="contactanos">Contáctanos</a></li>
+        <li><a href="carrito"> 
+            <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
+        </a>
+    </li> 
+    
+    </header>
+    <!-- PRIMER CONTAINER -->
+    <h1 class="delgado">Crea tu Perfume<br>Único</h1>
+    <h2 class="delgado">Elige hasta 3 esencias de nuestra selección<br>exclusiva y diseña un aroma que refleje<br>tu personalidad.</h2>
+
+    <main>
+        <form>
+            <label for="nombre"><b>Nombra tu creación</b></label><br>
+            <input type="text" id="nombre" name="nombre"><br>
+    
+            <label for="salida"><b>Notas de salida</b></label><br>
+            <select id="salida" name="salida">
+                <option value="bergamota" >Bergamota</option>
+                <option value="mandarina" >Mandarina</option>
+                <option value="menta">Menta</option>
+                <option value="brisa-marina">Brisa Marina</option>
+                <option value="manzana-verde" >Manzana Verde</option>
+                <option value="piña-tropical">Piña Tropical</option>
+                <option value="eucalipto">Eucalipto</option>
+                <option value="te-verde">Té Verde</option>
+                <option value="albahaca">Albahaca</option>
+            </select><br>
+    
+            <label for="corazon"><b>Notas de corazón</b></label><br>
+            <select id="corazon" name="corazon">
+                <option value="Rosa de Damasco">Rosa de Damasco</option>
+                <option value="Jazmín">Jazmín</option>
+                <option value="Ylang Ylang">Ylang Ylang</option>
+                <option value="Miel Dorada">Miel Dorada</option>
+                <option value="Coco Cremoso">Coco Cremoso</option>
+                <option value="Durazno Suave">Durazno Suave</option>
+                <option value="Flor de Azahar">Flor de Azahar</option>
+                <option value="Frutos Rojos">Frutos Rojos</option>
+                <option value="Vainilla Floral">Vainilla Floral</option>
+            </select><br>
+    
+            <label for="fondo"><b>Notas de fondo</b></label><br>
+            <select id="fondo" name="fondo">
+                <option value="sándalo">Sándalo</option>
+                <option value="vainilla-bourbon">Vainilla Bourbon</option>
+                <option value="almizcle-blanco">Almizcle Blanco</option>
+                <option value="cuero-elegante">Cuero Elegante</option>
+                <option value="ámbar-dorado">Ámbar Dorado</option>
+                <option value="incienso-místico">Incienso Místico</option>
+                <option value="haba-tonka">Haba Tonka</option>
+                <option value="café-intenso">Café Intenso</option>
+                <option value="cedro-del-atlas">Cedro del Atlas</option>
+            </select><br>
+
+            <style>
+                select, button {
+                    margin-top: 20px; /* Espacio entre los select y el botón */
+                }
+            </style>
+
+
+            <button type="submit" class="delgado">Crea tu esencia</button>
+        </form>
+    </main>
+    
+
+    
+
+    <!-- footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="number-section">
+                <img src="https://i.imgur.com/1xawLFf.png" alt="Numero" class="number-icon">
+                <div class="number">+57 300 520 4780</div>
+            </div>
+    
+            <div class="facebook-section">
+                <img src="https://i.imgur.com/P2qJ6aI.png" alt="Facebook" class="face-icon">
+                <a href="#" class="Facebook">OlorATi</a>
+            </div>
+    
+            <div class="instagram-section">
+                <img src="https://i.imgur.com/I8SfpcR.png" alt="Instagram" class="insta-icon">
+                <a href="#" class="Facebook">@OlorATi</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
