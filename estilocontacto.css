@@ -1,186 +1,230 @@
-/* Estilos globales */
 body {
     margin: 0;
     font-family: 'Georgia', serif;
     background-color: #3C0000;
     color: white;
-}
-
-.main-footer {
+  }
+  
+  /* HEADER */
+  header {
     background-color: #3C0000;
-    padding: 2rem;
-    border-top: 1px solid #333;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-}
-
-.number-section {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+  
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  
+  .menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #C9846A;
+    border-radius: 2px;
+  }
+  
+  .nav-menu {
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-.facebook-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-.instagram-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.number-icon {
-    width: 32px;
-    height: 32px;
-}
-
-.face-icon {
-    width: 32px;
-    height: 32px;
-}
-.insta-icon {
-    width: 32px;
-    height: 32px;
-}
-.number{
-    font-family: 'Antic Didone', serif;
-    font-size: 0.9rem;
-    color: #C9846A;
-    white-space: nowrap;
-}
-.facebook {
-    font-family: 'Antic Didone', serif;
-    font-size: 0.9rem;
-    color: #C9846A; /* Cambia el color al que prefieras /
-    white-space: nowrap;
-    text-decoration: none; / Elimina el subrayado */
-}
-
-.instagram{
-    font-family: 'Antic Didone', serif;
-    font-size: 0.9rem;
-    color: #3C0000;
-    white-space: nowrap;
-}
-/* HEADER */
-header {
     list-style: none;
-    background-color: #3C0000;
-    display: flex;
-    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
     align-items: center;
-    padding: 0 20px;
-    gap: 40px;
-}
-
-li a {
+  }
+  
+  .nav-menu li a {
     color: #C9846A;
     text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-right: 15px;
     font-size: 18px;
-}
-
-
-
-/* Imagen de portada */
-.hero-contacto {
-    background-image: url('https://i.imgur.com/fSaehK9.png'); /* Cambia esto si tienes otra imagen */
-    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
-    background-position: center; /* Centra la imagen horizontal y verticalmente */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    height: 700px; /* Aumenta la altura para mostrar más de la imagen */
+    padding: 8px;
+  }
+  
+  .logo {
+    width: 55px;
+    height: auto;
+  }
+  
+  .carrito-icon {
+    width: 30px;
+    height: auto;
+  }
+  
+  /* HERO */
+  .hero-contacto {
+    background-image: url('https://i.imgur.com/fSaehK9.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 700px;
     display: flex;
-    align-items: center; /* Mantiene el contenido centrado verticalmente */
-    justify-content: flex-start; /* Mueve el contenido al lado izquierdo */
-    padding-left: 20px; /* Añade un espacio desde el borde izquierdo */
-}
-
-
-.banner h1 {
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+  
+  .banner h1 {
     background-color: #560202;
     padding: 10px 25px;
-    font-size: 50px; /* Aumenta el tamaño de la fuente */
+    font-size: 50px;
     color: white;
     border-radius: 5px;
-    text-align: left; /* Alinea el texto dentro del título al lado izquierdo */
-    margin-left: 50px; /* Ajusta el margen izquierdo para centrarlo más hacia la izquierda */
-    margin-right: auto; /* Asegura que no haya margen adicional a la derecha */
-    width: auto; /* Asegura que el ancho del título se ajuste al contenido */
-}
-
-/* Formulario */
-.formulario {
+    margin-left: 50px;
+    margin-right: auto;
+  }
+  
+  /* FORMULARIO */
+  .formulario {
     background-color: #3C0000;
     padding: 40px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.formulario h2 {
+  }
+  
+  .formulario h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    text-align: center; /* Asegura que el título esté centrado */
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    max-width: 600px; /* Limita el ancho máximo del título */
-}
-
-form {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  form {
     background-color: #7B4931;
-    padding: 15px 20px; /* Reducido para que no se vea tan grande */
+    padding: 20px;
     border-radius: 20px;
-    max-width: 500px; /* Reducido para que sea más estrecho */
-    width: 90%; /* Asegura que el formulario sea responsivo */
+    max-width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: stretch; /* Asegura que los elementos ocupen todo el ancho del formulario */
-    margin: 0 auto; /* Centra horizontalmente el formulario */
-}
-
-input, textarea {
+    align-items: center;
+  }
+  
+  input, textarea {
     padding: 10px;
     border: none;
     border-radius: 10px;
     font-size: 16px;
     resize: none;
-    width: 100%; /* Asegura que los campos ocupen todo el ancho del formulario */
-    max-width: 400px; /* Limita el ancho máximo de los campos */
-    box-sizing: border-box; /* Evita problemas de tamaño con el padding */
-    margin: 0 auto; /* Centra los campos dentro del formulario */
-}
-
-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
     background-color: #9E6A4A;
     color: white;
     border: none;
-    padding: 10px; /* Reducido para que no se vea tan grande */
+    padding: 10px;
     border-radius: 10px;
-    font-size: 16px; /* Reducido para que sea más proporcionado */
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Asegura que el botón ocupe todo el ancho del formulario */
-    max-width: 150px; /* Limita el ancho máximo del botón */
-    align-self: center; /* Centra el botón dentro del formulario */
-}
-/*confirmacion mesage*/
-#confirmationMessage {
+    max-width: 150px;
+  }
+  
+  button:hover {
+    background-color: #c9846a;
+  }
+  
+  #confirmationMessage {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-}
-button:hover {
-    background-color: #c9846a;
-}
+  }
+  
+  /* FOOTER */
+  .main-footer {
+    background-color: #3C0000;
+    padding: 2rem;
+    border-top: 1px solid #333;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .number-section, .facebook-section, .instagram-section {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .number-icon, .face-icon, .insta-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .number, .facebook {
+    font-family: 'Antic Didone', serif;
+    font-size: 0.9rem;
+    color: #C9846A;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: flex;
+    }
+  
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #3C0000;
+    }
+  
+    .nav-menu.active {
+      display: flex;
+    }
+  
+    .nav-menu li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .hero-contacto {
+      height: 400px;
+      padding-left: 10px;
+    }
+  
+    .banner h1 {
+      font-size: 28px;
+      margin-left: 10px;
+    }
+  
+    .formulario {
+      padding: 20px 10px;
+    }
+  
+    .formulario h2 {
+      font-size: 24px;
+    }
+  
+    form {
+      padding: 15px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
