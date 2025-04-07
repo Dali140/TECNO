@@ -33,7 +33,6 @@ header {
     align-items: center;
     height: 70px;
 }
-<<<<<<< HEAD
 
 header li {
     list-style: none;
@@ -55,10 +54,6 @@ header a:hover {
 .contenido-principal,
 .ConoceMas .contenido,
 .Comofunciona .contenido {
-=======
-.contenido-principal {
-    margin-top: -40px;
->>>>>>> d2fec44a3fa73a7d53e55850fe9af99a3e40cac5
     position: relative;
     z-index: 2;
     width: 100%;
@@ -141,9 +136,8 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start; /* Alinea los botones a la izquierda */
-    width: auto; /* Ancho según contenido */
-    margin-left: 170px; /* Mantén tu margen */
+    align-items: flex-start;
+    margin-left: 170px;
 }
 
 .btn {
@@ -164,7 +158,6 @@ h1 {
 }
 
 .btn_conoce_mas {
-    font-family: "Antic Didone", serif;
     background-color: transparent;
     margin-left: 25px;
     color: #3C0000;
@@ -183,7 +176,6 @@ h1 {
 }
 
 .btn_como_funciona {
-    font-family: "Antic Didone", serif;
     background-color: transparent;
     margin-left: 5px;
     color: #3C0000;
@@ -228,15 +220,14 @@ h1 {
 }
 
 .btn-conoce-mas {
-    font-family: "Antic Didone", serif;
     background-color: #3C0000;
     color: #C9846A;
     font-size: 1rem;
     padding: 10px 20px;
-    border: none; 
-    width: 20%;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 20%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
