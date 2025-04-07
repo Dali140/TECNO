@@ -9,25 +9,20 @@
 </head>
 <body>
 
-  <!-- Header de la página -->
+  <!-- Header -->
   <header>
-    <div class="menu-toggle" id="menuToggle">
-      ☰
-    </div>
-    <ul class="menu" id="navMenu">
-      <li>
+    <li>
         <a href="Icono">
           <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
         </a>
-      </li>
-      <li><a href="como-funciona">¿Cómo funciona?</a></li>
-      <li><a href="personalizar">Personalizar</a></li>
-      <li><a href="fragancias">Fragancias</a></li>
-      <li><a href="contactanos">Contáctanos</a></li>
-      <li><a href="carrito"> 
+    </li>
+    <li><a href="como-funciona">¿Cómo funciona?</a></li>
+    <li><a href="personalizar">Personalizar</a></li>
+    <li><a href="fragancias">Fragancias</a></li>
+    <li><a href="contactanos">Contáctanos</a></li>
+    <li><a href="carrito"> 
         <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
-      </a></li> 
-    </ul>
+    </a></li> 
   </header>
 
   <h1>Tu carrito</h1>
@@ -90,7 +85,6 @@
       document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
     }
 
-    // Escuchar cambios en forma de pago
     window.addEventListener('DOMContentLoaded', () => {
       const radiosPago = document.querySelectorAll('input[name="pago"]');
       const infoPago = document.getElementById("infoPago");
@@ -127,16 +121,6 @@
           }
         });
       });
-
-      // Menú hamburguesa
-      const menuToggle = document.getElementById("menuToggle");
-      const navMenu = document.getElementById("navMenu");
-
-      if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", () => {
-          navMenu.classList.toggle("activo");
-        });
-      }
     });
 
     document.getElementById("formularioCompra").addEventListener("submit", function (event) {
