@@ -69,3 +69,4 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("mouseout", hideTooltip);
     });
 });
+ 
