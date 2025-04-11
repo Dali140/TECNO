@@ -84,15 +84,15 @@ header a:hover {
 }
 
 .contenido-principal::before {
-    background-image: url('https://i.imgur.com/xXA9wRg.png');
+    background-image: url('img/Inico.png');
 }
 
 .ConoceMas .contenido::before {
-    background-image: url('https://i.imgur.com/iZo3KdF.png');
+    background-image: url('img/coquito.png');
 }
 
 .Comofunciona .contenido::before {
-    background-image: url('https://i.imgur.com/YFGI7qS.png');
+    background-image: url('img/Perfumes.png');
 }
 
 /* Superposición para legibilidad */
