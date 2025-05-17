@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito de Perfumes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    /* ESTILOS GENERALES */
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #F5E6E0;
+      color: #3C0000;
+      margin: 0;
+      padding-top: 100px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #3C0000;
+    }
+    
+    .carrito-con-imagen {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 40px;
+    }
+    
+    .imagen-lateral {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .container {
+      flex: 1;
+    }
+    
+    .producto {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .inputs-grupo label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    
+    .inputs-grupo input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    
+    .cantidad {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .cantidad button {
+      background-color: #3C0000;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .resumen {
+      background-color: rgba(201, 132, 106, 0.1);
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    
+    .resumen p {
+      margin: 10px 0;
+    }
+    
+    /* ESTILOS PARA LOS CAMPOS DE ENVÍO */
+    .informacion-envio {
+      background-color: rgba(201, 132, 106, 0.1);
+      padding: 25px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border: 1px solid #C9846A;
+    }
+    
+    .informacion-envio h3 {
+      margin-top: 0;
+      color: #3C0000;
+      border-bottom: 1px solid #C9846A;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    
+    .informacion-envio label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+    }
+    
+    .informacion-envio input[type="text"],
+    .informacion-envio input[type="tel"],
+    .informacion-envio input[type="email"],
+    .informacion-envio textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #C9846A;
+      border-radius: 5px;
+      background-color: #F5E6E0;
+      font-family: 'Playfair Display', serif;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    
+    .informacion-envio input:focus,
+    .informacion-envio textarea:focus {
+      outline: none;
+      border-color: #3C0000;
+      box-shadow: 0 0 5px rgba(60, 0, 0, 0.2);
+    }
+    
+    .informacion-envio textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .form-group {
+      flex: 1;
+    }
+    
+    /* FORMA DE PAGO */
+    .forma-pago {
+      margin: 20px 0;
+    }
+    
+    .forma-pago h3 {
+      color: #3C0000;
+      border-bottom: 1px solid #C9846A;
+      padding-bottom: 10px;
+    }
+    
+    .forma-pago label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    
+    /* BOTÓN */
+    .btn-finalizar {
+      width: 100%;
+      padding: 15px;
+      background-color: #3C0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    
+    .btn-finalizar:hover {
+      background-color: #5a0000;
+    }
+    
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: #3C0000;
+      padding: 0 50px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      gap: 20px;
+    }
+
+    .header-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      width: 55px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 35px;
+    }
+
+    .nav-link {
+      position: relative;
+      font-size: 1.2rem;
+      text-decoration: none !important;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+      color: #F5E6E0;
+    }
+
+    .nav-link:hover {
+      background: rgba(201, 132, 106, 0.2);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #C9846A;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-cart {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-cart img {
+      width: 30px;
+    }
+
+    .cart-counter {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background: #C9846A;
+      color: #3C0000;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+      margin-left: 20px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: #F5E6E0;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 100px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 100px);
+      background: #3C0000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 0;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .mobile-menu.active {
+      left: 0;
+    }
+
+    .mobile-menu .nav-link {
+      font-size: 1.4rem;
+      padding: 15px 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    .main-footer {
+      background-color: #3C0000;
+      color: #F5E6E0;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .number-section, 
+    .facebook-section, 
+    .instagram-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .number-icon, 
+    .face-icon, 
+    .insta-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .Facebook {
+      color: #F5E6E0;
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .nav-list {
+        gap: 25px;
+      }
+      
+      .carrito-con-imagen {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .imagen-lateral {
+        width: 100%;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        height: 80px;
+        padding: 0 20px;
+      }
+      
+      .header-center {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
+        order: 2;
+      }
+      
+      .nav-logo {
+        order: 1;
+      }
+      
+      .nav-cart {
+        order: 3;
+      }
+      
+      .mobile-menu {
+        top: 80px;
+        height: calc(100vh - 80px);
+      }
+      
+      .nav-logo img {
+        width: 45px;
+      }
+      
+      .nav-cart img {
+        width: 25px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="header-left">
+        <a href="Incio.html" class="nav-logo">
+          <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo">
+        </a>
+      </div>
+      
+      <!-- Navegación Desktop -->
+      <div class="header-center">
+        <ul class="nav-list">
+          <li><a href="Incio.html" class="nav-link">¿Cómo funciona?</a></li>
+          <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+          <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+          <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
+        </ul>
+      </div>
+      
+      <!-- Grupo derecho -->
+      <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+        <a href="carrito.html" class="nav-cart">
+          <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito">
+          <span class="cart-counter">0</span>
+        </a>
+        <button class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      <!-- Menú Móvil -->
+      <div class="mobile-menu">
+        <a href="Incio.html" class="nav-link">¿Cómo funciona?</a>
+        <a href="personalizar.html" class="nav-link">Personalizar</a>
+        <a href="fragancias.html" class="nav-link">Fragancias</a>
+        <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
+      </div>
+    </div>
+  </header>
+
+  <h1>Tu carrito</h1>
+
+  <div class="carrito-con-imagen">
+    <img src="https://i.imgur.com/QlBAe8M.jpeg" alt="Perfume" class="imagen-lateral" />
+
+    <div class="container">
+      <div class="producto">
+        <form id="formularioCompra">
+          <div class="inputs-grupo">
+            <label>Nombre del perfume</label>
+            <input type="text" id="nombrePerfume" placeholder="Ej. Vainilla Mística" required />
+
+            <label>Aplicar código de descuento</label>
+            <input type="text" placeholder="Código promocional" />
+          </div>
+
+          <p>Tamaño: 100ml</p>
+          <p>Precio: $50.000</p>
+
+          <div class="cantidad">
+            <label>Cantidad:</label>
+            <button type="button" onclick="cambiarCantidad(-1)">−</button>
+            <span id="cantidad">1</span>
+            <button type="button" onclick="cambiarCantidad(1)">+</button>
+          </div>
+
+          <div class="resumen">
+            <p>Total de productos: <span id="totalProductos">1</span></p>
+            <p>Total a pagar: $<span id="totalPrecio">50000</span></p>
+          </div>
+
+          <!-- SECCIÓN MEJORADA DE INFORMACIÓN DE ENVÍO -->
+          <div class="informacion-envio">
+            <h3>Información de Envío</h3>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" placeholder="Ej: María González" required />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Dirección completa</label>
+              <input type="text" placeholder="Calle, número, apartamento, barrio" required />
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Ciudad</label>
+                <input type="text" placeholder="Ej: Bogotá" required />
+              </div>
+              <div class="form-group">
+                <label>Departamento/Estado</label>
+                <input type="text" placeholder="Ej: Cundinamarca" required />
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Código postal</label>
+                <input type="text" placeholder="Ej: 110111" required />
+              </div>
+              <div class="form-group">
+                <label>Teléfono de contacto</label>
+                <input type="tel" placeholder="Ej: 3001234567" required />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="tucorreo@ejemplo.com" required />
+            </div>
+            
+            <div class="form-group">
+              <label>Notas adicionales para la entrega</label>
+              <textarea placeholder="Ej: Llamar antes de llegar, dejar con el portero, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="forma-pago">
+            <h3>Forma de Pago</h3>
+            <label><input type="radio" name="pago" value="tarjeta" checked /> Tarjeta de Crédito/Débito</label>
+            <label><input type="radio" name="pago" value="efectivo" /> Pago en Efectivo</label>
+            <label><input type="radio" name="pago" value="transferencia" /> Transferencia Bancaria</label>
+          </div>
+
+          <div id="infoPago" class="info-pago"></div>
+
+          <button type="submit" class="btn-finalizar">🛍️ Finalizar compra</button>
+        </form>
+
+        <div id="mensajeCompra" style="display: none; text-align: center; margin-top: 20px; color: #C9846A; font-size: 1.2rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="number-section">
+        <img src="https://i.imgur.com/1xawLFf.png" alt="Numero" class="number-icon">
+        <div class="number">+57 300 520 4780</div>
+      </div>
+
+      <div class="facebook-section">
+        <img src="https://i.imgur.com/P2qJ6aI.png" alt="Facebook" class="face-icon">
+        <a href="#" class="Facebook">OlorATi</a>
+      </div>
+
+      <div class="instagram-section">
+        <img src="https://i.imgur.com/I8SfpcR.png" alt="Instagram" class="insta-icon">
+        <a href="#" class="Facebook">@OlorATi</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Función para el menú hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        
+        // Animación de las líneas del hamburguesa
+        const spans = this.querySelectorAll('span');
+        if (this.classList.contains('active')) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+          spans[0].style.transform = 'rotate(0) translate(0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0)';
+        }
+      });
+
+      // Cerrar menú al hacer clic en un enlace
+      const navLinks = document.querySelectorAll('.mobile-menu .nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          const spans = hamburger.querySelectorAll('span');
+          spans[0].style.transform = 'rotate(0) translate(0)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0) translate(0)';
+        });
+      });
+
+      // Funcionalidad del carrito
+      let cantidad = 1;
+      const precioUnitario = 50000;
+
+      window.cambiarCantidad = function(valor) {
+        cantidad += valor;
+        if (cantidad < 1) cantidad = 1;
+        document.getElementById("cantidad").innerText = cantidad;
+        document.getElementById("totalProductos").innerText = cantidad;
+        document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
+      }
+
+      // Funcionalidad de métodos de pago
+      const radiosPago = document.querySelectorAll('input[name="pago"]');
+      const infoPago = document.getElementById("infoPago");
+
+      radiosPago.forEach(radio => {
+        radio.addEventListener("change", () => {
+          switch (radio.value) {
+            case "tarjeta":
+              infoPago.innerHTML = `
+                <div class="info-tarjeta" style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
+                  <p style="margin-top: 0;">Por favor, ingresa los datos de tu tarjeta:</p>
+                  <div class="form-group">
+                    <label>Número de tarjeta</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group" style="flex: 2;">
+                      <label>Fecha de vencimiento</label>
+                      <input type="month" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                      <label>Código CVV</label>
+                      <input type="text" placeholder="123" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
+                    </div>
+                  </div>
+                </div>
+              `;
+              break;
+            case "efectivo":
+              infoPago.innerHTML = `
+                <div style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
+                  <p style="margin-top: 0;">Seleccionaste pago en efectivo. Realiza el pago al momento de la entrega.</p>
+                  <p>Recibirás tu perfume en un plazo de 3 a 5 días hábiles.</p>
+                </div>
+              `;
+              break;
+            case "transferencia":
+              infoPago.innerHTML = `
+                <div style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
+                  <p style="margin-top: 0;">Seleccionaste transferencia bancaria. Realiza la transferencia a esta cuenta:</p>
+                  <p><strong>Banco:</strong> Banco Ejemplo</p>
+                  <p><strong>Número de cuenta:</strong> 123456789</p>
+                  <p><strong>Titular:</strong> Nombre del Titular</p>
+                  <div class="form-group">
+                    <label>Sube tu comprobante de pago</label>
+                    <input type="file" id="comprobante" accept="image/*,application/pdf" required style="width: 100%;">
+                  </div>
+                  <div class="form-group">
+                    <label>Ingresa el código de confirmación enviado a tu correo</label>
+                    <input type="number" id="codigoConfirmacion" placeholder="Código de confirmación" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
+                  </div>
+                </div>
+              `;
+              break;
+          }
+        });
+      });
+
+      // Funcionalidad del formulario
+      document.getElementById("formularioCompra").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const nombrePerfume = document.getElementById("nombrePerfume").value.trim();
+        if (!nombrePerfume) {
+          alert("Por favor, ingresa el nombre del perfume.");
+          return;
+        }
+        const mensajeCompra = document.getElementById("mensajeCompra");
+        mensajeCompra.innerHTML = `
+          <h3 style="color: #3C0000;">¡Compra realizada con éxito!</h3>
+          <p>Tu perfume <strong>${nombrePerfume}</strong> será enviado a la dirección proporcionada.</p>
+          <p>Recibirás un correo de confirmación con los detalles de tu pedido.</p>
+          <p style="font-style: italic; margin-top: 15px;">¡Gracias por tu compra!</p>
+        `;
+        mensajeCompra.style.display = "block";
+        document.getElementById("formularioCompra").style.display = "none";
+      });
+    });
+  </script>
+</body>
+</html>
