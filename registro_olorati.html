@@ -137,7 +137,7 @@ document.getElementById("formRegistro").addEventListener("submit", function(e) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    fetch("http://localhost/TECNO/backend/registro.php", {
+    fetch("http://localhost/TECNO/registro.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, email, password })
