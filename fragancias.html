@@ -5,7 +5,7 @@
     <meta name="Personalizacion" content="width=device-width, initial-scale=1.0">
     <title>Personalizacion</title>
     <!-- Ruta relativa al archivo CSS -->
-    <link rel="stylesheet" href="estilo_perso.css">
+    <link rel="stylesheet" href="css/fragancias.css">
 
     <!-- Ruta relativa al archivo JavaScript -->
     <script src="Logica.js" defer></script>
@@ -16,15 +16,15 @@
      <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
 </head>
 <body>
-          <!-- Header de la página -->
-    <header>
+<!-- ---------------------------------------------------Header de la página -------------------------------------->
+    <!--<header>
         
         <li>
             <a href="Incio.html">
             <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
             </a>
         </li>
-        <li><a href="Incio.html">¿Cómo funciona?</a></li>
+        <li><a href="Index.html">¿Cómo funciona?</a></li>
         <li><a href="personalizar.html">Personalizar</a></li>
         <li><a href="fragancias.html">Fragancias</a></li>
         <li><a href="CONTACTO.html">Contáctanos</a></li>
@@ -69,31 +69,264 @@
      </style>
 
     </header>
-
-         <!-- PRIMER CONTAINER -->
+    -->
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="Index.html" class="nav-logo">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+            </div>
+ 
+            <!-- Navegación Desktop -->
+            <div class="header-center">
+                <ul class="nav-list">
+                    <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
+                    <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+                    <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+                    <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
+                </ul>
+            </div>
+                       
+            <!-- Grupo derecho -->
+            <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+                <div class= "cart-container"></div>
+                <a href="carrito.html" class="nav-cart">
+                    <img src="img/carro logo.png" alt="Carrito">
+                    <span class="cart-counter">0</span>
+                </a>
+               
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- Menú Móvil -->
+            <div class="mobile-menu">
+                <a href="#como-funciona" class="nav-link">¿Cómo funciona?</a>
+                <a href="personalizar.html" class="nav-link">Personalizar</a>
+                <a href="fragancias.html" class="nav-link">Fragancias</a>
+                <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
+            </div>
+        </div>
+        <!---------------------------------- Estilos para el header ---------------------->
+        <style>
+        /* HEADER FLEXBOX MEJORADO */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #3C0000;
+            padding: 0 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            gap: 20px;
+        }
+    
+        .header-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        /* LOGO */
+        .nav-logo img {
+            width: 55px;
+            transition: transform 0.3s ease;
+        }
+    
+        /* NAVEGACIÓN DESKTOP */
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 35px;
+        }
+    
+        .nav-link {
+            position: relative;
+            font-size: 1.2rem;
+            text-decoration: none !important;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+            color: #F5E6E0;
+        }
+    
+        .nav-link:hover {
+            background: rgba(201, 132, 106, 0.2);
+        }
+    
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #C9846A;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+    
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    
+        /* CARRITO */
+        .nav-cart {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+    
+        .nav-cart img {
+            width: 30px;
+        }
+    
+        .cart-counter {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: #C9846A;
+            color: #3C0000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        /* MENÚ HAMBURGUESA */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            margin-left: 20px;
+        }
+    
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: #F5E6E0;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+    
+        /* MENÚ MÓVIL */
+        .mobile-menu {
+            position: fixed;
+            top: 100px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 100px);
+            background: #3C0000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+    
+        .mobile-menu.active {
+            left: 0;
+        }
+    
+        .mobile-menu .nav-link {
+            font-size: 1.4rem;
+            padding: 15px 0;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .nav-list {
+                gap: 25px;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            header {
+                height: 80px;
+                padding: 0 20px;
+            }
+            
+            .header-center {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+                order: 2;
+            }
+            
+            .nav-logo {
+                order: 1;
+            }
+            
+            .nav-cart {
+                order: 3;
+            }
+            
+            .mobile-menu {
+                top: 80px;
+                height: calc(100vh - 80px);
+            }
+            
+            .nav-logo img {
+                width: 45px;
+            }
+            
+            .nav-cart img {
+                width: 25px;
+            }
+        }
+        </style>
+    </header>
+         <!-------------------------------------------- PRIMER CONTAINER ------------------------------------->
     <div class="container">
         <h1 class="delgado">Fragancias</h1>
-        <img src="https://i.imgur.com/fno1HML.jpeg" alt="Fragancias_1" />
+        <img src="img/fragancias.jpg" alt="Fragancias_1" />
     </div>
 
-    <!-- NOTAS DE SALIDA -->
+    <!-------------------------------------------------------- NOTAS DE SALIDA ------------------------------------------->
 
     <h2 class="delgado">Notas De Salida</h2>
     <p class="delgado">Frescas y vibrantes, las primeras notas que se perciben,<br>ligeras y energizantes.</p>
     <div class="notas-salida">
-        <img src="https://i.imgur.com/vvA7YIm.png" alt="1 Bergamota" data-tooltip="Cítrica, chispeante y sofisticada."data-value="Bergamota">
-        <img src="https://i.imgur.com/kYlsbcM.png" alt="2 Mandarina" data-tooltip="Dulce, jugosa y llena de energía."data-value="Mandarina">
-        <img src="https://i.imgur.com/AKGTcM5.png" alt="3 Menta" data-tooltip="Fresca y herbal, con un toque revitalizante."data-value="Menta">
-        <img src="https://i.imgur.com/LueY6WJ.png" alt="4 Brisa Marina" data-tooltip="Ligera y refrescante como el océano."data-value="Brisa Marina">
-        <img src="https://i.imgur.com/VgLIyAG.png" alt="5 Manzana Verde" data-tooltip="Dulce con un toque ácido y juvenil."data-value="Manzana Verde">
-        <img src="https://i.imgur.com/kHTSM7s.png" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa."data-value="Piña Tropical">
-        <img src="https://i.imgur.com/ZsApLBl.png" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante."data-value="Eucalipto">
-        <img src="https://i.imgur.com/47ni7Nw.png" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural."data-value="Te Verde">
-        <img src="https://i.imgur.com/rTkOlPb.png" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal."data-value="Albahaca">
+        <img src="img/BEGAMOTA.png" alt="1 Bergamota" data-tooltip="Cítrica, chispeante y sofisticada."data-value="Bergamota">
+        <img src="img/MANDARINA.png" alt="2 Mandarina" data-tooltip="Dulce, jugosa y llena de energía."data-value="Mandarina">
+        <img src="img/MENTA.png" alt="3 Menta" data-tooltip="Fresca y herbal, con un toque revitalizante."data-value="Menta">
+        <img src="img/BRISA MERLINA.png" alt="4 Brisa Marina" data-tooltip="Ligera y refrescante como el océano."data-value="Brisa Marina">
+        <img src="img/MANZANA.png" alt="5 Manzana Verde" data-tooltip="Dulce con un toque ácido y juvenil."data-value="Manzana Verde">
+        <img src="img/" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa."data-value="Piña Tropical">
+        <img src="img/" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante."data-value="Eucalipto">
+        <img src="img/" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural."data-value="Te Verde">
+        <img src="img/" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal."data-value="Albahaca">
     </div>
 
 
-    <!-- NOTAS DE CORAZOZN -->
+    <!------------------------------------------ NOTAS DE CORAZOZN --------------------------------------->
 
     <h2 class="delgado">Notas De Corazón</h2>
     <p class="delgado">Florales y Dulces, el alma del perfume, dura más tiempo<br>y define su esencia.</p>
@@ -110,7 +343,7 @@
     </div>
 
 
-    <!-- NOTAS DE FONDO -->
+    <!---------------------------------------------------- NOTAS DE FONDO ------------------------------------------->
 
     <h2 class="delgado">Notas De Fondo</h2>
     <p class="delgado">La base de la fragancia, profundas y duraderas, <br>se perciben al final.</p>
@@ -128,7 +361,7 @@
     <div style="height: 150px;"></div> <!-- Espacio adicional -->
 
 
-    <!-- FRAGANCIAS ELEJIDAS -->
+    <!------------------------------------------------------------ FRAGANCIAS ELEJIDAS ---------------------------------->
     <h6 class="delgado">Notas Seleccionadas</h6>
     <div class="excel-box">
         <table>
@@ -151,30 +384,28 @@
     </div>
 
 
-    <!-- FRAGANCIAS ELEJIDAS -->
+    <!--------------------------------------------- FRAGANCIAS ELEJIDAS ---------------------------------------->
     <button id="miBoton" class="perso-boton" onclick="location.href='personalizar.html'"><b>Termina tu Personalización</b></button>
 
     <!-- footer -->
     <footer class="main-footer">
-        <div class="footer-content">
-            <div class="number-section">
-                <img src="https://i.imgur.com/1xawLFf.png" alt="Numero" class="number-icon">
-                <div class="number">+57 300 520 4780</div>
-            </div>
-    
-            <div class="facebook-section">
-                <img src="https://i.imgur.com/P2qJ6aI.png" alt="Facebook" class="face-icon">
-                <a href="#" class="Facebook">OlorATi</a>
-            </div>
-    
-            <div class="instagram-section">
-                <img src="https://i.imgur.com/I8SfpcR.png" alt="Instagram" class="insta-icon">
-                <a href="#" class="Facebook">@OlorATi</a>
-            </div>
+    <div class="footer-content">
+        <div class="number-section">
+            <img src="img/contacto.png" alt="Numero" class="number-icon">
+            <div class="number">+57 300 520 4780</div>
         </div>
+
+        <div class="facebook-section">
+            <img src="img/logo facebook.png" alt="Facebook" class="face-icon">
+            <a href="#" class="facebook" style="color: #C9846A;">OlorATi</a>
+        </div>
+
+        <div class="instagram-section">
+            <img src="img/logo ig.png" alt="Instagram" class="insta-icon">
+            <a href="#" class="instagram" style="color: #C9846A;">@OlorATi</a>
+        </div>
+    </div>
     </footer>
-
-
 
 </body>
 </html>

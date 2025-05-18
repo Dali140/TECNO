@@ -75,7 +75,7 @@ h1 {
     
     color: #171620;
     font-size: 500%;
-    top: 1%; /* Centra verticalmente el encabezado */
+    top: 10%; /* Centra verticalmente el encabezado */
     left: 50%; /* Centra horizontalmente el encabezado */
     transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
     position: absolute; /* Superpone el encabezado sobre la imagen */

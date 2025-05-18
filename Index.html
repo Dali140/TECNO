@@ -6,14 +6,59 @@
     <title>Página de Inicio - Perfumería</title>
         
      <!-- Importar fuente Antic Didone -->
-     <link rel="stylesheet" href="Inicio.css">
+     <link rel="stylesheet" href="css/Inicio.css">
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
      
     
 </head>
-<body>  
+<body> 
+    
+    <!-- --------------------------------Header de la página------------------------------------------- -->
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="Index.html" class="nav-logo">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+            </div>
+            
+            <!-- Navegación Desktop -->
+            <div class="header-center">
+                <ul class="nav-list">
+                    <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
+                    <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+                    <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+                    <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
+                </ul>
+            </div>
+            
+            <!-- Grupo derecho -->
+            <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+                <div class= "cart-container"></div>
+                <a href="carrito.html" class="nav-cart">
+                    <img src="img/carro logo.png" alt="Carrito">
+                    <span class="cart-counter">0</span>
+                </a>
+               
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- Menú Móvil -->
+            <div class="mobile-menu">
+                <a href="#como-funciona" class="nav-link">¿Cómo funciona?</a>
+                <a href="personalizar.html" class="nav-link">Personalizar</a>
+                <a href="fragancias.html" class="nav-link">Fragancias</a>
+                <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
+            </div>
+        </div>
+    </header>
     <style>
         /* HEADER FLEXBOX MEJORADO */
         header {
@@ -204,49 +249,7 @@
         }
     </style>
     
-    <header>
-        <div class="header-container">
-            <!-- Logo -->
-            <div class="header-left">
-                <a href="#inicio" class="nav-logo">
-                    <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo">
-                </a>
-            </div>
-            
-            <!-- Navegación Desktop -->
-            <div class="header-center">
-                <ul class="nav-list">
-                    <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
-                    <li><a href="#personalizar" class="nav-link">Personalizar</a></li>
-                    <li><a href="#fragancias" class="nav-link">Fragancias</a></li>
-                    <li><a href="#contactanos" class="nav-link">Contáctanos</a></li>
-                </ul>
-            </div>
-            
-            <!-- Grupo derecho -->
-            <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
-                <div class= "cart-container"></div>
-                <a href="#carrito" class="nav-cart">
-                    <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito">
-                    <span class="cart-counter">0</span>
-                </a>
-               
-                <button class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            
-            <!-- Menú Móvil -->
-            <div class="mobile-menu">
-                <a href="#como-funciona" class="nav-link">¿Cómo funciona?</a>
-                <a href="#personalizar" class="nav-link">Personalizar</a>
-                <a href="#fragancias" class="nav-link">Fragancias</a>
-                <a href="#contactanos" class="nav-link">Contáctanos</a>
-            </div>
-        </div>
-    </header>
+    
     
     <script>
         // Menú Hamburguesa
@@ -331,22 +334,45 @@
 <footer class="main-footer">
     <div class="footer-content">
         <div class="number-section">
-            <img src="https://i.imgur.com/1xawLFf.png" alt="Numero" class="number-icon">
+            <img src="img/contacto.png" alt="Numero" class="number-icon">
             <div class="number">+57 300 520 4780</div>
         </div>
 
         <div class="facebook-section">
-            <img src="https://i.imgur.com/P2qJ6aI.png" alt="Facebook" class="face-icon">
+            <img src="img/logo facebook.png" alt="Facebook" class="face-icon">
             <a href="#" class="facebook">OlorATi</a>
         </div>
 
         <div class="instagram-section">
-            <img src="https://i.imgur.com/I8SfpcR.png" alt="Instagram" class="insta-icon">
+            <img src="img/logo ig.png" alt="Instagram" class="insta-icon">
             <a href="#" class="instagram">@OlorATi</a>
         </div>
     </div>
 </footer>
 
 <script src="Inicio.js"></script>
+<!-- Banner de cookies -->
+<div id="cookie-banner" style="display:none; position: fixed; bottom: 0; left: 0; right: 0; background-color: #3C0000; color: #F5E6E0; padding: 15px; text-align: center; font-family: 'Antic Didone', serif; z-index: 1000;">
+  Este sitio utiliza cookies para mejorar tu experiencia. Al continuar, aceptas su uso.
+  <button id="aceptar-cookies" style="margin-left: 20px; background-color: #C9846A; color: #3C0000; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Aceptar</button>
+</div>
+
+<script>
+  // Mostrar el banner si no hay cookie
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!document.cookie.includes("cookies_aceptadas=true")) {
+      document.getElementById("cookie-banner").style.display = "block";
+    }
+  });
+
+  // Guardar cookie al aceptar
+  document.getElementById("aceptar-cookies").addEventListener("click", () => {
+    const fecha = new Date();
+    fecha.setFullYear(fecha.getFullYear() + 1); // Expira en 1 año
+    document.cookie = "cookies_aceptadas=true; expires=" + fecha.toUTCString() + "; path=/";
+    document.getElementById("cookie-banner").style.display = "none";
+  });
+</script>
+
 </body>
 </html>
