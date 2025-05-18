@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> <!-- hello-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio - Perfumería</title>
@@ -299,38 +299,38 @@
 
     <!-- --------------------------------Contenido Principal------------------------------------------- -->
 <div class="Tu-esencia-tu-historia">
-    <div class="contenido-principal">
-        <h1>Tú esencia, tú historia.</h1>
-        <div class="botones-container">
-            <button class="btn">Personalizar Ahora</button>
-            <button class="btn_conoce_mas" onclick="scrollToConoceMas()">Conoce más</button>
-            <button class="btn_como_funciona" onclick="scrollToComoFunciona()">¿Cómo funciona?</button>
-        </div>
+  <div class="contenido-principal">
+    <h1>Tú esencia, tú historia.</h1>
+    <div class="botones-container">
+      <a href="personalizar.html" class="btn">Personalizar Ahora</a>
+      <button class="btn_conoce_mas">Conoce más</button>
+      <button class="btn_como_funciona">¿Cómo funciona?</button>
     </div>
+  </div>
 </div>
 
 <div class="ConoceMas" id="conoce-mas">
-    <div class="contenido">
-        <h2>Conoce más</h2>
-        <p>Personalizar tu perfume nunca ha sido tan fácil ni tan único. En nuestra plataforma, tienes la oportunidad de crear una fragancia que refleje tu personalidad y estilo. Escoge las notas que más te cautiven, mezcla aromas que te representen y diseña el frasco que mejor se ajuste a ti. ¡Tu perfume, tu identidad!
-        <br><br>
-        Descubre el placer de tener una fragancia exclusiva, hecha especialmente para ti.
-        <br><br>
-        ¿Listo para encontrar tu aroma perfecto?</p>
-        <button class="btn btn-conoce-mas">Personalizar Ahora</button>
-    </div>
+  <div class="contenido">
+    <h2>Conoce más</h2>
+    <p>Personalizar tu perfume nunca ha sido tan fácil ni tan único. En nuestra plataforma, tienes la oportunidad de crear una fragancia que refleje tu personalidad y estilo. Escoge las notas que más te cautiven, mezcla aromas que te representen y diseña el frasco que mejor se ajuste a ti. ¡Tu perfume, tu identidad!
+    <br><br>
+    Descubre el placer de tener una fragancia exclusiva, hecha especialmente para ti.
+    <br><br>
+    ¿Listo para encontrar tu aroma perfecto?</p>
+    <a href="personalizar.html" class="btn btn-conoce-mas">Personalizar Ahora</a>
+  </div>
 </div>
 
 <div class="Comofunciona" id="como-funciona">
-    <div class="contenido">
-        <h3>¿Cómo funciona?</h3>
-        <p>1. Escoge tu fragancia favorita: Selecciona tres opciones.
-        <br><br>
-        2. Personaliza el tamaño: Elige el tamaño del frasco (50 ml, 100 ml o 200 ml).
-        <br><br>
-        3. ¡Hazla tuya!: Haz clic para confirmar tu selección.</p>
-        <button class="btn btn-conoce-mas">Personalizar Ahora</button>
-    </div>
+  <div class="contenido">
+    <h3>¿Cómo funciona?</h3>
+    <p>1. Escoge tu fragancia favorita: Selecciona tres opciones.
+    <br><br>
+    2. Personaliza el tamaño: Elige el tamaño del frasco (50 ml, 100 ml o 200 ml).
+    <br><br>
+    3. ¡Hazla tuya!: Haz clic para confirmar tu selección.</p>
+    <a href="personalizar.html" class="btn btn-conoce-mas">Personalizar Ahora</a>
+  </div>
 </div>
 
 
@@ -375,6 +375,15 @@
     fecha.setFullYear(fecha.getFullYear() + 1); // Expira en 1 año
     document.cookie = "cookies_aceptadas=true; expires=" + fecha.toUTCString() + "; path=/";
     document.getElementById("cookie-banner").style.display = "none";
+  });
+
+  // Scroll suave al hacer clic en los botones
+  document.querySelector('.btn_conoce_mas').addEventListener('click', function () {
+    document.getElementById('conoce-mas').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.querySelector('.btn_como_funciona').addEventListener('click', function () {
+    document.getElementById('como-funciona').scrollIntoView({ behavior: 'smooth' });
   });
 </script>
 
