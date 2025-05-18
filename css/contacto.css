@@ -1,11 +1,13 @@
 body {
     margin: 0;
-    font-family: 'Georgia', serif;
+    font-family: "Antic Didone", serif; /* Aplicamos la fuente a todo el sitio */
     background-color: #3C0000;
     color: white;
   }
   
-  /* HEADER */
+  /* --------------------------------------------------HEADER ---------------------------------------------*/
+  
+
   header {
     background-color: #3C0000;
     display: flex;
@@ -54,10 +56,11 @@ body {
     width: 30px;
     height: auto;
   }
+
   
-  /* HERO */
+  /* ------------------------------------------------------------HERO -------------------------------------*/
   .hero-contacto {
-    background-image: url('https://i.imgur.com/fSaehK9.png');
+    background-image: url("../img/banner\ contacto.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -139,7 +142,7 @@ body {
     text-align: center;
   }
   
-  /* FOOTER */
+  /* -----------------------------------------------------------FOOTER ----------------------------------------*/
   .main-footer {
     background-color: #3C0000;
     padding: 2rem;
@@ -226,5 +229,8 @@ body {
       flex-direction: column;
       text-align: center;
     }
+    .instagram-section .instagram {
+    color: #C9846A;  
+  }
   }
   

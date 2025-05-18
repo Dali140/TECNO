@@ -17,102 +17,7 @@
 </head>
 <body>
 <!-- ---------------------------------------------------Header de la página -------------------------------------->
-    <!--<header>
-        
-        <li>
-            <a href="Incio.html">
-            <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo de la página" style="width: 55px; height: auto;">
-            </a>
-        </li>
-        <li><a href="Index.html">¿Cómo funciona?</a></li>
-        <li><a href="personalizar.html">Personalizar</a></li>
-        <li><a href="fragancias.html">Fragancias</a></li>
-        <li><a href="CONTACTO.html">Contáctanos</a></li>
-        <li><a href="carrito.html"> 
-            <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito de compras" style="width: 30px; height: auto;">
-        </a>
-    </li> 
-
-    <style>
-        header {
-            list-style: none;
-            background-color: #3C0000;
-            display: flex;
-            justify-content: space-between; /* Centra y distribuye los iconos */
-            align-items: center;
-            padding: 0 20px; /* Aumentamos la altura de la barra */
-            gap: 40px; /* Espaciado uniforme entre elementos */
-            position: sticky; /* Hace que el header sea sticky */
-            top: 0; /* Fija el header en la parte superior */
-            z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
-            border-bottom: 1px solid #1a0000;
-        }
-        .nav-item {
-             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 18px; /* Texto más grande */
-            position: relative;
-        }
-        li a {
-    
-            color: #C9846A; /* Cambia al color que prefieras */
-            text-decoration: none; /* Elimina el subrayado */
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block; /* Opcional: para que los elementos se alineen horizontalmente */
-            margin-right: 15px; /* Opcional: espacio entre los elementos */
-    
-        }
-     </style>
-
-    </header>
-    -->
-    <header>
-        <div class="header-container">
-            <!-- Logo -->
-            <div class="header-left">
-                <a href="Index.html" class="nav-logo">
-                    <img src="img/logo.png" alt="Logo">
-                </a>
-            </div>
- 
-            <!-- Navegación Desktop -->
-            <div class="header-center">
-                <ul class="nav-list">
-                    <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
-                    <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
-                    <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
-                    <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
-                </ul>
-            </div>
-                       
-            <!-- Grupo derecho -->
-            <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
-                <div class= "cart-container"></div>
-                <a href="carrito.html" class="nav-cart">
-                    <img src="img/carro logo.png" alt="Carrito">
-                    <span class="cart-counter">0</span>
-                </a>
-               
-                <button class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            
-            <!-- Menú Móvil -->
-            <div class="mobile-menu">
-                <a href="#como-funciona" class="nav-link">¿Cómo funciona?</a>
-                <a href="personalizar.html" class="nav-link">Personalizar</a>
-                <a href="fragancias.html" class="nav-link">Fragancias</a>
-                <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
-            </div>
-        </div>
-        <!---------------------------------- Estilos para el header ---------------------->
+    <div>
         <style>
         /* HEADER FLEXBOX MEJORADO */
         header {
@@ -301,8 +206,94 @@
                 width: 25px;
             }
         }
-        </style>
+    </style>
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="Index.html" class="nav-logo">
+                    <img src="img/logo.png" alt="Logo">
+                </a>
+            </div>
+            
+            <!-- Navegación Desktop -->
+            <div class="header-center">
+                <ul class="nav-list">
+                    <li><a href="Index.html" class="nav-link">¿Cómo funciona?</a></li>
+                    <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+                    <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+                    <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
+                </ul>
+            </div>
+            
+            <!-- Grupo derecho -->
+            <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+                <a href="carrito.html" class="nav-cart">
+                    <img src="img/carro logo.png" alt="Carrito">
+                    <span class="cart-counter">0</span>
+                </a>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- Menú Móvil -->
+            <div class="mobile-menu">
+                <a href="Index.html" class="nav-link">¿Cómo funciona?</a>>
+                <a href="personalizar.html" class="nav-link">Personalizar</a>
+                <a href="fragancias.html" class="nav-link">Fragancias</a>
+                <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
+            </div>
+        </div>
     </header>
+    <script>
+        // Menú Hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelectorAll('.mobile-menu .nav-link');
+    
+        // Función para alternar menú
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Animación a X
+            hamburger.children[0].style.transform = hamburger.classList.contains('active') 
+                ? 'rotate(45deg) translate(5px, 5px)' 
+                : 'none';
+                
+            hamburger.children[1].style.opacity = hamburger.classList.contains('active') 
+                ? '0' 
+                : '1';
+                
+            hamburger.children[2].style.transform = hamburger.classList.contains('active') 
+                ? 'rotate(-45deg) translate(7px, -6px)' 
+                : 'none';
+        }
+    
+        // Event listeners
+        hamburger.addEventListener('click', toggleMenu);
+    
+        // Cerrar menú al hacer click en enlace (pero mantener la X)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                // No removemos la clase 'active' del hamburger para mantener la X
+            });
+        });
+    
+        // Ajustar padding del body
+        function updateBodyPadding() {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            document.body.style.paddingTop = `${headerHeight}px`;
+        }
+    
+        window.addEventListener('load', updateBodyPadding);
+        window.addEventListener('resize', updateBodyPadding);
+    </script>
+    </div>
          <!-------------------------------------------- PRIMER CONTAINER ------------------------------------->
     <div class="container">
         <h1 class="delgado">Fragancias</h1>
@@ -310,7 +301,7 @@
     </div>
 
     <!-------------------------------------------------------- NOTAS DE SALIDA ------------------------------------------->
-
+    <div>
     <h2 class="delgado">Notas De Salida</h2>
     <p class="delgado">Frescas y vibrantes, las primeras notas que se perciben,<br>ligeras y energizantes.</p>
     <div class="notas-salida">
@@ -319,49 +310,53 @@
         <img src="img/MENTA.png" alt="3 Menta" data-tooltip="Fresca y herbal, con un toque revitalizante."data-value="Menta">
         <img src="img/BRISA MERLINA.png" alt="4 Brisa Marina" data-tooltip="Ligera y refrescante como el océano."data-value="Brisa Marina">
         <img src="img/MANZANA.png" alt="5 Manzana Verde" data-tooltip="Dulce con un toque ácido y juvenil."data-value="Manzana Verde">
-        <img src="img/" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa."data-value="Piña Tropical">
-        <img src="img/" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante."data-value="Eucalipto">
-        <img src="img/" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural."data-value="Te Verde">
-        <img src="img/" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal."data-value="Albahaca">
+        <img src="img/piñaTropi.png" alt="6 Piña Tropical" data-tooltip="Jugosa, exótica y luminosa."data-value="Piña Tropical">
+        <img src="img/EUCA.png" alt="7 Eucalipto" data-tooltip="Herbal y refrescante, con un efecto vigorizante."data-value="Eucalipto">
+        <img src="img/TE GREEN.png" alt="8 Te Verde" data-tooltip="Suave y armonioso, con frescura natural."data-value="Te Verde">
+        <img src="img/ALBAHACA.png" alt="9 Albahaca" data-tooltip="Verde y especiada, con un toque fresco y herbal."data-value="Albahaca">
+    </div>
     </div>
 
 
     <!------------------------------------------ NOTAS DE CORAZOZN --------------------------------------->
-
+    <div>
     <h2 class="delgado">Notas De Corazón</h2>
     <p class="delgado">Florales y Dulces, el alma del perfume, dura más tiempo<br>y define su esencia.</p>
     <div class="notas-corazon">
-    <img src="https://i.imgur.com/5HnxHYa.png" alt="1 Rosa de Damasco" data-tooltip="Floral clásico, romántico y sofisticado." data-value="Rosa de Damasco">
-    <img src="https://i.imgur.com/yxeH0gu.png" alt="2 Jazmín" data-tooltip="Exótico y embriagador, con un aroma envolvente." data-value="Jazmín">
-    <img src="https://i.imgur.com/X6Q5wC2.png" alt="3 Ylang Ylang" data-tooltip="Floral dulce con toques frutales." data-value="Ylang Ylang">
-    <img src="https://i.imgur.com/ErSJcXN.png" alt="4 Miel Dorada" data-tooltip="Dulzura cálida y envolvente." data-value="Miel Dorada">
-    <img src="https://i.imgur.com/GrQngZb.png" alt="5 Coco Cremoso" data-tooltip="Tropical, cremoso y exótico." data-value="Coco Cremoso">
-    <img src="https://i.imgur.com/8z4npVy.png" alt="6 Durazno Suave" data-tooltip="Dulce, jugoso y aterciopelado." data-value="Durazno Suave">
-    <img src="https://i.imgur.com/hZYhtBo.png" alt="7 Flor de Azahar" data-tooltip="Delicada, floral y luminosa." data-value="Flor de Azahar">
-    <img src="https://i.imgur.com/v8AswbI.png" alt="8 Frutos Rojos" data-tooltip="Dulce y jugoso, con toques vibrantes." data-value="Frutos Rojos">
-    <img src="https://i.imgur.com/LwEEEUW.png" alt="9 Vainilla Floral" data-tooltip="Dulce, cremosa y especiada con toques florales." data-value="Vainilla Floral">
+    <img src="img/DAMASCO.png" alt="1 Rosa de Damasco" data-tooltip="Floral clásico, romántico y sofisticado." data-value="Rosa de Damasco">
+    <img src="img/JAZMIN.png" alt="2 Jazmín" data-tooltip="Exótico y embriagador, con un aroma envolvente." data-value="Jazmín">
+    <img src="img/YLANG.png" alt="3 Ylang Ylang" data-tooltip="Floral dulce con toques frutales." data-value="Ylang Ylang">
+    <img src="img/MIEL.png" alt="4 Miel Dorada" data-tooltip="Dulzura cálida y envolvente." data-value="Miel Dorada">
+    <img src="img/COCO.png" alt="5 Coco Cremoso" data-tooltip="Tropical, cremoso y exótico." data-value="Coco Cremoso">
+    <img src="img/DURAZNO.png" alt="6 Durazno Suave" data-tooltip="Dulce, jugoso y aterciopelado." data-value="Durazno Suave">
+    <img src="img/AZAHAR.png" alt="7 Flor de Azahar" data-tooltip="Delicada, floral y luminosa." data-value="Flor de Azahar">
+    <img src="img/ROJOS.png" alt="8 Frutos Rojos" data-tooltip="Dulce y jugoso, con toques vibrantes." data-value="Frutos Rojos">
+    <img src="img/VANILA.png" alt="9 Vainilla Floral" data-tooltip="Dulce, cremosa y especiada con toques florales." data-value="Vainilla Floral">
+    </div>
     </div>
 
 
     <!---------------------------------------------------- NOTAS DE FONDO ------------------------------------------->
-
+    <div>
     <h2 class="delgado">Notas De Fondo</h2>
     <p class="delgado">La base de la fragancia, profundas y duraderas, <br>se perciben al final.</p>
     <div class="notas-fondo">
-    <img src="https://i.imgur.com/Ox42NuY.png" alt="1 Sándalo" data-tooltip="Amaderado, cálido y envolvente."data-value="Sándalo">
-    <img src="https://i.imgur.com/MnN7c4f.png" alt="2 Vainilla Bourbon" data-tooltip="Dulce y cremosa, con un toque especiado."data-value="Vainilla Bourbon">
-    <img src="https://i.imgur.com/mSwMigL.png" alt="3 Almizcle Blanco" data-tooltip="Suave, limpio y adictivo."data-value="Almizcle Blanco">
-    <img src="https://i.imgur.com/lbH1NNV.png" alt="4 Cuero Elegante" data-tooltip="Sofisticado y con un carácter intenso."data-value="Cuero Elegante">
-    <img src="https://i.imgur.com/ZPEuAxQ.png" alt="5 Ámbar Dorado" data-tooltip="Cálido, resinoso y sensual."data-value="Ámbar Dorado">
-    <img src="https://i.imgur.com/7LwaNth.png" alt="6 Incienso Místico" data-tooltip="Ahumado y misterioso."data-value="Incienso Místico">
-    <img src="https://i.imgur.com/tm0YYLq.png" alt="7 Haba Tonka" data-tooltip="Dulce y especiada con un toque avainillado."data-value="Haba Tonka">
-    <img src="https://i.imgur.com/dAdt03W.png" alt="8 Café Intenso" data-tooltip="Profundo y adictivo, con toques tostados."data-value="Café Intenso">
-    <img src="https://i.imgur.com/AXDO7YI.png" alt="9 Cedro del Atlas" data-tooltip="Amaderado y seco, con un carácter elegante."data-value="Cedro del Atlas">
+    <img src="img/SANDALO.png" alt="1 Sándalo" data-tooltip="Amaderado, cálido y envolvente."data-value="Sándalo">
+    <img src="img/BORBON.png" alt="2 Vainilla Bourbon" data-tooltip="Dulce y cremosa, con un toque especiado."data-value="Vainilla Bourbon">
+    <img src="img/BLANCO.png" alt="3 Almizcle Blanco" data-tooltip="Suave, limpio y adictivo."data-value="Almizcle Blanco">
+    <img src="img/cuero.png" alt="4 Cuero Elegante" data-tooltip="Sofisticado y con un carácter intenso."data-value="Cuero Elegante">
+    <img src="img/ambar.png" alt="5 Ámbar Dorado" data-tooltip="Cálido, resinoso y sensual."data-value="Ámbar Dorado">
+    <img src="img/incienso.png" alt="6 Incienso Místico" data-tooltip="Ahumado y misterioso."data-value="Incienso Místico">
+    <img src="img/haba.png" alt="7 Haba Tonka" data-tooltip="Dulce y especiada con un toque avainillado."data-value="Haba Tonka">
+    <img src="img/cafe.png" alt="8 Café Intenso" data-tooltip="Profundo y adictivo, con toques tostados."data-value="Café Intenso">
+    <img src="img/cedro.png" alt="9 Cedro del Atlas" data-tooltip="Amaderado y seco, con un carácter elegante."data-value="Cedro del Atlas">
     </div>
     <div style="height: 150px;"></div> <!-- Espacio adicional -->
+    </div>
 
 
     <!------------------------------------------------------------ FRAGANCIAS ELEJIDAS ---------------------------------->
+    <div>
     <h6 class="delgado">Notas Seleccionadas</h6>
     <div class="excel-box">
         <table>
@@ -382,12 +377,12 @@
             </tbody>
         </table>
     </div>
-
-
-    <!--------------------------------------------- FRAGANCIAS ELEJIDAS ---------------------------------------->
+    
     <button id="miBoton" class="perso-boton" onclick="location.href='personalizar.html'"><b>Termina tu Personalización</b></button>
+    </div>
 
-    <!-- footer -->
+
+    <!---------------------------------------------------------- footer ------------------------------------------------>
     <footer class="main-footer">
     <div class="footer-content">
         <div class="number-section">

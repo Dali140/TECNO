@@ -1,6 +1,56 @@
+/* --------------------------------------Estilos para el header ------------------------------------*/
+
+ header {
+    background-color: #3C0000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+  
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  
+  .menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #C9846A;
+    border-radius: 2px;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .nav-menu li a {
+    color: #C9846A;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px;
+  }
+  
+  .logo {
+    width: 55px;
+    height: auto;
+  }
+  
+  .carrito-icon {
+    width: 30px;
+    height: auto;
+  }
 
 
-/* Estilos para el body */
+/* --------------------------------------Estilos para el body ----------------------------------------------*/
 body {
     background-position: center top; /* Centra la imagen en la parte superior */
     color: #00000081;
@@ -66,7 +116,6 @@ form {
     background-color: #fff5f1; /* Fondo del formulario */
     box-shadow: 0% 2% 5% rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
 }
-
 input[type=text], select {
     width: 80%; /* Ancho de los campos de entrada */
     padding: 2%; /* Espacio interno */
@@ -79,7 +128,6 @@ input[type=text], select {
     font-size: 100%; /* Tamaño del texto */
     font-weight: bold;
 }
-
 button {
     padding: 3% 10%; /* Tamaño del botón */
     font-size: 100%; /* Tamaño del texto del botón */
@@ -90,70 +138,48 @@ button {
     border-radius: 2%; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
-
 button:hover {
     background-color: #240000; /* Cambia el color al pasar el mouse */
 }
-/* Estilos para el footer */
-.main-footer {
+
+
+/* -----------------------------------------------------------FOOTER ----------------------------------------*/
+  .main-footer {
     background-color: #3C0000;
-    padding: 1%;
-    border-top: 0.1%;
-}
-.footer-content {
-    max-width: 100%;
+    padding: 2rem;
+    border-top: 1px solid #333;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1%;
-}
-.footer a {
-    text-decoration: none; /* Elimina el subrayado */
-    color: #C9846A; /* Cambia al color que prefieras */
-}
-.number-section {
+    gap: 1rem;
+  }
+  
+  .number-section, .facebook-section, .instagram-section {
     display: flex;
     align-items: center;
-    gap: 0.8%;
-}
-.facebook-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8%;
-    color: #C9846A; /* Cambia el color al que prefieras */
-    white-space: nowrap;
-    text-decoration: none; /* Elimina el subrayado */
-}
-.instagram-section {
-    display: flex;
-    align-items: center;
-    gap: 0.8%;
-}
-.number-icon, .face-icon, .insta-icon {
-    width: 25%;
-    height: 25%;
-}
-.number {
+    gap: 0.8rem;
+  }
+  
+  .number-icon, .face-icon, .insta-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .number, .facebook {
     font-family: 'Antic Didone', serif;
-    font-size: 100%;
+    font-size: 0.9rem;
     color: #C9846A;
+    text-decoration: none;
     white-space: nowrap;
-}
-.facebook {
-    font-family: 'Antic Didone', serif;
-    font-size: 100%;
-    color: #C9846A; /* Cambia el color al que prefieras */
-    white-space: nowrap;
-    text-decoration: none; /* Elimina el subrayado */
-}
-.instagram {
-    font-family: 'Antic Didone', serif;
-    font-size: 100%;
-    color: #3C0000;
-    white-space: nowrap;
-}
-/* apartado celular */
+  }
+
+  
+/* ---------------------------------------------apartado celular */
 /* Estilos para pantallas pequeñas (celulares) */
 @media screen and (max-width: 768px) {
     header {
