@@ -162,6 +162,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    
   }
   
   .number-icon, .face-icon, .insta-icon {
