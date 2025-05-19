@@ -1,31 +1,33 @@
 <?php
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "perfumes"); // 'perfumes' es el nombre de tu base de datos
+$conn = new mysqli("localhost", "root", "", "tecno_db");
 
-if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
+// Verifica la conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Obtiene los valores enviados por POST
+// Recoge los datos del POST
 $salida = $_POST['salida'] ?? '';
 $corazon = $_POST['corazon'] ?? '';
 $fondo = $_POST['fondo'] ?? '';
 
-// Valida que estén completos (puedes mejorar la validación)
-if ($salida && $corazon && $fondo) {
-    // Prepara y ejecuta la consulta
-    $stmt = $conexion->prepare("INSERT INTO perfumes_personalizados (nota_salida, nota_corazon, nota_fondo) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $salida, $corazon, $fondo);
-
-    if ($stmt->execute()) {
-        echo "Guardado correctamente";
-    } else {
-        echo "Error al guardar";
-    }
-    $stmt->close();
-} else {
+// Verifica que no estén vacíos
+if(empty($salida) || empty($corazon) || empty($fondo)){
     echo "Faltan datos";
+    exit;
 }
 
-$conexion->close();
+// OJO: Aquí usamos los nombres EXACTOS de las columnas de tu tabla
+$stmt = $conn->prepare("INSERT INTO perfumes_personalizados (nota_salida, nota_corazon, nota_fondo) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $salida, $corazon, $fondo);
+
+if ($stmt->execute()) {
+    echo "Perfume guardado correctamente";
+} else {
+    echo "Error al guardar: " . $conn->error;
+}
+
+$stmt->close();
+$conn->close();
 ?>
