@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "perfumes"); // 'perfumes' es el nombre de tu base de datos
+$conn = new mysqli("localhost", "root", "", "tecno_db");
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);

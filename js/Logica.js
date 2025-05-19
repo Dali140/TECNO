@@ -78,10 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append('corazon', notaCorazon);
         formData.append('fondo', notaFondo);
 
-        fetch('php/perfumes.php', {
-            method: 'POST',
-            body: formData
-        })
+        fetch('php/perfumes.php', { method: 'POST', body: formData })
+
         .then(response => response.text())
         .then(resultado => {
             alert(resultado); // mensaje desde PHP
