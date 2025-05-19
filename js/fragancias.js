@@ -1,8 +1,5 @@
-// Archivo: Logica.js
-
-// Espera a que el contenido HTML del documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
-    // Selecciona todas las imágenes de las secciones
+    // Selecciona todas las imágenes de cada sección
     const salidaImages = document.querySelectorAll(".notas-salida img");
     const corazonImages = document.querySelectorAll(".notas-corazon img");
     const fondoImages = document.querySelectorAll(".notas-fondo img");
@@ -12,40 +9,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const corazonCell = document.getElementById("corazon");
     const fondoCell = document.getElementById("fondo");
 
-    // Crea un nuevo elemento div que funcionará como tooltip
+    // Tooltip
     const tooltip = document.createElement("div");
-
-    // Asigna la clase "tooltip" al div creado (para estilizarlo con CSS)
     tooltip.className = "tooltip";
- 
-    // Agrega el tooltip al final del body del documento
     document.body.appendChild(tooltip);
 
-    // Función para manejar el clic en las imágenes
+    // Función para manejar el click en imágenes
     const handleImageClick = (img, cell) => {
         const value = img.getAttribute("data-value");
         if (value) {
-            cell.textContent = value; // Actualiza la celda con el valor
+            cell.textContent = value;
         }
     };
 
-    // Función para manejar el tooltip
+    // Función para mostrar el tooltip
     const handleTooltip = (img, e) => {
         const message = img.getAttribute("data-tooltip");
         if (message) {
             tooltip.textContent = message;
             tooltip.style.display = "block";
-            tooltip.style.left = `${e.pageX + 10}px`;// Desplaza el tooltip 10px a la derecha del cursor
-            tooltip.style.top = `${e.pageY + 10}px`;// Desplaza el tooltip 10px hacia abajo del cursor
+            tooltip.style.left = `${e.pageX + 10}px`;
+            tooltip.style.top = `${e.pageY + 10}px`;
         }
     };
 
-    // Función para ocultar el tooltip
+    // Ocultar tooltip
     const hideTooltip = () => {
         tooltip.style.display = "none";
     };
 
-    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Salida"
+    // Añade eventos a imágenes de notas de salida
     salidaImages.forEach((img) => {
         img.addEventListener("click", () => handleImageClick(img, salidaCell));
         img.addEventListener("mouseover", (e) => handleTooltip(img, e));
@@ -53,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("mouseout", hideTooltip);
     });
 
-    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Corazón"
+    // Añade eventos a imágenes de notas de corazón
     corazonImages.forEach((img) => {
         img.addEventListener("click", () => handleImageClick(img, corazonCell));
         img.addEventListener("mouseover", (e) => handleTooltip(img, e));
@@ -61,12 +54,42 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("mouseout", hideTooltip);
     });
 
-    // Agrega eventos de clic y tooltip a las imágenes de "Notas de Fondo"
+    // Añade eventos a imágenes de notas de fondo
     fondoImages.forEach((img) => {
         img.addEventListener("click", () => handleImageClick(img, fondoCell));
         img.addEventListener("mouseover", (e) => handleTooltip(img, e));
         img.addEventListener("mousemove", (e) => handleTooltip(img, e));
         img.addEventListener("mouseout", hideTooltip);
     });
+
+    // Guardar las notas elegidas al hacer clic en el botón
+    document.getElementById('guardarPerfume').addEventListener('click', function() {
+        const notaSalida = salidaCell.textContent.trim();
+        const notaCorazon = corazonCell.textContent.trim();
+        const notaFondo = fondoCell.textContent.trim();
+
+        if(!notaSalida || !notaCorazon || !notaFondo){
+            alert("Debes seleccionar una nota de salida, corazón y fondo.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('salida', notaSalida);
+        formData.append('corazon', notaCorazon);
+        formData.append('fondo', notaFondo);
+
+        fetch('php/perfumes.php', { method: 'POST', body: formData })
+
+        .then(response => response.text())
+        .then(resultado => {
+            alert(resultado); // mensaje desde PHP
+            // Opcional: limpiar la selección después de guardar
+            // salidaCell.textContent = "";
+            // corazonCell.textContent = "";
+            // fondoCell.textContent = "";
+        })
+        .catch(error => {
+            alert('Error al guardar el perfume: ' + error);
+        });
+    });
 });
- 

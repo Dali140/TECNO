@@ -123,8 +123,8 @@ img {
 h1 {
     
     color: #171620;
-    font-size: 500%;
-    top: 10%; /* Centra verticalmente el encabezado */
+    font-size: 700%;
+    top: 5%; /* Centra verticalmente el encabezado */
     left: 50%; /* Centra horizontalmente el encabezado */
     transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo */
     position: absolute; /* Superpone el encabezado sobre la imagen */
@@ -161,11 +161,11 @@ p {
     position: absolute;
     background-color: #C9846A;
     color: #ffffff;
-    padding: 5px 10px;
+    /*padding: 5px 10px;*/
     border-radius: 5px;
     font-size: 20px;
     display: none; /* Oculto por defecto */
-    z-index: 10;
+    z-index: 100;
 }
 
 
