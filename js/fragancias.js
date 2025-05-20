@@ -83,10 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.text())
         .then(resultado => {
             alert(resultado); // mensaje desde PHP
-            // Opcional: limpiar la selección después de guardar
-            // salidaCell.textContent = "";
-            // corazonCell.textContent = "";
-            // fondoCell.textContent = "";
         })
         .catch(error => {
             alert('Error al guardar el perfume: ' + error);

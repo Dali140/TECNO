@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- Importar fuente Antic Didone -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
    
-    <!-- Ruta relativa al archivo CSS -->
-   <link rel="stylesheet" href="css/personalizar.css">
+    <link rel="stylesheet" href="css/personalizar.css">
+    <script src="js/personalizar.js" defer></script>
 </head>
 <body>
 
-     <!------------------------------------- Header de la página -------------------------------------------->
-     
-    
-    <div>
+    <!-------------------------------------------------------------HEADER---------------------------------------------  -->
+
+     <div>
         <style>
         /* HEADER FLEXBOX MEJORADO */
         header {
@@ -210,14 +208,12 @@
     </style>
     <header>
         <div class="header-container">
-            <!-- Logo -->
             <div class="header-left">
                 <a href="Index.html" class="nav-logo">
                     <img src="img/logo.png" alt="Logo">
                 </a>
             </div>
             
-            <!-- Navegación Desktop -->
             <div class="header-center">
                 <ul class="nav-list">
                     <li><a href="Index.html" class="nav-link">¿Cómo funciona?</a></li>
@@ -227,7 +223,6 @@
                 </ul>
             </div>
             
-            <!-- Grupo derecho -->
             <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
                 <a href="carrito.html" class="nav-cart">
                     <img src="img/carro logo.png" alt="Carrito">
@@ -240,7 +235,6 @@
                 </button>
             </div>
             
-            <!-- Menú Móvil -->
             <div class="mobile-menu">
                 <a href="Index.html" class="nav-link">¿Cómo funciona?</a>>
                 <a href="personalizar.html" class="nav-link">Personalizar</a>
@@ -296,14 +290,13 @@
     </script>
     </div>
     
-    
-    <!------------------------------------- PRIMER CONTAINER ------------------------------------------------>
-     <main>
+    <!-------------------------------------------------------------MAIN---------------------------------------------  -->
+
+    <main>
         
         <div class="container">
             <h1 class="delgado">Crea tu Perfume<br>Único</h1>
-            <!-- Nuevo formulario -->
-            <form>
+            <form id="perfumeForm">
                 <label for="nombre"><b>Nombra tu creación</b></label><br>
                 <input type="text" id="nombre" name="nombre"><br>
         
@@ -353,18 +346,22 @@
                 </style>
     
     
-                <button type="button" class="delgado" onclick="location.href='carrito.html'">Crea tu esencia</button>
+                <button type="submit" class="delgado">Crea tu esencia</button>
+                <div id="cartButtonContainer" style="display: none;">
+                <button class="go-to-cart-btn" onclick="window.location.href='carrito.html'">
+                    Ir al Carrito
+                </button>
+            </div>
             </form>
     
+            
            
             <img src="img/fonfo_personalizar.png" alt="fondo" />
         </div>
             
      </main>
     
-        <!-- Footer de la página -->
-          <!-- -----------------------------footer ----------------------------------------------------------->
-    <footer class="main-footer">
+        <footer class="main-footer">
     <div class="footer-content">
         <div class="number-section">
             <img src="img/contacto.png" alt="Numero" class="number-icon">
