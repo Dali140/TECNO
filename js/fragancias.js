@@ -73,19 +73,30 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const formData = new FormData();
-        formData.append('salida', notaSalida);
-        formData.append('corazon', notaCorazon);
-        formData.append('fondo', notaFondo);
+        // Guardar en Local Storage
+        const perfume = {
+            salida: notaSalida,
+            corazon: notaCorazon,
+            fondo: notaFondo
+        };
+        localStorage.setItem("miPerfume", JSON.stringify(perfume));
+        
 
-        fetch('php/perfumes.php', { method: 'POST', body: formData })
-
-        .then(response => response.text())
-        .then(resultado => {
-            alert(resultado); // mensaje desde PHP
-        })
-        .catch(error => {
-            alert('Error al guardar el perfume: ' + error);
-        });
+        // Opcional: Limpiar selección después de guardar
+        // salidaCell.textContent = "";
+        // corazonCell.textContent = "";
+        // fondoCell.textContent = "";
+        
     });
+
+    // (Opcional) Mostrar datos guardados al cargar la página
+    const guardado = localStorage.getItem("miPerfume");
+    if (guardado) {
+        const datos = JSON.parse(guardado);
+        salidaCell.textContent = datos.salida || "";
+        corazonCell.textContent = datos.corazon || "";
+        fondoCell.textContent = datos.fondo || "";
+        
+
+    }
 });
