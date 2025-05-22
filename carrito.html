@@ -161,11 +161,19 @@
 
     .cantidad {
       margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cantidad button {
       background-color: white;
-      color: #3d0d0d;
-      padding: 8px 12px;
-      border-radius: 5px;
-      display: inline-block;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      color: #4f2c1d;
     }
 
     .resumen h2 {
@@ -248,12 +256,8 @@
       <p><strong>TOTAL (1 producto)</strong> $599.950</p>
       <div class="producto">
         <img src="https://i.imgur.com/QlBAe8M.jpeg" alt="Perfume">
-        <div class="producto-info">
-          <h3>PERFUME DE LUJO</h3>
-          <p>AROMA VAINILLA / FRESCO</p>
-          <p><strong>TAMAÑO:</strong> 100ml</p>
-          <p><strong>$599.950</strong></p>
-          <div class="cantidad">Cantidad: 1</div>
+        <div class="producto-info" id="producto-info">
+          <!-- Contenido dinámico -->
         </div>
       </div>
       <a href="productos.html" class="btn-seguir">← Seguir comprando</a>
@@ -269,5 +273,46 @@
       <a href="#" class="boton-pagar">IR A PAGAR &rarr;</a>
     </div>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      if (id) {
+        fetch("carrito.php" + id)
+          .then(res => res.json())
+          .then(data => {
+            if (data.error) {
+              alert(data.error);
+              return;
+            }
+
+            const info = document.getElementById("producto-info");
+            let cantidad = 1;
+
+            info.innerHTML = `
+              <p><strong>ID:</strong> ${data.id}</p>
+              <h3>${data.nombre}</h3>
+              <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
+              <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
+              <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
+              <p><strong>Precio:</strong> $${data.precio}</p>
+              <div class="cantidad">
+                <button onclick="cambiarCantidad(-1)">−</button>
+                <span id="cantidad">${cantidad}</span>
+                <button onclick="cambiarCantidad(1)">+</button>
+              </div>
+            `;
+
+            window.cambiarCantidad = function(valor) {
+              cantidad += valor;
+              if (cantidad < 1) cantidad = 1;
+              document.getElementById("cantidad").innerText = cantidad;
+            }
+          });
+      }
+    });
+  </script>
 </body>
 </html>
