@@ -4,7 +4,7 @@ document.getElementById('perfumeForm').addEventListener('submit', function(event
 
     const form = document.getElementById('perfumeForm');
     const formData = new FormData(form);
-
+  
     fetch('php/personalizar.php', { // Ruta correcta
         method: 'POST',
         body: formData

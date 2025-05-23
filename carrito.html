@@ -234,17 +234,17 @@
 <body>
   <header>
     <div class="header-container">
-      <a href="#inicio" class="nav-logo">
-        <img src="https://i.imgur.com/EWJNeiH.png" alt="Logo">
+      <a href="Index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Logo">
       </a>
       <ul class="nav-list">
-        <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
-        <li><a href="#personalizar" class="nav-link">Personalizar</a></li>
-        <li><a href="#fragancias" class="nav-link">Fragancias</a></li>
-        <li><a href="#contactanos" class="nav-link">Contáctanos</a></li>
+        <li><a href="Index.html" class="nav-link">¿Cómo funciona?</a></li>
+        <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+        <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+        <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
       </ul>
       <div class="nav-cart">
-        <img src="https://i.imgur.com/b5s9Foa.png" alt="Carrito">
+        <img src="img/carro logo.png" alt="Carrito">
         <span class="cart-counter">1</span>
       </div>
     </div>
@@ -253,22 +253,18 @@
   <div class="contenedor">
     <div class="izquierda">
       <h1>Tu Carrito</h1>
-      <p><strong>TOTAL (1 producto)</strong> $599.950</p>
       <div class="producto">
-        <img src="https://i.imgur.com/QlBAe8M.jpeg" alt="Perfume">
+        <img src="img/carrito banner.jpg" alt="Perfume">
         <div class="producto-info" id="producto-info">
           <!-- Contenido dinámico -->
         </div>
       </div>
-      <a href="productos.html" class="btn-seguir">← Seguir comprando</a>
+      <a href="personalizar.html" class="btn-seguir">← Seguir comprando</a>
     </div>
 
     <div class="derecha">
-      <div class="resumen">
-        <h2>Resumen del pedido</h2>
-        <p>1 producto: $599.950,00</p>
-        <p>Entrega: Gratis</p>
-        <p><strong>Total: $599.950,00</strong></p>
+      <div class="resumen" id="resumen-pedido">
+        <!-- Contenido dinámico -->
       </div>
       <a href="#" class="boton-pagar">IR A PAGAR &rarr;</a>
     </div>
@@ -276,42 +272,52 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
+      fetch("php/carrito.php")
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            alert(data.error);
+            return;
+          }
 
-      if (id) {
-        fetch("carrito.php" + id)
-          .then(res => res.json())
-          .then(data => {
-            if (data.error) {
-              alert(data.error);
-              return;
-            }
+          const info = document.getElementById("producto-info");
+          const resumen = document.getElementById("resumen-pedido");
+          let cantidad = 1;
+          let precio = data.precio ? parseFloat(data.precio) : 0;
 
-            const info = document.getElementById("producto-info");
-            let cantidad = 1;
+          info.innerHTML = `
+            <p><strong>ID:</strong> ${data.id}</p>
+            <h3>${data.nombre}</h3>
+            <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
+            <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
+            <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
+            <p><strong>Precio:</strong> $${precio.toLocaleString()}</p>
+            <div class="cantidad">
+              <button onclick="cambiarCantidad(-1)">−</button>
+              <span id="cantidad">${cantidad}</span>
+              <button onclick="cambiarCantidad(1)">+</button>
+            </div>
+          `;
 
-            info.innerHTML = `
-              <p><strong>ID:</strong> ${data.id}</p>
-              <h3>${data.nombre}</h3>
-              <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
-              <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
-              <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
-              <p><strong>Precio:</strong> $${data.precio}</p>
-              <div class="cantidad">
-                <button onclick="cambiarCantidad(-1)">−</button>
-                <span id="cantidad">${cantidad}</span>
-                <button onclick="cambiarCantidad(1)">+</button>
-              </div>
+          resumen.innerHTML = `
+            <h2>Resumen del pedido</h2>
+            <p>${cantidad} producto: $${precio.toLocaleString()}</p>
+            <p>Entrega: Gratis</p>
+            <p><strong>Total: $${precio.toLocaleString()}</strong></p>
+          `;
+
+          window.cambiarCantidad = function(valor) {
+            cantidad += valor;
+            if (cantidad < 1) cantidad = 1;
+            document.getElementById("cantidad").innerText = cantidad;
+            resumen.innerHTML = `
+              <h2>Resumen del pedido</h2>
+              <p>${cantidad} producto${cantidad > 1 ? 's' : ''}: $${(precio * cantidad).toLocaleString()}</p>
+              <p>Entrega: Gratis</p>
+              <p><strong>Total: $${(precio * cantidad).toLocaleString()}</strong></p>
             `;
-
-            window.cambiarCantidad = function(valor) {
-              cantidad += valor;
-              if (cantidad < 1) cantidad = 1;
-              document.getElementById("cantidad").innerText = cantidad;
-            }
-          });
-      }
+          }
+        });
     });
   </script>
 </body>
