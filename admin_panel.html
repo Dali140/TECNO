@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 2rem;
+    }
+    .admin-panel {
+      max-width: 800px;
+      margin: auto;
+    }
+    .logout {
+      float: right;
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-panel">
+    <button class="logout" onclick="cerrarSesion()">Cerrar sesión</button>
+    <h1>Bienvenido, administrador</h1>
+    <p>Aquí puedes gestionar productos, ventas y más.</p>
+  </div>
+
+  <script>
+    const admin = JSON.parse(localStorage.getItem("admin"));
+    if (!admin || admin.rol !== "admin") {
+      alert("Acceso denegado.");
+      window.location.href = "admin_login.html";
+    }
+
+    function cerrarSesion() {
+      localStorage.removeItem("admin");
+      window.location.href = "admin_login.html";
+    }
+  </script>
+</body>
+</html>
