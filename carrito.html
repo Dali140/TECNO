@@ -1,194 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carrito de Perfumes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Carrito - Estilo Adidas</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-   <!-- Importar fuente Antic Didone -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
   <style>
-    /* ESTILOS GENERALES */
     body {
-      font-family: 'Playfair Display', serif;
-      background-color: #F5E6E0;
-      color: #3C0000;
       margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #3d0d0d;
+      color: white;
       padding-top: 100px;
     }
-    
-    h1 {
-      text-align: center;
-      margin-top: 30px;
-      color: #3C0000;
-    }
-    
-    .carrito-con-imagen {
-      display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      gap: 40px;
-    }
-    
-    .imagen-lateral {
-      width: 400px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .container {
-      flex: 1;
-    }
-    
-    .producto {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    .inputs-grupo label {
-      display: block;
-      margin-top: 15px;
-      font-weight: 500;
-    }
-    
-    .inputs-grupo input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
-    
-    .cantidad {
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .cantidad button {
-      background-color: #3C0000;
-      color: white;
-      border: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    
-    .resumen {
-      background-color: rgba(201, 132, 106, 0.1);
-      padding: 15px;
-      border-radius: 5px;
-      margin: 20px 0;
-    }
-    
-    .resumen p {
-      margin: 10px 0;
-    }
-    
-    /* ESTILOS PARA LOS CAMPOS DE ENVÍO */
-    .informacion-envio {
-      background-color: rgba(201, 132, 106, 0.1);
-      padding: 25px;
-      border-radius: 10px;
-      margin: 25px 0;
-      border: 1px solid #C9846A;
-    }
-    
-    .informacion-envio h3 {
-      margin-top: 0;
-      color: #3C0000;
-      border-bottom: 1px solid #C9846A;
-      padding-bottom: 10px;
-      text-align: center;
-    }
-    
-    .informacion-envio label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: 500;
-    }
-    
-    .informacion-envio input[type="text"],
-    .informacion-envio input[type="tel"],
-    .informacion-envio input[type="email"],
-    .informacion-envio textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #C9846A;
-      border-radius: 5px;
-      background-color: #F5E6E0;
-      font-family: 'Playfair Display', serif;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-    
-    .informacion-envio input:focus,
-    .informacion-envio textarea:focus {
-      outline: none;
-      border-color: #3C0000;
-      box-shadow: 0 0 5px rgba(60, 0, 0, 0.2);
-    }
-    
-    .informacion-envio textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .form-group {
-      flex: 1;
-    }
-    
-    /* FORMA DE PAGO */
-    .forma-pago {
-      margin: 20px 0;
-    }
-    
-    .forma-pago h3 {
-      color: #3C0000;
-      border-bottom: 1px solid #C9846A;
-      padding-bottom: 10px;
-    }
-    
-    .forma-pago label {
-      display: block;
-      margin: 10px 0;
-      cursor: pointer;
-    }
-    
-    /* BOTÓN */
-    .btn-finalizar {
-      width: 100%;
-      padding: 15px;
-      background-color: #3C0000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 20px;
-    }
-    
-    .btn-finalizar:hover {
-      background-color: #5a0000;
-    }
-    
-    /* HEADER */
+
     header {
       position: fixed;
       top: 0;
@@ -281,442 +107,909 @@
       justify-content: center;
     }
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      z-index: 1001;
-      margin-left: 20px;
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 40px;
     }
 
-    .hamburger span {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background: #F5E6E0;
-      margin: 5px 0;
-      transition: all 0.3s ease;
+    .izquierda, .derecha {
+      background-color: #4f2c1d;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    .mobile-menu {
-      position: fixed;
-      top: 100px;
-      left: -100%;
-      width: 100%;
-      height: calc(100vh - 100px);
-      background: #3C0000;
+    .izquierda {
+      flex: 2;
+    }
+
+    .derecha {
+      flex: 1;
+      min-width: 300px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 30px 0;
-      transition: all 0.3s ease;
-      z-index: 999;
     }
 
-    .mobile-menu.active {
-      left: 0;
+    h1 {
+      color: #C9846A;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
-    .mobile-menu .nav-link {
-      font-size: 1.4rem;
-      padding: 15px 0;
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* FOOTER */
-    .main-footer {
-      background-color: #3C0000;
-      color: #F5E6E0;
-      padding: 30px 0;
-      margin-top: 50px;
-    }
-
-    .footer-content {
+    .producto {
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
+      gap: 20px;
+      border-top: 1px solid #C9846A;
+      padding-top: 20px;
     }
 
-    .number-section, 
-    .facebook-section, 
-    .instagram-section {
+    .producto img {
+      width: 120px;
+      border-radius: 10px;
+    }
+
+    .producto-info {
+      flex: 1;
+    }
+
+    .producto-info h3, .producto-info p {
+      margin: 5px 0;
+    }
+
+    .cantidad {
+      margin-top: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .number-icon, 
-    .face-icon, 
-    .insta-icon {
-      width: 24px;
-      height: 24px;
+    .cantidad button {
+      background-color: white;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      color: #4f2c1d;
     }
 
-    .Facebook {
-      color: #F5E6E0;
+    .resumen h2 {
+      color: #C9846A;
+    }
+
+    .resumen p {
+      margin: 8px 0;
+    }
+
+    .boton-pagar {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      background-color: white;
+      color: #3d0d0d;
+      font-weight: bold;
+      border-radius: 10px;
       text-decoration: none;
+      margin-top: auto;
+      transition: background-color 0.3s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 992px) {
-      .nav-list {
-        gap: 25px;
-      }
-      
-      .carrito-con-imagen {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .imagen-lateral {
-        width: 100%;
-        max-width: 500px;
-      }
+    .boton-pagar:hover {
+      background-color: #C9846A;
+      color: white;
+    }
+
+    .btn-seguir {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      background-color: transparent;
+      border: 2px solid #C9846A;
+      color: #C9846A;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn-seguir:hover {
+      background-color: #C9846A;
+      color: #3d0d0d;
+    }
+
+    /* Estilos para el modal de pago */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-contenido {
+      background-color: #4f2c1d;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .cerrar {
+      color: #C9846A;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cerrar:hover {
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #C9846A;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #C9846A;
+      border-radius: 5px;
+      background-color: #3d0d0d;
+      color: white;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .fila-tarjeta {
+      display: flex;
+      gap: 15px;
+    }
+
+    .fila-tarjeta .form-group {
+      flex: 1;
+    }
+
+    .boton-confirmar {
+      background-color: #C9846A;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .boton-confirmar:hover {
+      background-color: #a86d56;
+    }
+
+    /* Estilos para mensaje de confirmación */
+    .confirmacion {
+      text-align: center;
+      padding: 20px;
+      display: none;
+    }
+
+    .confirmacion img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos para los métodos de pago */
+    .metodos-pago {
+      margin: 20px 0;
+    }
+
+    .metodo-pago {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background-color: rgba(201, 132, 106, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .metodo-pago:hover {
+      background-color: rgba(201, 132, 106, 0.2);
+    }
+
+    .metodo-pago.activo {
+      border-color: #C9846A;
+      background-color: rgba(201, 132, 106, 0.3);
+    }
+
+    .metodo-pago .info {
+      flex: 1;
+    }
+
+    .metodo-pago .titulo {
+      font-weight: bold;
+      color: #C9846A;
+    }
+
+    .metodo-pago .descripcion {
+      font-size: 0.9rem;
+      color: #F5E6E0;
+    }
+
+    /* Estilos específicos para PayPal */
+    .paypal-form {
+      display: none;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .paypal-form.activo {
+      display: block;
+    }
+
+    .paypal-button {
+      background-color: #FFC439;
+      color: #003087;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      transition: background-color 0.3s;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .paypal-button:hover {
+      background-color: #FFB820;
+    }
+
+    /* Estilos para pestañas */
+    .pestanas {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #C9846A;
+    }
+
+    .pestana {
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #F5E6E0;
+      position: relative;
+    }
+
+    .pestana.activa {
+      color: #C9846A;
+      font-weight: bold;
+    }
+
+    .pestana.activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #C9846A;
+    }
+
+    .contenido-pestana {
+      display: none;
+    }
+
+    .contenido-pestana.activo {
+      display: block;
+    }
+
+    /* Estilos para validación */
+    .input-error {
+      border-color: #ff6b6b !important;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
     }
 
     @media (max-width: 768px) {
-      header {
-        height: 80px;
+      .contenedor {
+        flex-direction: column;
         padding: 0 20px;
       }
       
-      .header-center {
-        display: none;
+      .modal-contenido {
+        width: 90%;
+        margin: 10% auto;
       }
       
-      .hamburger {
-        display: block;
-        order: 2;
-      }
-      
-      .nav-logo {
-        order: 1;
-      }
-      
-      .nav-cart {
-        order: 3;
-      }
-      
-      .mobile-menu {
-        top: 80px;
-        height: calc(100vh - 80px);
-      }
-      
-      .nav-logo img {
-        width: 45px;
-      }
-      
-      .nav-cart img {
-        width: 25px;
-      }
-      
-      .form-row {
+      .fila-tarjeta {
         flex-direction: column;
         gap: 0;
       }
-      
-      .footer-content {
+
+      .pestanas {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        border-bottom: none;
+      }
+
+      .pestana {
+        border-bottom: 1px solid #C9846A;
+      }
+
+      .pestana.activa::after {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="header-container">
-      <!-- Logo -->
-      <div class="header-left">
-        <a href="Index.html" class="nav-logo">
-          <img src="img/logo.png" alt="Logo">
-        </a>
-      </div>
-      
-      <!-- Navegación Desktop -->
-      <div class="header-center">
-        <ul class="nav-list">
-          <li><a href="Index.html" class="nav-link">¿Cómo funciona?</a></li>
-          <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
-          <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
-          <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
-        </ul>
-      </div>
-      
-      <!-- Grupo derecho -->
-      <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
-        <a href="carrito.html" class="nav-cart">
-          <img src="img/carro logo.png" alt="Carrito">
-          <span class="cart-counter">0</span>
-        </a>
-        <button class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      
-      <!-- Menú Móvil -->
-      <div class="mobile-menu">
-        <a href="Index.html" class="nav-link">¿Cómo funciona?</a>
-        <a href="personalizar.html" class="nav-link">Personalizar</a>
-        <a href="fragancias.html" class="nav-link">Fragancias</a>
-        <a href="CONTACTO.html" class="nav-link">Contáctanos</a>
+      <a href="Index.html" class="nav-logo">
+        <img src="img/logo.png" alt="Logo">
+      </a>
+      <ul class="nav-list">
+        <li><a href="Index.html" class="nav-link">¿Cómo funciona?</a></li>
+        <li><a href="personalizar.html" class="nav-link">Personalizar</a></li>
+        <li><a href="fragancias.html" class="nav-link">Fragancias</a></li>
+        <li><a href="CONTACTO.html" class="nav-link">Contáctanos</a></li>
+      </ul>
+      <div class="nav-cart">
+        <img src="img/carro logo.png" alt="Carrito">
+        <span class="cart-counter">1</span>
       </div>
     </div>
   </header>
 
-  <h1>Tu carrito</h1>
-
-  <div class="carrito-con-imagen">
-    <img src="img/carrito banner.jpg" alt="Perfume" class="imagen-lateral" />
-
-    <div class="container">
+  <div class="contenedor">
+    <div class="izquierda">
+      <h1>Tu Carrito</h1>
       <div class="producto">
-        <form id="formularioCompra">
-          <div class="inputs-grupo">
-            <label>Nombre del perfume</label>
-            <input type="text" id="nombrePerfume" placeholder="Ej. Vainilla Mística" required />
+        <img src="img/carrito banner.jpg" alt="Perfume">
+        <div class="producto-info" id="producto-info">
+          <!-- Contenido dinámico -->
+        </div>
+      </div>
+      <a href="personalizar.html" class="btn-seguir">← Seguir comprando</a>
+    </div>
 
-            <label>Aplicar código de descuento</label>
-            <input type="text" placeholder="Código promocional" />
-          </div>
+    <div class="derecha">
+      <div class="resumen" id="resumen-pedido">
+        <!-- Contenido dinámico -->
+      </div>
+      <button class="boton-pagar" id="boton-pagar">IR A PAGAR &rarr;</button>
+    </div>
+  </div>
 
-          <p>Tamaño: 100ml</p>
-          <p>Precio: $50.000</p>
+  <!-- Modal de pago -->
+  <div id="modalPago" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <div id="formulario-pago">
+        <div class="pestanas">
+          <div class="pestana activa" data-pestana="envio">Envío</div>
+          <div class="pestana" data-pestana="pago">Pago</div>
+        </div>
 
-          <div class="cantidad">
-            <label>Cantidad:</label>
-            <button type="button" onclick="cambiarCantidad(-1)">−</button>
-            <span id="cantidad">1</span>
-            <button type="button" onclick="cambiarCantidad(1)">+</button>
-          </div>
-
-          <div class="resumen">
-            <p>Total de productos: <span id="totalProductos">1</span></p>
-            <p>Total a pagar: $<span id="totalPrecio">50000</span></p>
-          </div>
-
-          <!-- SECCIÓN MEJORADA DE INFORMACIÓN DE ENVÍO -->
-          <div class="informacion-envio">
-            <h3>Información de Envío</h3>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label>Nombre completo</label>
-                <input type="text" placeholder="Ej: María González" required />
-              </div>
-            </div>
-            
+        <!-- Contenido de pestaña de envío -->
+        <div id="envio-form" class="contenido-pestana activo">
+          <h2 style="color: #C9846A; margin-top: 0;">Información de Envío</h2>
+          <form id="form-envio">
             <div class="form-group">
-              <label>Dirección completa</label>
-              <input type="text" placeholder="Calle, número, apartamento, barrio" required />
+              <label for="nombre-completo">Nombre completo</label>
+              <input type="text" id="nombre-completo" required>
+              <div class="error-message" id="nombre-error"></div>
             </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label>Ciudad</label>
-                <input type="text" placeholder="Ej: Bogotá" required />
-              </div>
-              <div class="form-group">
-                <label>Departamento/Estado</label>
-                <input type="text" placeholder="Ej: Cundinamarca" required />
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label>Código postal</label>
-                <input type="text" placeholder="Ej: 110111" required />
-              </div>
-              <div class="form-group">
-                <label>Teléfono de contacto</label>
-                <input type="tel" placeholder="Ej: 3001234567" required />
-              </div>
-            </div>
-            
             <div class="form-group">
-              <label>Correo electrónico</label>
-              <input type="email" placeholder="tucorreo@ejemplo.com" required />
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" required>
+              <div class="error-message" id="direccion-error"></div>
+            </div>
+            <div class="fila-tarjeta">
+              <div class="form-group">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" id="ciudad" required>
+                <div class="error-message" id="ciudad-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="Departamento">Departamento</label>
+                <input type="text" id="Departamento" required>
+                <div class="error-message" id="Departamento-error"></div>
+              </div>
+            </div>
+            <div class="fila-tarjeta">
+              <div class="form-group">
+                <label for="codigo-postal">Código Postal</label>
+                <input type="text" id="codigo-postal" required>
+                <div class="error-message" id="codigo-postal-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="pais">País</label>
+                <select id="pais" required>
+                  <option value="">Selecciona un país</option>
+                  <option value="MX">México</option>
+                  <option value="US">Estados Unidos</option>
+                  <option value="CO">Colombia</option>
+                  <option value="ES">España</option>
+                  <!-- Agrega más países según necesites -->
+                </select>
+                <div class="error-message" id="pais-error"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" required>
+              <div class="error-message" id="telefono-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="instrucciones">Instrucciones especiales (opcional)</label>
+              <textarea id="instrucciones" rows="3"></textarea>
+            </div>
+            <button type="button" class="boton-confirmar" id="continuar-pago">CONTINUAR AL PAGO</button>
+          </form>
+        </div>
+
+        <!-- Contenido de pestaña de pago -->
+        <div id="pago-form" class="contenido-pestana">
+          <h2 style="color: #C9846A; margin-top: 0;">Método de Pago</h2>
+          
+          <div class="metodos-pago">
+            <div class="metodo-pago activo" data-metodo="tarjeta">
+              <div class="info">
+                <div class="titulo">Tarjeta de crédito/débito</div>
+                <div class="descripcion">Paga con Visa, Mastercard o American Express</div>
+              </div>
             </div>
             
-            <div class="form-group">
-              <label>Notas adicionales para la entrega</label>
-              <textarea placeholder="Ej: Llamar antes de llegar, dejar con el portero, etc."></textarea>
+            <div class="metodo-pago" data-metodo="paypal">
+              <div class="info">
+                <div class="titulo">PayPal</div>
+                <div class="descripcion">Paga rápida y seguramente con tu cuenta PayPal</div>
+              </div>
             </div>
           </div>
-
-          <div class="forma-pago">
-            <h3>Forma de Pago</h3>
-            <label><input type="radio" name="pago" value="tarjeta" checked /> Tarjeta de Crédito/Débito</label>
-            <label><input type="radio" name="pago" value="efectivo" /> Pago en Efectivo</label>
-            <label><input type="radio" name="pago" value="transferencia" /> Transferencia Bancaria</label>
+          
+          <!-- Formulario de tarjeta -->
+          <div id="tarjeta-form">
+            <form id="form-tarjeta">
+              <div class="form-group">
+                <label for="nombre-tarjeta">Nombre en la tarjeta</label>
+                <input type="text" id="nombre-tarjeta" required>
+                <div class="error-message" id="nombre-tarjeta-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="numero-tarjeta">Número de tarjeta</label>
+                <input type="text" id="numero-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                <div class="error-message" id="numero-tarjeta-error">El número de tarjeta debe tener 16 dígitos</div>
+              </div>
+              <div class="fila-tarjeta">
+                <div class="form-group">
+                  <label for="fecha-expiracion">Fecha de expiración</label>
+                  <input type="text" id="fecha-expiracion" placeholder="MM/AA" maxlength="5" required>
+                  <div class="error-message" id="fecha-expiracion-error">Formato debe ser MM/AA</div>
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                  <div class="error-message" id="cvv-error">El CVV debe tener 3 dígitos</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required>
+                <div class="error-message" id="email-error">Ingrese un correo electrónico válido</div>
+              </div>
+              <button type="submit" class="boton-confirmar">CONFIRMAR PAGO</button>
+            </form>
           </div>
-
-          <div id="infoPago" class="info-pago"></div>
-
-          <button type="submit" class="btn-finalizar">🛍️ Finalizar compra</button>
-        </form>
-
-        <div id="mensajeCompra" style="display: none; text-align: center; margin-top: 20px; color: #C9846A; font-size: 1.2rem;"></div>
+          
+          <!-- Formulario de PayPal -->
+          <div id="paypal-container" class="paypal-form">
+            <p>Serás redirigido a PayPal para completar tu pago de manera segura.</p>
+            <form id="paypal-payment-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="business" value="tucorreo@tudominio.com">
+              <input type="hidden" name="item_name" value="Producto Personalizado">
+              <input type="hidden" name="currency_code" value="MXN">
+              <input type="hidden" name="amount" id="paypal-amount" value="0">
+              <input type="hidden" name="return" value="https://tudominio.com/gracias.html">
+              <input type="hidden" name="cancel_return" value="https://tudominio.com/carrito.html">
+              <button type="submit" class="paypal-button">Pagar con PayPal</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="confirmacion" id="confirmacion-pago">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Éxito">
+        <h3 style="color: #C9846A;">¡Pago realizado con éxito!</h3>
+        <p>Gracias por tu compra. Hemos enviado un correo con los detalles de tu pedido.</p>
+        <div id="resumen-envio" style="text-align: left; margin: 20px 0; padding: 15px; background-color: rgba(201, 132, 106, 0.1); border-radius: 8px;"></div>
+        <p>Número de orden: <strong id="numero-orden"></strong></p>
+        <button class="boton-confirmar" onclick="cerrarModal()">CERRAR</button>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="footer-content">
-      <div class="number-section">
-        <img src="https://i.imgur.com/1xawLFf.png" alt="Numero" class="number-icon">
-        <div class="number">+57 300 520 4780</div>
-      </div>
-
-      <div class="facebook-section">
-        <img src="https://i.imgur.com/P2qJ6aI.png" alt="Facebook" class="face-icon">
-        <a href="#" class="Facebook">OlorATi</a>
-      </div>
-
-      <div class="instagram-section">
-        <img src="https://i.imgur.com/I8SfpcR.png" alt="Instagram" class="insta-icon">
-        <a href="#" class="Facebook">@OlorATi</a>
-      </div>
-    </div>
-  </footer>
-
   <script>
-    // Función para el menú hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger');
-      const mobileMenu = document.querySelector('.mobile-menu');
+    document.addEventListener("DOMContentLoaded", () => {
+      // Variables globales
+      let precioTotal = 0;
+      let cantidad = 1;
+      let datosEnvio = {};
       
-      hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
+      // Obtener elementos del DOM
+      const modal = document.getElementById("modalPago");
+      const btnPagar = document.getElementById("boton-pagar");
+      const spanCerrar = document.getElementsByClassName("cerrar")[0];
+      const pestanas = document.querySelectorAll(".pestana");
+      const contenidosPestana = document.querySelectorAll(".contenido-pestana");
+      const btnContinuarPago = document.getElementById("continuar-pago");
+      const formularioEnvio = document.getElementById("form-envio");
+      const formularioTarjeta = document.getElementById("form-tarjeta");
+      const formularioContainer = document.getElementById("formulario-pago");
+      const confirmacionContainer = document.getElementById("confirmacion-pago");
+      const metodosPago = document.querySelectorAll(".metodo-pago");
+      const tarjetaForm = document.getElementById("tarjeta-form");
+      const paypalForm = document.getElementById("paypal-container");
+      const paypalFormElement = document.getElementById("paypal-payment-form");
+      const paypalAmount = document.getElementById("paypal-amount");
+      const resumenEnvio = document.getElementById("resumen-envio");
+      
+      // Elementos de validación
+      const numeroTarjetaInput = document.getElementById("numero-tarjeta");
+      const fechaExpiracionInput = document.getElementById("fecha-expiracion");
+      const cvvInput = document.getElementById("cvv");
+      
+      // Validación del número de tarjeta (solo números, 16 dígitos)
+      numeroTarjetaInput.addEventListener("input", function(e) {
+        // Eliminar cualquier carácter que no sea número
+        this.value = this.value.replace(/\D/g, '');
         
-        // Animación de las líneas del hamburguesa
-        const spans = this.querySelectorAll('span');
-        if (this.classList.contains('active')) {
-          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          spans[1].style.opacity = '0';
-          spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        // Agregar espacios cada 4 dígitos para mejor legibilidad
+        if (this.value.length > 0) {
+          this.value = this.value.match(new RegExp('.{1,4}', 'g')).join(' ');
+        }
+        
+        // Validar longitud
+        const rawValue = this.value.replace(/\s/g, '');
+        const errorElement = document.getElementById("numero-tarjeta-error");
+        
+        if (rawValue.length < 16 && rawValue.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
         } else {
-          spans[0].style.transform = 'rotate(0) translate(0)';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'rotate(0) translate(0)';
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
         }
       });
+      
+      // Validación de fecha de expiración (formato MM/AA)
+      fechaExpiracionInput.addEventListener("input", function(e) {
+        // Eliminar cualquier carácter que no sea número
+        let value = this.value.replace(/\D/g, '');
+        
+        // Insertar / después de 2 dígitos
+        if (value.length > 2) {
+          value = value.substring(0, 2) + '/' + value.substring(2);
+        }
+        
+        this.value = value;
+        
+        // Validar formato
+        const errorElement = document.getElementById("fecha-expiracion-error");
+        const regex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+        
+        if (!regex.test(this.value) && this.value.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
+        } else {
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
+        }
+      });
+      
+      // Validación de CVV (3 dígitos)
+      cvvInput.addEventListener("input", function(e) {
+        // Solo permitir números
+        this.value = this.value.replace(/\D/g, '');
+        
+        // Validar longitud
+        const errorElement = document.getElementById("cvv-error");
+        
+        if (this.value.length < 3 && this.value.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
+        } else {
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
+        }
+      });
+      
+      // Cargar datos del carrito desde la base de datos
+      fetch("php/carrito.php")
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            alert(data.error);
+            return;
+          }
 
-      // Cerrar menú al hacer clic en un enlace
-      const navLinks = document.querySelectorAll('.mobile-menu .nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          const spans = hamburger.querySelectorAll('span');
-          spans[0].style.transform = 'rotate(0) translate(0)';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'rotate(0) translate(0)';
+          const info = document.getElementById("producto-info");
+          const resumen = document.getElementById("resumen-pedido");
+          cantidad = 1;
+          precioTotal = data.precio ? parseFloat(data.precio) : 0;
+
+          info.innerHTML = `
+            <p><strong>ID:</strong> ${data.id}</p>
+            <h3>${data.nombre}</h3>
+            <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
+            <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
+            <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
+            <p><strong>Precio:</strong> $${precioTotal.toLocaleString()}</p>
+            <div class="cantidad">
+              <button onclick="cambiarCantidad(-1)">−</button>
+              <span id="cantidad">${cantidad}</span>
+              <button onclick="cambiarCantidad(1)">+</button>
+            </div>
+          `;
+
+          actualizarResumen();
+          
+          // Configurar el monto para PayPal
+          paypalAmount.value = precioTotal;
+
+          window.cambiarCantidad = function(valor) {
+            cantidad += valor;
+            if (cantidad < 1) cantidad = 1;
+            document.getElementById("cantidad").innerText = cantidad;
+            precioTotal = data.precio * cantidad;
+            actualizarResumen();
+            // Actualizar el monto para PayPal
+            paypalAmount.value = precioTotal;
+          }
+        })
+        .catch(error => {
+          console.error('Error al cargar el carrito:', error);
+        });
+      
+      function actualizarResumen() {
+        const resumen = document.getElementById("resumen-pedido");
+        resumen.innerHTML = `
+          <h2>Resumen del pedido</h2>
+          <p>${cantidad} producto${cantidad > 1 ? 's' : ''}: $${precioTotal.toLocaleString()}</p>
+          <p>Entrega: Gratis</p>
+          <p><strong>Total: $${precioTotal.toLocaleString()}</strong></p>
+        `;
+      }
+      
+      // Event listeners para el modal
+      btnPagar.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      spanCerrar.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      // Cambiar entre pestañas
+      pestanas.forEach(pestana => {
+        pestana.addEventListener("click", function() {
+          // Remover clase activa de todas las pestañas
+          pestanas.forEach(p => p.classList.remove("activa"));
+          // Añadir clase activa a la pestaña seleccionada
+          this.classList.add("activa");
+          
+          const pestanaSeleccionada = this.getAttribute("data-pestana");
+          
+          // Mostrar el contenido correspondiente
+          contenidosPestana.forEach(contenido => {
+            contenido.classList.remove("activo");
+            if (contenido.id === `${pestanaSeleccionada}-form`) {
+              contenido.classList.add("activo");
+            }
+          });
         });
       });
-
-      // Funcionalidad del carrito
-      let cantidad = 1;
-      const precioUnitario = 50000;
-
-      window.cambiarCantidad = function(valor) {
-        cantidad += valor;
-        if (cantidad < 1) cantidad = 1;
-        document.getElementById("cantidad").innerText = cantidad;
-        document.getElementById("totalProductos").innerText = cantidad;
-        document.getElementById("totalPrecio").innerText = (cantidad * precioUnitario).toLocaleString();
+      
+      // Continuar al pago después de completar la información de envío
+      btnContinuarPago.onclick = function() {
+        if (formularioEnvio.checkValidity()) {
+          // Guardar datos de envío
+          datosEnvio = {
+            nombre: document.getElementById("nombre-completo").value,
+            direccion: document.getElementById("direccion").value,
+            ciudad: document.getElementById("ciudad").value,
+            Departamento: document.getElementById("Departamento").value,
+            codigoPostal: document.getElementById("codigo-postal").value,
+            pais: document.getElementById("pais").value,
+            telefono: document.getElementById("telefono").value,
+            instrucciones: document.getElementById("instrucciones").value
+          };
+          
+          // Cambiar a la pestaña de pago
+          document.querySelector('.pestana[data-pestana="pago"]').click();
+        } else {
+          // Mostrar mensajes de error para campos requeridos
+          const requiredInputs = formularioEnvio.querySelectorAll("[required]");
+          requiredInputs.forEach(input => {
+            if (!input.value) {
+              const errorId = `${input.id}-error`;
+              const errorElement = document.getElementById(errorId);
+              if (errorElement) {
+                errorElement.textContent = "Este campo es requerido";
+                errorElement.style.display = "block";
+                input.classList.add("input-error");
+              }
+            }
+          });
+        }
       }
-
-      // Funcionalidad de métodos de pago
-      const radiosPago = document.querySelectorAll('input[name="pago"]');
-      const infoPago = document.getElementById("infoPago");
-
-      radiosPago.forEach(radio => {
-        radio.addEventListener("change", () => {
-          switch (radio.value) {
-            case "tarjeta":
-              infoPago.innerHTML = `
-                <div class="info-tarjeta" style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
-                  <p style="margin-top: 0;">Por favor, ingresa los datos de tu tarjeta:</p>
-                  <div class="form-group">
-                    <label>Número de tarjeta</label>
-                    <input type="text" placeholder="1234 5678 9012 3456" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group" style="flex: 2;">
-                      <label>Fecha de vencimiento</label>
-                      <input type="month" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
-                    </div>
-                    <div class="form-group" style="flex: 1;">
-                      <label>Código CVV</label>
-                      <input type="text" placeholder="123" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
-                    </div>
-                  </div>
-                </div>
-              `;
-              break;
-            case "efectivo":
-              infoPago.innerHTML = `
-                <div style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
-                  <p style="margin-top: 0;">Seleccionaste pago en efectivo. Realiza el pago al momento de la entrega.</p>
-                  <p>Recibirás tu perfume en un plazo de 3 a 5 días hábiles.</p>
-                </div>
-              `;
-              break;
-            case "transferencia":
-              infoPago.innerHTML = `
-                <div style="margin-top: 20px; background-color: rgba(201, 132, 106, 0.1); padding: 20px; border-radius: 5px;">
-                  <p style="margin-top: 0;">Seleccionaste transferencia bancaria. Realiza la transferencia a esta cuenta:</p>
-                  <p><strong>Banco:</strong> Banco Ejemplo</p>
-                  <p><strong>Número de cuenta:</strong> 123456789</p>
-                  <p><strong>Titular:</strong> Nombre del Titular</p>
-                  <div class="form-group">
-                    <label>Sube tu comprobante de pago</label>
-                    <input type="file" id="comprobante" accept="image/*,application/pdf" required style="width: 100%;">
-                  </div>
-                  <div class="form-group">
-                    <label>Ingresa el código de confirmación enviado a tu correo</label>
-                    <input type="number" id="codigoConfirmacion" placeholder="Código de confirmación" required style="width: 100%; padding: 10px; border: 1px solid #C9846A; border-radius: 5px;">
-                  </div>
-                </div>
-              `;
-              break;
+      
+      // Cambiar entre métodos de pago
+      metodosPago.forEach(metodo => {
+        metodo.addEventListener("click", function() {
+          // Remover clase activa de todos los métodos
+          metodosPago.forEach(m => m.classList.remove("activo"));
+          
+          // Añadir clase activa al método seleccionado
+          this.classList.add("activo");
+          
+          const metodoSeleccionado = this.getAttribute("data-metodo");
+          
+          // Mostrar el formulario correspondiente
+          if (metodoSeleccionado === "tarjeta") {
+            tarjetaForm.style.display = "block";
+            paypalForm.classList.remove("activo");
+          } else if (metodoSeleccionado === "paypal") {
+            tarjetaForm.style.display = "none";
+            paypalForm.classList.add("activo");
           }
         });
       });
-
-      // Funcionalidad del formulario
-      document.getElementById("formularioCompra").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const nombrePerfume = document.getElementById("nombrePerfume").value.trim();
-        if (!nombrePerfume) {
-          alert("Por favor, ingresa el nombre del perfume.");
-          return;
+      
+      // Manejar envío del formulario de tarjeta
+      formularioTarjeta.onsubmit = function(e) {
+        e.preventDefault();
+        
+        // Validar campos
+        let isValid = true;
+        
+        // Validar número de tarjeta (16 dígitos sin espacios)
+        const numeroTarjeta = numeroTarjetaInput.value.replace(/\s/g, '');
+        if (numeroTarjeta.length !== 16) {
+          numeroTarjetaInput.classList.add("input-error");
+          document.getElementById("numero-tarjeta-error").style.display = "block";
+          isValid = false;
         }
-        const mensajeCompra = document.getElementById("mensajeCompra");
-        mensajeCompra.innerHTML = `
-          <h3 style="color: #3C0000;">¡Compra realizada con éxito!</h3>
-          <p>Tu perfume <strong>${nombrePerfume}</strong> será enviado a la dirección proporcionada.</p>
-          <p>Recibirás un correo de confirmación con los detalles de tu pedido.</p>
-          <p style="font-style: italic; margin-top: 15px;">¡Gracias por tu compra!</p>
-        `;
-        mensajeCompra.style.display = "block";
-        document.getElementById("formularioCompra").style.display = "none";
-      });
+        
+        // Validar fecha de expiración (formato MM/AA)
+        const fechaExpiracion = fechaExpiracionInput.value;
+        const regexFecha = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+        if (!regexFecha.test(fechaExpiracion)) {
+          fechaExpiracionInput.classList.add("input-error");
+          document.getElementById("fecha-expiracion-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Validar CVV (3 dígitos)
+        if (cvvInput.value.length !== 3) {
+          cvvInput.classList.add("input-error");
+          document.getElementById("cvv-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Validar email
+        const email = document.getElementById("email").value;
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regexEmail.test(email)) {
+          document.getElementById("email").classList.add("input-error");
+          document.getElementById("email-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Si todo es válido, procesar el pago
+        if (isValid) {
+          procesarPago();
+        }
+      }
+      
+      // Manejar envío del formulario de PayPal
+      paypalFormElement.onsubmit = function() {
+        // Guardar datos de envío en localStorage para recuperarlos después
+        localStorage.setItem('datosEnvio', JSON.stringify(datosEnvio));
+        localStorage.setItem('carrito', JSON.stringify({
+          cantidad: cantidad,
+          total: precioTotal
+        }));
+      }
+      
+      // Función para procesar el pago con tarjeta
+      function procesarPago() {
+        // Simular procesamiento de pago
+        setTimeout(() => {
+          formularioContainer.style.display = "none";
+          confirmacionContainer.style.display = "block";
+          
+          // Mostrar resumen de envío
+          resumenEnvio.innerHTML = `
+            <h4 style="color: #C9846A; margin-top: 0;">Información de envío:</h4>
+            <p><strong>Nombre:</strong> ${datosEnvio.nombre}</p>
+            <p><strong>Dirección:</strong> ${datosEnvio.direccion}</p>
+            <p><strong>Ciudad:</strong> ${datosEnvio.ciudad}, ${datosEnvio.Departamento}</p>
+            <p><strong>Código Postal:</strong> ${datosEnvio.codigoPostal}</p>
+            <p><strong>País:</strong> ${datosEnvio.pais}</p>
+            <p><strong>Teléfono:</strong> ${datosEnvio.telefono}</p>
+            ${datosEnvio.instrucciones ? `<p><strong>Instrucciones:</strong> ${datosEnvio.instrucciones}</p>` : ''}
+          `;
+          
+          // Generar número de orden aleatorio
+          document.getElementById("numero-orden").textContent = `#${Math.floor(100000 + Math.random() * 900000)}`;
+          // Actualizar contador del carrito a 0
+          document.querySelector(".cart-counter").textContent = "0";
+          
+          // Aquí podrías añadir una llamada a tu backend para registrar el pago
+          // fetch("php/procesar_pago.php", {
+          //   method: "POST",
+          //   body: JSON.stringify({
+          //     producto_id: data.id,
+          //     cantidad: cantidad,
+          //     total: precioTotal,
+          //     email: document.getElementById("email").value,
+          //     metodo: 'tarjeta',
+          //     envio: datosEnvio
+          //   })
+          // });
+        }, 1500);
+      }
     });
+    
+    function cerrarModal() {
+      document.getElementById("modalPago").style.display = "none";
+      // Restaurar formulario para futuras compras
+      document.getElementById("formulario-pago").style.display = "block";
+      document.getElementById("confirmacion-pago").style.display = "none";
+      document.getElementById("form-envio").reset();
+      document.getElementById("form-tarjeta").reset();
+      // Volver a la pestaña de envío
+      document.querySelector('.pestana[data-pestana="envio"]').click();
+    }
   </script>
 </body>
 </html>
