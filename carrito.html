@@ -196,6 +196,10 @@
       text-decoration: none;
       margin-top: auto;
       transition: background-color 0.3s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
     }
 
     .boton-pagar:hover {
@@ -223,10 +227,247 @@
       color: #3d0d0d;
     }
 
+    /* Estilos para el modal de pago */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-contenido {
+      background-color: #4f2c1d;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .cerrar {
+      color: #C9846A;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cerrar:hover {
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #C9846A;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #C9846A;
+      border-radius: 5px;
+      background-color: #3d0d0d;
+      color: white;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .fila-tarjeta {
+      display: flex;
+      gap: 15px;
+    }
+
+    .fila-tarjeta .form-group {
+      flex: 1;
+    }
+
+    .boton-confirmar {
+      background-color: #C9846A;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    .boton-confirmar:hover {
+      background-color: #a86d56;
+    }
+
+    /* Estilos para mensaje de confirmación */
+    .confirmacion {
+      text-align: center;
+      padding: 20px;
+      display: none;
+    }
+
+    .confirmacion img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos para los métodos de pago */
+    .metodos-pago {
+      margin: 20px 0;
+    }
+
+    .metodo-pago {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background-color: rgba(201, 132, 106, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .metodo-pago:hover {
+      background-color: rgba(201, 132, 106, 0.2);
+    }
+
+    .metodo-pago.activo {
+      border-color: #C9846A;
+      background-color: rgba(201, 132, 106, 0.3);
+    }
+
+    .metodo-pago .info {
+      flex: 1;
+    }
+
+    .metodo-pago .titulo {
+      font-weight: bold;
+      color: #C9846A;
+    }
+
+    .metodo-pago .descripcion {
+      font-size: 0.9rem;
+      color: #F5E6E0;
+    }
+
+    /* Estilos específicos para PayPal */
+    .paypal-form {
+      display: none;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .paypal-form.activo {
+      display: block;
+    }
+
+    .paypal-button {
+      background-color: #FFC439;
+      color: #003087;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      transition: background-color 0.3s;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .paypal-button:hover {
+      background-color: #FFB820;
+    }
+
+    /* Estilos para pestañas */
+    .pestanas {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #C9846A;
+    }
+
+    .pestana {
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #F5E6E0;
+      position: relative;
+    }
+
+    .pestana.activa {
+      color: #C9846A;
+      font-weight: bold;
+    }
+
+    .pestana.activa::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #C9846A;
+    }
+
+    .contenido-pestana {
+      display: none;
+    }
+
+    .contenido-pestana.activo {
+      display: block;
+    }
+
+    /* Estilos para validación */
+    .input-error {
+      border-color: #ff6b6b !important;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .contenedor {
         flex-direction: column;
         padding: 0 20px;
+      }
+      
+      .modal-contenido {
+        width: 90%;
+        margin: 10% auto;
+      }
+      
+      .fila-tarjeta {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .pestanas {
+        flex-direction: column;
+        border-bottom: none;
+      }
+
+      .pestana {
+        border-bottom: 1px solid #C9846A;
+      }
+
+      .pestana.activa::after {
+        display: none;
       }
     }
   </style>
@@ -266,12 +507,256 @@
       <div class="resumen" id="resumen-pedido">
         <!-- Contenido dinámico -->
       </div>
-      <a href="#" class="boton-pagar">IR A PAGAR &rarr;</a>
+      <button class="boton-pagar" id="boton-pagar">IR A PAGAR &rarr;</button>
+    </div>
+  </div>
+
+  <!-- Modal de pago -->
+  <div id="modalPago" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <div id="formulario-pago">
+        <div class="pestanas">
+          <div class="pestana activa" data-pestana="envio">Envío</div>
+          <div class="pestana" data-pestana="pago">Pago</div>
+        </div>
+
+        <!-- Contenido de pestaña de envío -->
+        <div id="envio-form" class="contenido-pestana activo">
+          <h2 style="color: #C9846A; margin-top: 0;">Información de Envío</h2>
+          <form id="form-envio">
+            <div class="form-group">
+              <label for="nombre-completo">Nombre completo</label>
+              <input type="text" id="nombre-completo" required>
+              <div class="error-message" id="nombre-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" required>
+              <div class="error-message" id="direccion-error"></div>
+            </div>
+            <div class="fila-tarjeta">
+              <div class="form-group">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" id="ciudad" required>
+                <div class="error-message" id="ciudad-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="estado">Estado</label>
+                <input type="text" id="estado" required>
+                <div class="error-message" id="estado-error"></div>
+              </div>
+            </div>
+            <div class="fila-tarjeta">
+              <div class="form-group">
+                <label for="codigo-postal">Código Postal</label>
+                <input type="text" id="codigo-postal" required>
+                <div class="error-message" id="codigo-postal-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="pais">País</label>
+                <select id="pais" required>
+                  <option value="">Selecciona un país</option>
+                  <option value="MX">México</option>
+                  <option value="US">Estados Unidos</option>
+                  <option value="CO">Colombia</option>
+                  <option value="ES">España</option>
+                  <!-- Agrega más países según necesites -->
+                </select>
+                <div class="error-message" id="pais-error"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" required>
+              <div class="error-message" id="telefono-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="instrucciones">Instrucciones especiales (opcional)</label>
+              <textarea id="instrucciones" rows="3"></textarea>
+            </div>
+            <button type="button" class="boton-confirmar" id="continuar-pago">CONTINUAR AL PAGO</button>
+          </form>
+        </div>
+
+        <!-- Contenido de pestaña de pago -->
+        <div id="pago-form" class="contenido-pestana">
+          <h2 style="color: #C9846A; margin-top: 0;">Método de Pago</h2>
+          
+          <div class="metodos-pago">
+            <div class="metodo-pago activo" data-metodo="tarjeta">
+              <div class="info">
+                <div class="titulo">Tarjeta de crédito/débito</div>
+                <div class="descripcion">Paga con Visa, Mastercard o American Express</div>
+              </div>
+            </div>
+            
+            <div class="metodo-pago" data-metodo="paypal">
+              <div class="info">
+                <div class="titulo">PayPal</div>
+                <div class="descripcion">Paga rápida y seguramente con tu cuenta PayPal</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formulario de tarjeta -->
+          <div id="tarjeta-form">
+            <form id="form-tarjeta">
+              <div class="form-group">
+                <label for="nombre-tarjeta">Nombre en la tarjeta</label>
+                <input type="text" id="nombre-tarjeta" required>
+                <div class="error-message" id="nombre-tarjeta-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="numero-tarjeta">Número de tarjeta</label>
+                <input type="text" id="numero-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                <div class="error-message" id="numero-tarjeta-error">El número de tarjeta debe tener 16 dígitos</div>
+              </div>
+              <div class="fila-tarjeta">
+                <div class="form-group">
+                  <label for="fecha-expiracion">Fecha de expiración</label>
+                  <input type="text" id="fecha-expiracion" placeholder="MM/AA" maxlength="5" required>
+                  <div class="error-message" id="fecha-expiracion-error">Formato debe ser MM/AA</div>
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                  <div class="error-message" id="cvv-error">El CVV debe tener 3 dígitos</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required>
+                <div class="error-message" id="email-error">Ingrese un correo electrónico válido</div>
+              </div>
+              <button type="submit" class="boton-confirmar">CONFIRMAR PAGO</button>
+            </form>
+          </div>
+          
+          <!-- Formulario de PayPal -->
+          <div id="paypal-container" class="paypal-form">
+            <p>Serás redirigido a PayPal para completar tu pago de manera segura.</p>
+            <form id="paypal-payment-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="business" value="tucorreo@tudominio.com">
+              <input type="hidden" name="item_name" value="Producto Personalizado">
+              <input type="hidden" name="currency_code" value="MXN">
+              <input type="hidden" name="amount" id="paypal-amount" value="0">
+              <input type="hidden" name="return" value="https://tudominio.com/gracias.html">
+              <input type="hidden" name="cancel_return" value="https://tudominio.com/carrito.html">
+              <button type="submit" class="paypal-button">Pagar con PayPal</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="confirmacion" id="confirmacion-pago">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Éxito">
+        <h3 style="color: #C9846A;">¡Pago realizado con éxito!</h3>
+        <p>Gracias por tu compra. Hemos enviado un correo con los detalles de tu pedido.</p>
+        <div id="resumen-envio" style="text-align: left; margin: 20px 0; padding: 15px; background-color: rgba(201, 132, 106, 0.1); border-radius: 8px;"></div>
+        <p>Número de orden: <strong id="numero-orden"></strong></p>
+        <button class="boton-confirmar" onclick="cerrarModal()">CERRAR</button>
+      </div>
     </div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Variables globales
+      let precioTotal = 0;
+      let cantidad = 1;
+      let datosEnvio = {};
+      
+      // Obtener elementos del DOM
+      const modal = document.getElementById("modalPago");
+      const btnPagar = document.getElementById("boton-pagar");
+      const spanCerrar = document.getElementsByClassName("cerrar")[0];
+      const pestanas = document.querySelectorAll(".pestana");
+      const contenidosPestana = document.querySelectorAll(".contenido-pestana");
+      const btnContinuarPago = document.getElementById("continuar-pago");
+      const formularioEnvio = document.getElementById("form-envio");
+      const formularioTarjeta = document.getElementById("form-tarjeta");
+      const formularioContainer = document.getElementById("formulario-pago");
+      const confirmacionContainer = document.getElementById("confirmacion-pago");
+      const metodosPago = document.querySelectorAll(".metodo-pago");
+      const tarjetaForm = document.getElementById("tarjeta-form");
+      const paypalForm = document.getElementById("paypal-container");
+      const paypalFormElement = document.getElementById("paypal-payment-form");
+      const paypalAmount = document.getElementById("paypal-amount");
+      const resumenEnvio = document.getElementById("resumen-envio");
+      
+      // Elementos de validación
+      const numeroTarjetaInput = document.getElementById("numero-tarjeta");
+      const fechaExpiracionInput = document.getElementById("fecha-expiracion");
+      const cvvInput = document.getElementById("cvv");
+      
+      // Validación del número de tarjeta (solo números, 16 dígitos)
+      numeroTarjetaInput.addEventListener("input", function(e) {
+        // Eliminar cualquier carácter que no sea número
+        this.value = this.value.replace(/\D/g, '');
+        
+        // Agregar espacios cada 4 dígitos para mejor legibilidad
+        if (this.value.length > 0) {
+          this.value = this.value.match(new RegExp('.{1,4}', 'g')).join(' ');
+        }
+        
+        // Validar longitud
+        const rawValue = this.value.replace(/\s/g, '');
+        const errorElement = document.getElementById("numero-tarjeta-error");
+        
+        if (rawValue.length < 16 && rawValue.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
+        } else {
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
+        }
+      });
+      
+      // Validación de fecha de expiración (formato MM/AA)
+      fechaExpiracionInput.addEventListener("input", function(e) {
+        // Eliminar cualquier carácter que no sea número
+        let value = this.value.replace(/\D/g, '');
+        
+        // Insertar / después de 2 dígitos
+        if (value.length > 2) {
+          value = value.substring(0, 2) + '/' + value.substring(2);
+        }
+        
+        this.value = value;
+        
+        // Validar formato
+        const errorElement = document.getElementById("fecha-expiracion-error");
+        const regex = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+        
+        if (!regex.test(this.value) && this.value.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
+        } else {
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
+        }
+      });
+      
+      // Validación de CVV (3 dígitos)
+      cvvInput.addEventListener("input", function(e) {
+        // Solo permitir números
+        this.value = this.value.replace(/\D/g, '');
+        
+        // Validar longitud
+        const errorElement = document.getElementById("cvv-error");
+        
+        if (this.value.length < 3 && this.value.length > 0) {
+          this.classList.add("input-error");
+          errorElement.style.display = "block";
+        } else {
+          this.classList.remove("input-error");
+          errorElement.style.display = "none";
+        }
+      });
+      
+      // Cargar datos del carrito desde la base de datos
       fetch("php/carrito.php")
         .then(res => res.json())
         .then(data => {
@@ -282,8 +767,8 @@
 
           const info = document.getElementById("producto-info");
           const resumen = document.getElementById("resumen-pedido");
-          let cantidad = 1;
-          let precio = data.precio ? parseFloat(data.precio) : 0;
+          cantidad = 1;
+          precioTotal = data.precio ? parseFloat(data.precio) : 0;
 
           info.innerHTML = `
             <p><strong>ID:</strong> ${data.id}</p>
@@ -291,7 +776,7 @@
             <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
             <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
             <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
-            <p><strong>Precio:</strong> $${precio.toLocaleString()}</p>
+            <p><strong>Precio:</strong> $${precioTotal.toLocaleString()}</p>
             <div class="cantidad">
               <button onclick="cambiarCantidad(-1)">−</button>
               <span id="cantidad">${cantidad}</span>
@@ -299,26 +784,232 @@
             </div>
           `;
 
-          resumen.innerHTML = `
-            <h2>Resumen del pedido</h2>
-            <p>${cantidad} producto: $${precio.toLocaleString()}</p>
-            <p>Entrega: Gratis</p>
-            <p><strong>Total: $${precio.toLocaleString()}</strong></p>
-          `;
+          actualizarResumen();
+          
+          // Configurar el monto para PayPal
+          paypalAmount.value = precioTotal;
 
           window.cambiarCantidad = function(valor) {
             cantidad += valor;
             if (cantidad < 1) cantidad = 1;
             document.getElementById("cantidad").innerText = cantidad;
-            resumen.innerHTML = `
-              <h2>Resumen del pedido</h2>
-              <p>${cantidad} producto${cantidad > 1 ? 's' : ''}: $${(precio * cantidad).toLocaleString()}</p>
-              <p>Entrega: Gratis</p>
-              <p><strong>Total: $${(precio * cantidad).toLocaleString()}</strong></p>
-            `;
+            precioTotal = data.precio * cantidad;
+            actualizarResumen();
+            // Actualizar el monto para PayPal
+            paypalAmount.value = precioTotal;
+          }
+        })
+        .catch(error => {
+          console.error('Error al cargar el carrito:', error);
+        });
+      
+      function actualizarResumen() {
+        const resumen = document.getElementById("resumen-pedido");
+        resumen.innerHTML = `
+          <h2>Resumen del pedido</h2>
+          <p>${cantidad} producto${cantidad > 1 ? 's' : ''}: $${precioTotal.toLocaleString()}</p>
+          <p>Entrega: Gratis</p>
+          <p><strong>Total: $${precioTotal.toLocaleString()}</strong></p>
+        `;
+      }
+      
+      // Event listeners para el modal
+      btnPagar.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      spanCerrar.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      // Cambiar entre pestañas
+      pestanas.forEach(pestana => {
+        pestana.addEventListener("click", function() {
+          // Remover clase activa de todas las pestañas
+          pestanas.forEach(p => p.classList.remove("activa"));
+          // Añadir clase activa a la pestaña seleccionada
+          this.classList.add("activa");
+          
+          const pestanaSeleccionada = this.getAttribute("data-pestana");
+          
+          // Mostrar el contenido correspondiente
+          contenidosPestana.forEach(contenido => {
+            contenido.classList.remove("activo");
+            if (contenido.id === `${pestanaSeleccionada}-form`) {
+              contenido.classList.add("activo");
+            }
+          });
+        });
+      });
+      
+      // Continuar al pago después de completar la información de envío
+      btnContinuarPago.onclick = function() {
+        if (formularioEnvio.checkValidity()) {
+          // Guardar datos de envío
+          datosEnvio = {
+            nombre: document.getElementById("nombre-completo").value,
+            direccion: document.getElementById("direccion").value,
+            ciudad: document.getElementById("ciudad").value,
+            estado: document.getElementById("estado").value,
+            codigoPostal: document.getElementById("codigo-postal").value,
+            pais: document.getElementById("pais").value,
+            telefono: document.getElementById("telefono").value,
+            instrucciones: document.getElementById("instrucciones").value
+          };
+          
+          // Cambiar a la pestaña de pago
+          document.querySelector('.pestana[data-pestana="pago"]').click();
+        } else {
+          // Mostrar mensajes de error para campos requeridos
+          const requiredInputs = formularioEnvio.querySelectorAll("[required]");
+          requiredInputs.forEach(input => {
+            if (!input.value) {
+              const errorId = `${input.id}-error`;
+              const errorElement = document.getElementById(errorId);
+              if (errorElement) {
+                errorElement.textContent = "Este campo es requerido";
+                errorElement.style.display = "block";
+                input.classList.add("input-error");
+              }
+            }
+          });
+        }
+      }
+      
+      // Cambiar entre métodos de pago
+      metodosPago.forEach(metodo => {
+        metodo.addEventListener("click", function() {
+          // Remover clase activa de todos los métodos
+          metodosPago.forEach(m => m.classList.remove("activo"));
+          
+          // Añadir clase activa al método seleccionado
+          this.classList.add("activo");
+          
+          const metodoSeleccionado = this.getAttribute("data-metodo");
+          
+          // Mostrar el formulario correspondiente
+          if (metodoSeleccionado === "tarjeta") {
+            tarjetaForm.style.display = "block";
+            paypalForm.classList.remove("activo");
+          } else if (metodoSeleccionado === "paypal") {
+            tarjetaForm.style.display = "none";
+            paypalForm.classList.add("activo");
           }
         });
+      });
+      
+      // Manejar envío del formulario de tarjeta
+      formularioTarjeta.onsubmit = function(e) {
+        e.preventDefault();
+        
+        // Validar campos
+        let isValid = true;
+        
+        // Validar número de tarjeta (16 dígitos sin espacios)
+        const numeroTarjeta = numeroTarjetaInput.value.replace(/\s/g, '');
+        if (numeroTarjeta.length !== 16) {
+          numeroTarjetaInput.classList.add("input-error");
+          document.getElementById("numero-tarjeta-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Validar fecha de expiración (formato MM/AA)
+        const fechaExpiracion = fechaExpiracionInput.value;
+        const regexFecha = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/;
+        if (!regexFecha.test(fechaExpiracion)) {
+          fechaExpiracionInput.classList.add("input-error");
+          document.getElementById("fecha-expiracion-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Validar CVV (3 dígitos)
+        if (cvvInput.value.length !== 3) {
+          cvvInput.classList.add("input-error");
+          document.getElementById("cvv-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Validar email
+        const email = document.getElementById("email").value;
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regexEmail.test(email)) {
+          document.getElementById("email").classList.add("input-error");
+          document.getElementById("email-error").style.display = "block";
+          isValid = false;
+        }
+        
+        // Si todo es válido, procesar el pago
+        if (isValid) {
+          procesarPago();
+        }
+      }
+      
+      // Manejar envío del formulario de PayPal
+      paypalFormElement.onsubmit = function() {
+        // Guardar datos de envío en localStorage para recuperarlos después
+        localStorage.setItem('datosEnvio', JSON.stringify(datosEnvio));
+        localStorage.setItem('carrito', JSON.stringify({
+          cantidad: cantidad,
+          total: precioTotal
+        }));
+      }
+      
+      // Función para procesar el pago con tarjeta
+      function procesarPago() {
+        // Simular procesamiento de pago
+        setTimeout(() => {
+          formularioContainer.style.display = "none";
+          confirmacionContainer.style.display = "block";
+          
+          // Mostrar resumen de envío
+          resumenEnvio.innerHTML = `
+            <h4 style="color: #C9846A; margin-top: 0;">Información de envío:</h4>
+            <p><strong>Nombre:</strong> ${datosEnvio.nombre}</p>
+            <p><strong>Dirección:</strong> ${datosEnvio.direccion}</p>
+            <p><strong>Ciudad:</strong> ${datosEnvio.ciudad}, ${datosEnvio.estado}</p>
+            <p><strong>Código Postal:</strong> ${datosEnvio.codigoPostal}</p>
+            <p><strong>País:</strong> ${datosEnvio.pais}</p>
+            <p><strong>Teléfono:</strong> ${datosEnvio.telefono}</p>
+            ${datosEnvio.instrucciones ? `<p><strong>Instrucciones:</strong> ${datosEnvio.instrucciones}</p>` : ''}
+          `;
+          
+          // Generar número de orden aleatorio
+          document.getElementById("numero-orden").textContent = `#${Math.floor(100000 + Math.random() * 900000)}`;
+          // Actualizar contador del carrito a 0
+          document.querySelector(".cart-counter").textContent = "0";
+          
+          // Aquí podrías añadir una llamada a tu backend para registrar el pago
+          // fetch("php/procesar_pago.php", {
+          //   method: "POST",
+          //   body: JSON.stringify({
+          //     producto_id: data.id,
+          //     cantidad: cantidad,
+          //     total: precioTotal,
+          //     email: document.getElementById("email").value,
+          //     metodo: 'tarjeta',
+          //     envio: datosEnvio
+          //   })
+          // });
+        }, 1500);
+      }
     });
+    
+    function cerrarModal() {
+      document.getElementById("modalPago").style.display = "none";
+      // Restaurar formulario para futuras compras
+      document.getElementById("formulario-pago").style.display = "block";
+      document.getElementById("confirmacion-pago").style.display = "none";
+      document.getElementById("form-envio").reset();
+      document.getElementById("form-tarjeta").reset();
+      // Volver a la pestaña de envío
+      document.querySelector('.pestana[data-pestana="envio"]').click();
+    }
   </script>
 </body>
 </html>
