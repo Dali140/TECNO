@@ -45,23 +45,37 @@
   <script>
     function loginAdmin() {
       const nombre = document.getElementById("nombre").value;
-      const password = document.getElementById("password").value;
+      const contrasena = document.getElementById("password").value;
+
+      const formData = new FormData();
+      formData.append("nombre", nombre);
+      formData.append("contrasena", contrasena);
 
       fetch("php/admin_login.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, password })
+        body: formData
       })
       .then(res => res.json())
       .then(data => {
-        if (data.ok && data.usuario.rol === "admin") {
-          localStorage.setItem("admin", JSON.stringify(data.usuario));
+        if (data.success && data.user.rol === "admin") {
+          localStorage.setItem("admin", JSON.stringify(data.user));
           window.location.href = "admin_panel.html";
         } else {
-          document.getElementById("mensaje").textContent = data.mensaje || "Credenciales incorrectas.";
+          document.getElementById("mensaje").textContent = data.error || "Credenciales incorrectas.";
         }
+      })
+      .catch(err => {
+        document.getElementById("mensaje").textContent = "Error en el servidor.";
       });
     }
+
+      // Redirigir al panel de administración si ya hay un admin logueado
+      window.addEventListener("DOMContentLoaded", () => {
+        const admin = JSON.parse(localStorage.getItem("admin"));
+        if (admin && admin.rol === "admin") {
+          window.location.href = "admin_panel.html";
+        }
+      });
   </script>
 </body>
 </html>
