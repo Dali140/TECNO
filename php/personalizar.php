@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "tecno_db");
+$conexion = new mysqli("sql200.infinityfree.com", "if0_39080857", "e8Zcudo5ftoX", "if0_39080857_tecno_db");
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
