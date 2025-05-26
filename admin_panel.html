@@ -67,9 +67,26 @@
       </thead>
       <tbody></tbody>
     </table>
+    <h2>Mensajes de Contacto</h2>
+    <table id="tablaContactos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Email</th>
+          <th>Fecha</th>
+          <th>Comentario</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 
   <script>
+    function cerrarSesion() {
+      localStorage.removeItem("admin");
+      window.location.href = "admin_login.html"; // Redirige al login del admin
+    }
     window.addEventListener("DOMContentLoaded", () => {
     const admin = JSON.parse(localStorage.getItem("admin"));
     if (!admin || admin.rol !== "admin") {
@@ -77,10 +94,29 @@
       window.location.href = "admin_login.html";
     }
 
-    function cerrarSesion() {
-      localStorage.removeItem("admin");
-      window.location.href = "admin_login.html";
-    }
+    
+    fetch("php/obtener_contactos.php")
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.querySelector("#tablaContactos tbody");
+        tbody.innerHTML = "";
+
+        data.forEach(contacto => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${contacto.nombre}</td>
+            <td>${contacto.telefono}</td>
+            <td>${contacto.email}</td>
+            <td>${contacto.fecha}</td>
+            <td>${contacto.comentario}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      })
+      .catch(error => {
+        console.error("Error al obtener contactos:", error);
+      });
+
 
     fetch("php/obtener_pedidos.php")
       .then(res => res.json())
