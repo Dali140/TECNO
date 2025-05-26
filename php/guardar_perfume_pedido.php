@@ -1,16 +1,46 @@
 <?php
-$conexion = new mysqli("sql200.infinityfree.com", "if0_39080857", "e8Zcudo5ftoX", "if0_39080857_tecno_db");
-//$conexion = new mysqli("localhost", "root", "", "tecno_db");
+header("Content-Type: application/json");
+$host = "sql200.infinityfree.com";
+$user = "if0_39080857";
+$password = "e8Zcudo5ftoX";
+$db = "if0_39080857_tecno_db";
+
+$conexion = new mysqli($host, $user, $password, $db);
+if ($conexion->connect_error) {
+    http_response_code(500);
+    echo json_encode(["error" => "Error de conexión"]);
+    exit;
+}
+
 $datos = json_decode(file_get_contents("php://input"), true);
 
-$stmt = $conexion->prepare("INSERT INTO pedidos_perfumes
-(session_id, numero_orden, nombre, nota_salida, nota_corazon, nota_fondo, precio)
-VALUES (?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param(
-  "ssssssd",
-  $datos["session_id"], $datos["numero_orden"], $datos["nombre"],
-  $datos["nota_salida"], $datos["nota_corazon"], $datos["nota_fondo"], $datos["precio"]
-);
-$stmt->execute();
-echo "ok";
+if (!isset($datos["perfumes"]) || !isset($datos["numeroOrden"])) {
+    http_response_code(400);
+    echo json_encode(["error" => "Datos incompletos"]);
+    exit;
+}
+
+$perfumes = $datos["perfumes"];
+$orden = $datos["numeroOrden"];
+
+$stmt = $conexion->prepare("INSERT INTO pedidos_perfumes 
+(numero_orden, nombre, nota_salida, nota_corazon, nota_fondo, precio) 
+VALUES (?, ?, ?, ?, ?, ?)");
+
+foreach ($perfumes as $p) {
+    $stmt->bind_param("sssssd", 
+        $orden, 
+        $p["nombre"], 
+        $p["salida"], 
+        $p["corazon"], 
+        $p["fondo"], 
+        $p["precio"]
+    );
+    $stmt->execute();
+}
+
+$stmt->close();
+$conexion->close();
+
+echo json_encode(["ok" => true, "mensaje" => "Perfumes guardados"]);
 ?>

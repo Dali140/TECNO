@@ -95,77 +95,77 @@
     }
 
     
-    fetch("php/obtener_contactos.php")
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.querySelector("#tablaContactos tbody");
-        tbody.innerHTML = "";
+      fetch("php/obtener_contactos.php")
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector("#tablaContactos tbody");
+          tbody.innerHTML = "";
 
-        data.forEach(contacto => {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${contacto.nombre}</td>
-            <td>${contacto.telefono}</td>
-            <td>${contacto.email}</td>
-            <td>${contacto.fecha}</td>
-            <td>${contacto.comentario}</td>
-          `;
-          tbody.appendChild(tr);
+          data.forEach(contacto => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${contacto.nombre}</td>
+              <td>${contacto.telefono}</td>
+              <td>${contacto.email}</td>
+              <td>${contacto.fecha}</td>
+              <td>${contacto.comentario}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(error => {
+          console.error("Error al obtener contactos:", error);
         });
-      })
-      .catch(error => {
-        console.error("Error al obtener contactos:", error);
-      });
 
 
-    fetch("php/obtener_pedidos.php")
-      .then(res => res.json())
-      .then(data => {
-        const tbody = document.querySelector("#tablaPedidos tbody");
-        tbody.innerHTML = "";
+      fetch("php/obtener_pedidos.php")
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector("#tablaPedidos tbody");
+          tbody.innerHTML = "";
 
-        data.forEach(pedido => {
-          // Preparar HTML de las fragancias (si existen)
-          let notasHTML = '';
-          if (pedido.fragancias) {
-            try {
-              const fragancias = JSON.parse(pedido.fragancias);
-              notasHTML = fragancias.map((f, i) => `
-                <div style="margin-bottom: 10px;">
-                  <strong>Perfume ${i + 1}</strong><br>
-                  - Nombre: ${f.nombre}<br>
-                  - Salida: ${f.salida}<br>
-                  - Corazón: ${f.corazon}<br>
-                  - Fondo: ${f.fondo}
-                </div>
-              `).join('');
-            } catch (e) {
-              notasHTML = "<em>Error al leer fragancias</em>";
+          data.forEach(pedido => {
+            // Preparar HTML de las fragancias (si existen)
+            let notasHTML = '';
+            if (pedido.fragancias) {
+              try {
+                const fragancias = JSON.parse(pedido.fragancias);
+                notasHTML = fragancias.map((f, i) => `
+                  <div style="margin-bottom: 10px;">
+                    <strong>Perfume ${i + 1}</strong><br>
+                    - Nombre: ${f.nombre}<br>
+                    - Salida: ${f.salida}<br>
+                    - Corazón: ${f.corazon}<br>
+                    - Fondo: ${f.fondo}
+                  </div>
+                `).join('');
+              } catch (e) {
+                notasHTML = "<em>Error al leer fragancias</em>";
+              }
+            } else {
+              notasHTML = "<em>No se registraron notas</em>";
             }
-          } else {
-            notasHTML = "<em>No se registraron notas</em>";
-          }
 
-          // Crear fila con todos los datos
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>#${pedido.numero_orden}</td>
-            <td>${pedido.nombre}</td>
-            <td>${pedido.direccion}, ${pedido.ciudad} - ${pedido.departamento}</td>
-            <td>${pedido.telefono}</td>
-            <td>${pedido.pais}</td>
-            <td>${notasHTML}</td>
-            <td><button onclick="descargarPDF('${pedido.numero_orden}')">📄 Guía PDF</button></td>
-          `;
-          tbody.appendChild(tr);
-        });
-      })
-      .catch(error => {
-        console.error("Error al obtener los pedidos:", error);
+            // Crear fila con todos los datos
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>#${pedido.numero_orden}</td>
+              <td>${pedido.nombre}</td>
+              <td>${pedido.direccion}, ${pedido.ciudad} - ${pedido.departamento}</td>
+              <td>${pedido.telefono}</td>
+              <td>${pedido.pais}</td>
+              <td>${notasHTML}</td>
+              <td><button onclick="descargarPDF('${pedido.numero_orden}')">📄 Guía PDF</button></td>
+            `;
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(error => {
+          console.error("Error al obtener los pedidos:", error);
       });
 
       
-  });
+    });
     function descargarPDF(orden) {
       window.open(`php/descargar_guia.php?orden=${orden}`, '_blank');
     }

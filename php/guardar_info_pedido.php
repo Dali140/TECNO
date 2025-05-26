@@ -3,7 +3,12 @@ header("Content-Type: application/json");
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$conexion = new mysqli("sql200.infinityfree.com", "if0_39080857", "e8Zcudo5ftoX", "if0_39080857_tecno_db");
+$host = "sql200.infinityfree.com";
+$user = "if0_39080857";
+$password = "e8Zcudo5ftoX";
+$db = "if0_39080857_tecno_db";
+
+$conexion = new mysqli($host, $user, $password, $db);
 //$conexion = new mysqli("localhost", "root", "", "tecno_db");
 
 if ($conexion->connect_error) {
