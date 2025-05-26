@@ -491,25 +491,18 @@
     </div>
   </header>
 
-  <div class="contenedor">
-    <div class="izquierda">
+  <main class="contenedor">
+    <section class="izquierda">
       <h1>Tu Carrito</h1>
-      <div class="producto">
-        <img src="img/carrito banner.jpg" alt="Perfume">
-        <div class="producto-info" id="producto-info">
-          <!-- Contenido dinámico -->
-        </div>
-      </div>
+      <div id="productos-carrito"></div>
       <a href="personalizar.html" class="btn-seguir">← Seguir comprando</a>
-    </div>
+    </section>
 
-    <div class="derecha">
-      <div class="resumen" id="resumen-pedido">
-        <!-- Contenido dinámico -->
-      </div>
+    <section class="derecha">
+      <div class="resumen" id="resumen-pedido"></div>
       <button class="boton-pagar" id="boton-pagar">IR A PAGAR &rarr;</button>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <!-- Modal de pago -->
   <div id="modalPago" class="modal">
@@ -690,7 +683,58 @@
       const numeroTarjetaInput = document.getElementById("numero-tarjeta");
       const fechaExpiracionInput = document.getElementById("fecha-expiracion");
       const cvvInput = document.getElementById("cvv");
-      
+      const carrito = JSON.parse(localStorage.getItem("perfumesPersonalizados")) || [];
+      const contenedor = document.getElementById("productos-carrito");
+      const resumen = document.getElementById("resumen-pedido");
+      const contador = document.querySelector(".cart-counter");
+
+      let total = 0;
+
+      function actualizarCarrito() {
+        contenedor.innerHTML = "";
+        total = 0;
+
+        carrito.forEach((item, index) => {
+          const precio = 50000;
+          total += precio;
+
+          const div = document.createElement("div");
+          div.classList.add("producto");
+          div.innerHTML = `
+            <img src="img/carrito banner.jpg" alt="Perfume">
+            <div class="producto-info">
+              <h3>${item.nombre}</h3>
+              <p><strong>Salida:</strong> ${item.salida}</p>
+              <p><strong>Corazón:</strong> ${item.corazon}</p>
+              <p><strong>Fondo:</strong> ${item.fondo}</p>
+              <p><strong>Precio:</strong> $${precio.toLocaleString()}</p>
+              <button onclick="eliminarPerfume(${index})" style="margin-top:10px;background:#C9846A;border:none;color:#fff;padding:8px 12px;border-radius:5px;cursor:pointer;">Eliminar</button>
+            </div>
+          `;
+          contenedor.appendChild(div);
+        });
+
+        resumen.innerHTML = `
+          <h2>Resumen del pedido</h2>
+          <p>${carrito.length} producto${carrito.length !== 1 ? "s" : ""}: $${total.toLocaleString()}</p>
+          <p>Entrega: Gratis</p>
+          <p><strong>Total: $${total.toLocaleString()}</strong></p>
+        `;
+
+        contador.textContent = carrito.length;
+      }
+
+      window.eliminarPerfume = (index) => {
+        carrito.splice(index, 1);
+        localStorage.setItem("perfumesPersonalizados", JSON.stringify(carrito));
+        actualizarCarrito();
+      };
+
+      actualizarCarrito();
+
+      document.getElementById("boton-pagar").addEventListener("click", () => {
+        document.getElementById("modalPago").style.display = "block";
+      });
       // Validación del número de tarjeta (solo números, 16 dígitos)
       numeroTarjetaInput.addEventListener("input", function(e) {
         // Eliminar cualquier carácter que no sea número
@@ -755,54 +799,6 @@
           errorElement.style.display = "none";
         }
       });
-      
-      // Cargar datos del carrito desde la base de datos
-      fetch("php/carrito.php")
-        .then(res => res.json())
-        .then(data => {
-          if (data.error) {
-            alert(data.error);
-            return;
-          }
-
-          const info = document.getElementById("producto-info");
-          const resumen = document.getElementById("resumen-pedido");
-          cantidad = 1;
-          precioTotal = data.precio ? parseFloat(data.precio) : 0;
-
-          info.innerHTML = `
-            <p><strong>ID:</strong> ${data.id}</p>
-            <h3>${data.nombre}</h3>
-            <p><strong>Nota de salida:</strong> ${data.nota_salida}</p>
-            <p><strong>Nota de corazón:</strong> ${data.nota_corazon}</p>
-            <p><strong>Nota de fondo:</strong> ${data.nota_fondo}</p>
-            <p><strong>Precio:</strong> $${precioTotal.toLocaleString()}</p>
-            <div class="cantidad">
-              <button onclick="cambiarCantidad(-1)">−</button>
-              <span id="cantidad">${cantidad}</span>
-              <button onclick="cambiarCantidad(1)">+</button>
-            </div>
-          `;
-
-          actualizarResumen();
-          
-          // Configurar el monto para PayPal
-          paypalAmount.value = precioTotal;
-
-          window.cambiarCantidad = function(valor) {
-            cantidad += valor;
-            if (cantidad < 1) cantidad = 1;
-            document.getElementById("cantidad").innerText = cantidad;
-            precioTotal = data.precio * cantidad;
-            actualizarResumen();
-            // Actualizar el monto para PayPal
-            paypalAmount.value = precioTotal;
-          }
-        })
-        .catch(error => {
-          console.error('Error al cargar el carrito:', error);
-        });
-      
       function actualizarResumen() {
         const resumen = document.getElementById("resumen-pedido");
         resumen.innerHTML = `
@@ -963,13 +959,14 @@
       // Función para procesar el pago con tarjeta
       function procesarPago() {
         // Simular procesamiento de pago
+        const perfumesPersonalizados = JSON.parse(localStorage.getItem("perfumesPersonalizados")) || [];
         setTimeout(() => {
           formularioContainer.style.display = "none";
           confirmacionContainer.style.display = "block";
-          
+
           // Mostrar resumen de envío
           resumenEnvio.innerHTML = `
-            <h4 style="color: #C9846A; margin-top: 0;">Información de envío:</h4>
+            <h4 style="color: #C9846A;">Información de envío:</h4>
             <p><strong>Nombre:</strong> ${datosEnvio.nombre}</p>
             <p><strong>Dirección:</strong> ${datosEnvio.direccion}</p>
             <p><strong>Ciudad:</strong> ${datosEnvio.ciudad}, ${datosEnvio.Departamento}</p>
@@ -978,26 +975,53 @@
             <p><strong>Teléfono:</strong> ${datosEnvio.telefono}</p>
             ${datosEnvio.instrucciones ? `<p><strong>Instrucciones:</strong> ${datosEnvio.instrucciones}</p>` : ''}
           `;
-          
-          // Generar número de orden aleatorio
-          document.getElementById("numero-orden").textContent = `#${Math.floor(100000 + Math.random() * 900000)}`;
-          // Actualizar contador del carrito a 0
+
+          const numero_orden = `${Math.floor(100000 + Math.random() * 900000)}`;
+          document.getElementById("numero-orden").textContent = numero_orden;
           document.querySelector(".cart-counter").textContent = "0";
+
+          // Enviar datos a la base de datos
+          const session_id = localStorage.getItem("session_id") || Date.now().toString();
+          localStorage.setItem("session_id", session_id);
+
+          const perfumesPersonalizados = JSON.parse(localStorage.getItem("perfumesPersonalizados")) || [];
           
-          // Aquí podrías añadir una llamada a tu backend para registrar el pago
-          // fetch("php/procesar_pago.php", {
-          //   method: "POST",
-          //   body: JSON.stringify({
-          //     producto_id: data.id,
-          //     cantidad: cantidad,
-          //     total: precioTotal,
-          //     email: document.getElementById("email").value,
-          //     metodo: 'tarjeta',
-          //     envio: datosEnvio
-          //   })
-          // });
+
+          fetch("php/guardar_info_pedido.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                datosEnvio,
+                carrito: perfumesPersonalizados, // si quieres usarlo luego en otra tabla
+                total: precioTotal,
+                numeroOrden: numero_orden,
+                metodo: "tarjeta",
+                session_id: session_id
+              })
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log("Servidor dice:", data);
+            localStorage.removeItem("perfumesPersonalizados");
+          })
+          .catch(error => {
+            console.error("Error al guardar en base de datos:", error);
+          });
+          
+          fetch("php/guardar_perfumes.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              numeroOrden:numero_orden,
+              perfumes: perfumesPersonalizados // asegúrate que este array esté en localStorage y contenga nombre, salida, corazon, fondo y precio
+            })
+          })
+          .then(res => res.json())
+          .then(data => console.log("Perfumes guardados:", data))
+          .catch(err => console.error("Error guardando perfumes:", err));
         }, 1500);
-      }
+        
+      }      
     });
     
     function cerrarModal() {

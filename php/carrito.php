@@ -14,7 +14,7 @@ $resultado = $conexion->query($sql);
 
 if ($resultado && $fila = $resultado->fetch_assoc()) {
     // Puedes asignar un precio fijo si no está en la base
-    $fila["precio"] = 599950;
+    $fila["precio"] = 90000;
     echo json_encode($fila);
 } else {
     echo json_encode(["error" => "No se encontró ningún perfume"]);
