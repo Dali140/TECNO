@@ -1,7 +1,9 @@
 <?php
 $conexion = new mysqli("sql200.infinityfree.com", "if0_39080857", "e8Zcudo5ftoX", "if0_39080857_tecno_db");
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+//$conexion = new mysqli("localhost", "root", "", "tecno_db");
+
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 
 $nombre = $_POST['nombre'] ?? '';
@@ -15,7 +17,7 @@ if (empty($nombre) || empty($salida) || empty($corazon) || empty($fondo)) {
 }
 
 // Cambia aquí los nombres de las columnas según tu tabla "perfumes"
-$stmt = $conn->prepare("INSERT INTO perfumes (nombre, nota_salida, nota_corazon, nota_fondo) VALUES (?, ?, ?, ?)");
+$stmt = $conexion->prepare("INSERT INTO perfumes (nombre, nota_salida, nota_corazon, nota_fondo) VALUES (?, ?, ?, ?)");
 $stmt->bind_param("ssss", $nombre, $salida, $corazon, $fondo);
 
 if ($stmt->execute()) {
@@ -25,5 +27,5 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-$conn->close();
+$conexion->close();
 ?>
